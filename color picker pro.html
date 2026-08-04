@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rOUKvZQsqI7LfV+omZpl20pGDQI1EytQKYhIs0AwEic=' 'sha256-atxLSp5wzc+jZG4IqGWuuueSOUdDS0B6HKZJqD9xqLU=' 'sha256-BGirgUj0YQKykOHsCWJlQs+/JyroHyuBtByReVRJd+g=' 'sha256-FOkbuWkDkZqzc/7wyLglabL7ab8djyzQbN4RrKlbIQk=' 'sha256-wVB/aeo01h1JoB0fUa+yE6irFyXvlTKwxSuO91Fu6mY=' 'sha256-zjTg4KlAtFPSNvlPZhzeUejxoxk+/BpmzcAwhU4wAUk=' 'sha256-rzkX/a2aQD+S5C7Y/bymP0xSFVxI7qeL/EYodK/OhqI=' 'sha256-ACfmdlLn4KXMicdYaODu+jZa3eIpzOmPGL7l2qbIV6M=' 'sha256-h4mgDuzC0JyOHFdx2ikQ5sb5V4hr/ED5bj6bRvhxO3Q=' 'sha256-9S8LK+cpghNbGMyEFOgzdwIayHJFJMrCiOKoHzocXUg=' 'sha256-XDqhkgtAyHYOsPtAP7ROs8xKs2H2IP2OauQjTeJxBrM='; style-src 'self' 'unsafe-inline'; img-src 'self' blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rOUKvZQsqI7LfV+omZpl20pGDQI1EytQKYhIs0AwEic=' 'sha256-29FOlrEe/jK+mH/WNJ1UvYLAjUtG2qhT9IQAwx4zVpo=' 'sha256-BGirgUj0YQKykOHsCWJlQs+/JyroHyuBtByReVRJd+g=' 'sha256-FOkbuWkDkZqzc/7wyLglabL7ab8djyzQbN4RrKlbIQk=' 'sha256-L95q8PqjwuKWEwsuCooy2/oBIoqT6gnApryYTk2JPuQ=' 'sha256-lrwxF7FcbQcwXl/C/qQYiBYWpd7Af1f8WCUyBkyoPPs=' 'sha256-rzkX/a2aQD+S5C7Y/bymP0xSFVxI7qeL/EYodK/OhqI=' 'sha256-ACfmdlLn4KXMicdYaODu+jZa3eIpzOmPGL7l2qbIV6M=' 'sha256-h4mgDuzC0JyOHFdx2ikQ5sb5V4hr/ED5bj6bRvhxO3Q=' 'sha256-9S8LK+cpghNbGMyEFOgzdwIayHJFJMrCiOKoHzocXUg=' 'sha256-XDqhkgtAyHYOsPtAP7ROs8xKs2H2IP2OauQjTeJxBrM=' 'sha256-bHmc+u2B1sn1meFjzJxt+C6SpO1huFegv8li8PYyzMs='; style-src 'self' 'unsafe-inline'; img-src 'self' blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
     <title>HTML Color Picker PRO</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <style>
@@ -577,6 +577,9 @@ body {
   gap: var(--space-5);
   padding: 0 var(--space-7) var(--space-7);
 }
+.grid > * {
+  min-width: 0;
+}
 
 .card {
   background: var(--bg-card);
@@ -1003,6 +1006,9 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-3);
+}
+.field-pair > * {
+  min-width: 0;
 }
 
 .copy-btn {
@@ -1495,6 +1501,149 @@ body {
   }
 }
 
+/* ===== bottomnav ===== */
+/* ===== Нижняя навигация (мобильная замена верхнего меню) ===== */
+.bottomnav {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  align-items: stretch;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-subtle);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.25);
+}
+.bottomnav-link {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 9px 4px 8px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 11px;
+  color: var(--text-muted);
+  cursor: pointer;
+  position: relative;
+}
+.bottomnav-link .icon svg {
+  width: 21px;
+  height: 21px;
+}
+.bottomnav-link.active {
+  color: var(--accent-purple);
+}
+.bottomnav-dot {
+  position: absolute;
+  top: 6px;
+  right: calc(50% - 16px);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-pink);
+}
+
+/* ===== Шторка «Ещё» ===== */
+.bottomnav-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+}
+.bottomnav-sheet[hidden] {
+  display: none;
+}
+.bottomnav-sheet-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 6, 12, 0.6);
+}
+.bottomnav-sheet-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-bottom: none;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: var(--space-3) var(--space-4)
+    calc(var(--space-4) + env(safe-area-inset-bottom, 0));
+  box-shadow: var(--shadow-card);
+}
+.bottomnav-sheet-handle {
+  display: block;
+  width: 36px;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--border-strong);
+  margin: var(--space-2) auto var(--space-4);
+}
+.bottomnav-sheet-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.bottomnav-sheet-item:last-child {
+  border-bottom: none;
+}
+.bottomnav-sheet-item.active {
+  color: var(--accent-purple);
+}
+.bottomnav-sheet-item .icon svg {
+  width: 20px;
+  height: 20px;
+}
+.bottomnav-sheet-item .dot {
+  margin-inline-start: auto;
+}
+
+/* ===== accordion.css ===== */
+/* accordion.css — сворачиваемые секции карточек на мобильной ширине.
+   На десктопе (>1100px) не действует вообще. */
+
+.card-collapse-chevron {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .card-head-toggle {
+    cursor: pointer;
+    position: relative;
+    padding-inline-end: 30px;
+  }
+  .card-collapse-chevron {
+    display: inline-flex;
+    position: absolute;
+    top: 3px;
+    inset-inline-end: 0;
+    color: var(--text-muted);
+    transition: transform var(--transition-fast);
+  }
+  .card-collapse-chevron svg {
+    width: 17px;
+    height: 17px;
+  }
+  .card.collapsed .card-collapse-chevron {
+    transform: rotate(-90deg);
+  }
+  .card.collapsed > *:not(.card-head-toggle) {
+    display: none !important;
+  }
+  .card.collapsed .card-head-toggle {
+    margin-bottom: 0;
+  }
+}
 /* ===== Responsive ===== */
 @media (max-width: 1100px) {
   .grid {
@@ -1505,6 +1654,12 @@ body {
   }
   .topnav {
     display: none;
+  }
+  .bottomnav {
+    display: flex;
+  }
+  body {
+    padding-bottom: calc(58px + env(safe-area-inset-bottom, 0));
   }
 }
 @media (max-width: 640px) {
@@ -5322,6 +5477,7 @@ body {
     transition: none;
   }
 }
+
     </style>
     <script>
       // Применяем сохранённые тему и язык до отрисовки, чтобы избежать "мигания"
@@ -5430,6 +5586,57 @@ body {
         </div>
       </div>
     </header>
+
+    <!-- ===== Нижняя навигация (только мобильная ширина) ===== -->
+    <nav class="bottomnav" id="bottomNav">
+      <a href="#" class="bottomnav-link active" data-page="picker">
+        <span class="icon" data-icon="eyedropper"></span>
+        <span data-i18n="nav_picker">Picker</span>
+      </a>
+      <a href="#" class="bottomnav-link" data-page="palette">
+        <span class="icon" data-icon="palette"></span>
+        <span data-i18n="nav_palette">Palette</span>
+      </a>
+      <a href="#" class="bottomnav-link" data-page="converter">
+        <span class="icon" data-icon="swap"></span>
+        <span data-i18n="nav_converter">Converter</span>
+      </a>
+      <a href="#" class="bottomnav-link" data-page="library">
+        <span class="icon" data-icon="book"></span>
+        <span data-i18n="nav_library">Library</span>
+      </a>
+      <button
+        type="button"
+        class="bottomnav-link"
+        id="bottomNavMoreBtn"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <span class="icon" data-icon="moreHoriz"></span>
+        <span data-i18n="nav_more">More</span>
+        <span class="bottomnav-dot" id="bottomNavMoreDot" hidden></span>
+      </button>
+    </nav>
+
+    <div class="bottomnav-sheet" id="bottomNavSheet" hidden>
+      <div class="bottomnav-sheet-backdrop" id="bottomNavSheetBackdrop"></div>
+      <div class="bottomnav-sheet-panel">
+        <span class="bottomnav-sheet-handle"></span>
+        <a href="#" class="bottomnav-sheet-item" data-page="image">
+          <span class="icon" data-icon="image"></span>
+          <span data-i18n="nav_image">Image</span>
+        </a>
+        <a href="#" class="bottomnav-sheet-item" data-page="accessibility">
+          <span class="icon" data-icon="accessibility"></span>
+          <span data-i18n="nav_accessibility">Accessibility</span>
+        </a>
+        <a href="#" class="bottomnav-sheet-item" data-page="resources">
+          <span class="icon" data-icon="fileText"></span>
+          <span data-i18n="nav_resources">Resources</span>
+          <span class="dot"></span>
+        </a>
+      </div>
+    </div>
 
     <!-- ===== Страница: Picker (не изменялась) ===== -->
     <div class="app-page active" id="page-picker">
@@ -6199,7 +6406,7 @@ body {
 
       <div class="palette-grid">
         <!-- Список палитр -->
-        <aside class="card palette-sidebar">
+        <aside class="card palette-sidebar" data-accordion-collapsed>
           <div class="palette-sidebar-head">
             <h3 data-i18n="palette_my_title">My Palettes</h3>
             <span class="palette-count" id="paletteCount">12 palettes</span>
@@ -6208,7 +6415,7 @@ body {
         </aside>
 
         <!-- Выбранная палитра -->
-        <section class="card palette-main">
+        <section class="card palette-main" data-accordion-expanded>
           <div class="palette-main-head">
             <div class="palette-main-title-row">
               <h2 id="paletteTitle">Ocean Breeze</h2>
@@ -6954,6 +7161,7 @@ const ICONS = {
   chevronRight: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>`,
   externalLink: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>`,
   swap: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"/><path d="M3 7h18"/><path d="M7 21l-4-4 4-4"/><path d="M21 17H3"/></svg>`,
+  moreHoriz: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>`,
 };
 
 function icon(name, cls) {
@@ -7747,6 +7955,51 @@ const I18N = {
     id: "Sumber Daya",
     sv: "Resurser",
   },
+  nav_more: {
+    en: "More",
+    ru: "Ещё",
+    es: "Más",
+    fr: "Plus",
+    de: "Mehr",
+    it: "Altro",
+    pt: "Mais",
+    zh: "更多",
+    ja: "その他",
+    ko: "더보기",
+    ar: "المزيد",
+    hi: "अधिक",
+    tr: "Diğer",
+    pl: "Więcej",
+    nl: "Meer",
+    uk: "Ще",
+    vi: "Thêm",
+    th: "เพิ่มเติม",
+    id: "Lainnya",
+    sv: "Mer",
+  },
+  quick_colors: {
+    en: "Quick Colors",
+    ru: "Быстрый выбор",
+    es: "Colores rápidos",
+    fr: "Couleurs rapides",
+    de: "Schnellfarben",
+    it: "Colori rapidi",
+    pt: "Cores rápidas",
+    zh: "快速颜色",
+    ja: "クイックカラー",
+    ko: "빠른 색상",
+    ar: "ألوان سريعة",
+    hi: "त्वरित रंग",
+    tr: "Hızlı Renkler",
+    pl: "Szybkie kolory",
+    nl: "Snelle kleuren",
+    uk: "Швидкі кольори",
+    vi: "Màu nhanh",
+    th: "สีด่วน",
+    id: "Warna Cepat",
+    sv: "Snabbfärger",
+  },
+
 
   /* ---------- Страница Library ---------- */
   library_subtitle: {
@@ -11109,6 +11362,7 @@ function setTheme(mode) {
   );
 
   /* ---------- Страницы (Picker / Palette) ---------- */
+  const OVERFLOW_PAGES = ["image", "accessibility", "resources"];
   function switchPage(page) {
     document
       .querySelectorAll(".app-page")
@@ -11116,13 +11370,49 @@ function setTheme(mode) {
     document
       .querySelectorAll(".topnav-link[data-page]")
       .forEach((a) => a.classList.toggle("active", a.dataset.page === page));
+    document
+      .querySelectorAll(".bottomnav-link[data-page]")
+      .forEach((a) => a.classList.toggle("active", a.dataset.page === page));
+    document
+      .querySelectorAll(".bottomnav-sheet-item[data-page]")
+      .forEach((a) => a.classList.toggle("active", a.dataset.page === page));
+    const moreBtn = $("bottomNavMoreBtn");
+    if (moreBtn) moreBtn.classList.toggle("active", OVERFLOW_PAGES.includes(page));
+    closeBottomSheet();
   }
-  document.querySelectorAll(".topnav-link[data-page]").forEach((a) => {
-    a.addEventListener("click", (e) => {
-      e.preventDefault();
-      switchPage(a.dataset.page);
+  document
+    .querySelectorAll(".topnav-link[data-page], .bottomnav-link[data-page], .bottomnav-sheet-item[data-page]")
+    .forEach((a) => {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        switchPage(a.dataset.page);
+      });
     });
-  });
+
+  /* ---------- Шторка «Ещё» в нижней навигации ---------- */
+  function openBottomSheet() {
+    const sheet = $("bottomNavSheet");
+    if (!sheet) return;
+    sheet.hidden = false;
+    $("bottomNavMoreBtn").setAttribute("aria-expanded", "true");
+  }
+  function closeBottomSheet() {
+    const sheet = $("bottomNavSheet");
+    if (!sheet || sheet.hidden) return;
+    sheet.hidden = true;
+    $("bottomNavMoreBtn").setAttribute("aria-expanded", "false");
+  }
+  if ($("bottomNavMoreBtn")) {
+    $("bottomNavMoreBtn").addEventListener("click", (e) => {
+      e.preventDefault();
+      $("bottomNavSheet").hidden ? openBottomSheet() : closeBottomSheet();
+    });
+    $("bottomNavSheetBackdrop").addEventListener("click", closeBottomSheet);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeBottomSheet();
+    });
+  }
+  /* ---------- /Шторка «Ещё» ---------- */
 
   /* ---------- Палитры (страница Palette) ---------- */
   const PALETTES_KEY = "cp-palettes";
@@ -14500,6 +14790,73 @@ function setTheme(mode) {
   }
 
   init();
+})();
+    </script>
+    <script>
+      /* ===== accordion.js ===== */
+// accordion.js — на мобильной ширине превращает пронумерованные секции
+// каждой страницы в раскрывающиеся блоки (первая секция открыта,
+// остальные свёрнуты в одну строку с шевроном) — как в приложениях.
+// На десктопе не влияет ни на что: карточки видны как обычно.
+
+(function () {
+  const BREAKPOINT = 1100;
+
+  function isMobile() {
+    return window.innerWidth <= BREAKPOINT;
+  }
+
+  function findHead(card) {
+    const standard = card.querySelector(":scope > .card-head");
+    if (standard) return standard;
+    for (const child of card.children) {
+      if (child.querySelector("h2, h3")) return child;
+    }
+    return null;
+  }
+
+  function enhanceCard(card, expanded) {
+    if (card.dataset.accordionReady) return;
+    if (card.dataset.noAccordion !== undefined) return;
+    const head = findHead(card);
+    if (!head) return;
+    card.dataset.accordionReady = "1";
+
+    const chevron = document.createElement("span");
+    chevron.className = "icon card-collapse-chevron";
+    chevron.innerHTML = (typeof ICONS !== "undefined" && ICONS.chevronDown) || "";
+    head.appendChild(chevron);
+    head.classList.add("card-head-toggle");
+
+    if (!expanded) card.classList.add("collapsed");
+
+    head.addEventListener("click", (e) => {
+      if (e.target.closest(".card-head-actions")) return;
+      if (e.target.closest("button, a, input, select, label")) return;
+      if (!isMobile()) return;
+      card.classList.toggle("collapsed");
+    });
+  }
+
+  function enhanceAll() {
+    document.querySelectorAll(".app-page").forEach((page) => {
+      const cards = page.querySelectorAll(".card");
+      cards.forEach((card, i) => {
+        let expanded = i === 0;
+        if (card.dataset.accordionExpanded !== undefined) expanded = true;
+        if (card.dataset.accordionCollapsed !== undefined) expanded = false;
+        enhanceCard(card, expanded);
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", enhanceAll);
+  } else {
+    enhanceAll();
+  }
+
+  window.enhanceAccordionCards = enhanceAll;
 })();
     </script>
   </body>

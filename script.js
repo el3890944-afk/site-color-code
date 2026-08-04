@@ -825,6 +825,7 @@
   );
 
   /* ---------- Страницы (Picker / Palette) ---------- */
+  const OVERFLOW_PAGES = ["image", "accessibility", "resources"];
   function switchPage(page) {
     document
       .querySelectorAll(".app-page")
@@ -832,13 +833,53 @@
     document
       .querySelectorAll(".topnav-link[data-page]")
       .forEach((a) => a.classList.toggle("active", a.dataset.page === page));
+    document
+      .querySelectorAll(".bottomnav-link[data-page]")
+      .forEach((a) => a.classList.toggle("active", a.dataset.page === page));
+    document
+      .querySelectorAll(".bottomnav-sheet-item[data-page]")
+      .forEach((a) => a.classList.toggle("active", a.dataset.page === page));
+    const moreBtn = $("bottomNavMoreBtn");
+    if (moreBtn)
+      moreBtn.classList.toggle("active", OVERFLOW_PAGES.includes(page));
+    closeBottomSheet();
   }
-  document.querySelectorAll(".topnav-link[data-page]").forEach((a) => {
-    a.addEventListener("click", (e) => {
-      e.preventDefault();
-      switchPage(a.dataset.page);
+  document
+    .querySelectorAll(
+      ".topnav-link[data-page], .bottomnav-link[data-page], .bottomnav-sheet-item[data-page]",
+    )
+    .forEach((a) => {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        switchPage(a.dataset.page);
+      });
     });
-  });
+
+  /* ---------- Шторка «Ещё» в нижней навигации ---------- */
+  function openBottomSheet() {
+    const sheet = $("bottomNavSheet");
+    if (!sheet) return;
+    sheet.hidden = false;
+    $("bottomNavMoreBtn").setAttribute("aria-expanded", "true");
+  }
+  function closeBottomSheet() {
+    const sheet = $("bottomNavSheet");
+    if (!sheet || sheet.hidden) return;
+    sheet.hidden = true;
+    $("bottomNavMoreBtn").setAttribute("aria-expanded", "false");
+  }
+  if ($("bottomNavMoreBtn")) {
+    $("bottomNavMoreBtn").addEventListener("click", (e) => {
+      e.preventDefault();
+      $("bottomNavSheet").hidden ? openBottomSheet() : closeBottomSheet();
+    });
+    $("bottomNavSheetBackdrop").addEventListener("click", closeBottomSheet);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeBottomSheet();
+    });
+  }
+
+  /* ---------- /Шторка «Ещё» ---------- */
 
   /* ---------- Палитры (страница Palette) ---------- */
   const PALETTES_KEY = "cp-palettes";

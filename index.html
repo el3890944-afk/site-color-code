@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="accessibility.css" />
     <link rel="stylesheet" href="resources.css" />
     <link rel="stylesheet" href="image-extractor.css" />
+    <link rel="stylesheet" href="accordion.css" />
     <script>
       // Применяем сохранённые тему и язык до отрисовки, чтобы избежать "мигания"
       (function () {
@@ -124,6 +125,57 @@
         </div>
       </div>
     </header>
+
+    <!-- ===== Нижняя навигация (только мобильная ширина) ===== -->
+    <nav class="bottomnav" id="bottomNav">
+      <a href="#" class="bottomnav-link active" data-page="picker">
+        <span class="icon" data-icon="eyedropper"></span>
+        <span data-i18n="nav_picker">Picker</span>
+      </a>
+      <a href="#" class="bottomnav-link" data-page="palette">
+        <span class="icon" data-icon="palette"></span>
+        <span data-i18n="nav_palette">Palette</span>
+      </a>
+      <a href="#" class="bottomnav-link" data-page="converter">
+        <span class="icon" data-icon="swap"></span>
+        <span data-i18n="nav_converter">Converter</span>
+      </a>
+      <a href="#" class="bottomnav-link" data-page="library">
+        <span class="icon" data-icon="book"></span>
+        <span data-i18n="nav_library">Library</span>
+      </a>
+      <button
+        type="button"
+        class="bottomnav-link"
+        id="bottomNavMoreBtn"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <span class="icon" data-icon="moreHoriz"></span>
+        <span data-i18n="nav_more">More</span>
+        <span class="bottomnav-dot" id="bottomNavMoreDot" hidden></span>
+      </button>
+    </nav>
+
+    <div class="bottomnav-sheet" id="bottomNavSheet" hidden>
+      <div class="bottomnav-sheet-backdrop" id="bottomNavSheetBackdrop"></div>
+      <div class="bottomnav-sheet-panel">
+        <span class="bottomnav-sheet-handle"></span>
+        <a href="#" class="bottomnav-sheet-item" data-page="image">
+          <span class="icon" data-icon="image"></span>
+          <span data-i18n="nav_image">Image</span>
+        </a>
+        <a href="#" class="bottomnav-sheet-item" data-page="accessibility">
+          <span class="icon" data-icon="accessibility"></span>
+          <span data-i18n="nav_accessibility">Accessibility</span>
+        </a>
+        <a href="#" class="bottomnav-sheet-item" data-page="resources">
+          <span class="icon" data-icon="fileText"></span>
+          <span data-i18n="nav_resources">Resources</span>
+          <span class="dot"></span>
+        </a>
+      </div>
+    </div>
 
     <!-- ===== Страница: Picker (не изменялась) ===== -->
     <div class="app-page active" id="page-picker">
@@ -893,7 +945,7 @@
 
       <div class="palette-grid">
         <!-- Список палитр -->
-        <aside class="card palette-sidebar">
+        <aside class="card palette-sidebar" data-accordion-collapsed>
           <div class="palette-sidebar-head">
             <h3 data-i18n="palette_my_title">My Palettes</h3>
             <span class="palette-count" id="paletteCount">12 palettes</span>
@@ -902,7 +954,7 @@
         </aside>
 
         <!-- Выбранная палитра -->
-        <section class="card palette-main">
+        <section class="card palette-main" data-accordion-expanded>
           <div class="palette-main-head">
             <div class="palette-main-title-row">
               <h2 id="paletteTitle">Ocean Breeze</h2>
@@ -1611,5 +1663,6 @@
     <script src="accessibility.js"></script>
     <script src="resources.js"></script>
     <script src="image-extractor.js"></script>
+    <script src="accordion.js"></script>
   </body>
 </html>
