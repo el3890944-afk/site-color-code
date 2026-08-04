@@ -1,0 +1,472 @@
+/* image-extractor.css — стили страницы Image Color Extractor
+   (загрузка изображения, извлечение доминирующих цветов, детали цвета) */
+
+/* ===== Сетка страницы: 3 колонки, средняя — широкая ===== */
+.imgx-grid {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr) 300px;
+  gap: var(--space-5);
+  padding: 0 var(--space-7) var(--space-7);
+  align-items: start;
+}
+.imgx-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.imgx-step {
+  color: var(--text-muted);
+  font-weight: var(--font-weight-normal);
+  margin-inline-end: 2px;
+}
+
+/* ===== 1. Загрузка изображения ===== */
+.imgx-drop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1.5px dashed var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-7) var(--space-4);
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+.imgx-drop:hover,
+.imgx-drop.drag {
+  border-color: var(--accent-purple);
+  background: var(--bg-elevated);
+}
+.imgx-drop .icon {
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+.imgx-drop .icon svg {
+  width: 28px;
+  height: 28px;
+}
+.imgx-drop p {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+.imgx-drop span.hint {
+  display: block;
+  margin-top: 4px;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+.imgx-drop input {
+  display: none;
+}
+
+.imgx-preview-wrap {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+.imgx-preview-wrap img {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+}
+.imgx-remove {
+  position: absolute;
+  top: var(--space-2);
+  inset-inline-end: var(--space-2);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: rgba(10, 12, 20, 0.65);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.imgx-remove:hover {
+  background: rgba(220, 38, 38, 0.75);
+}
+.imgx-remove svg {
+  width: 16px;
+  height: 16px;
+}
+
+.imgx-file-meta {
+  margin-top: var(--space-3);
+}
+.imgx-file-name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.imgx-file-sub {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.imgx-loaded {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--space-2);
+  font-size: var(--font-size-xs);
+  color: var(--success);
+}
+.imgx-loaded svg {
+  width: 13px;
+  height: 13px;
+}
+
+.imgx-upload-again {
+  width: 100%;
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+.imgx-info {
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border-subtle);
+}
+.imgx-info h3 {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-3);
+}
+.imgx-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: var(--font-size-sm);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.imgx-info-row:last-child {
+  border-bottom: none;
+}
+.imgx-info-row span:first-child {
+  color: var(--text-muted);
+}
+.imgx-info-row span:last-child {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== 2. Извлечённые цвета ===== */
+.imgx-extracted-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.imgx-extracted-head .card-head {
+  flex: 1;
+  min-width: 220px;
+}
+.imgx-head-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+.imgx-count-chip {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--accent-purple);
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+.imgx-sort {
+  position: relative;
+}
+.imgx-sort select {
+  appearance: none;
+  padding: 8px 32px 8px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+.imgx-sort select:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  box-shadow: var(--shadow-glow);
+}
+.imgx-sort .chevron {
+  position: absolute;
+  top: 50%;
+  inset-inline-end: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-muted);
+}
+.imgx-sort .chevron svg {
+  width: 13px;
+  height: 13px;
+}
+
+.imgx-canvas-wrap {
+  position: relative;
+  margin-top: var(--space-4);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-input);
+}
+.imgx-canvas-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+.imgx-marker {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  margin-left: -11px;
+  margin-top: -11px;
+  border-radius: 50%;
+  border: 2.5px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+  background: transparent;
+}
+.imgx-marker:hover {
+  transform: scale(1.15);
+}
+.imgx-marker.active {
+  width: 26px;
+  height: 26px;
+  margin-left: -13px;
+  margin-top: -13px;
+  border-width: 3px;
+  border-color: var(--accent-purple);
+}
+
+.imgx-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 320px;
+  margin-top: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-default);
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  padding: var(--space-5);
+}
+.imgx-empty .icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.imgx-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(58px, 1fr));
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+.imgx-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+.imgx-swatch-color {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border-default);
+  transition: border-color var(--transition-fast);
+}
+.imgx-swatch:hover .imgx-swatch-color {
+  border-color: var(--border-strong);
+}
+.imgx-swatch.active .imgx-swatch-color {
+  border-color: var(--accent-purple);
+  box-shadow: var(--shadow-glow);
+}
+.imgx-swatch-index {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+.imgx-swatch.active .imgx-swatch-index {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.imgx-strip-caption {
+  margin-top: var(--space-3);
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ===== 3. Детали цвета ===== */
+.imgx-detail-preview {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.imgx-detail-swatch {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-default);
+}
+.imgx-detail-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.imgx-detail-name {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+}
+.imgx-detail-hex {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+.imgx-detail-rgb {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+.imgx-detail-copy {
+  flex-shrink: 0;
+}
+
+.imgx-formats-title {
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.imgx-format-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: var(--space-3);
+}
+.imgx-format-row label {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+.imgx-format-field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.imgx-format-field input {
+  flex: 1;
+  min-width: 0;
+  padding: 9px var(--space-3);
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-variant-numeric: tabular-nums;
+}
+.imgx-format-copy {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.imgx-format-copy:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  background: var(--bg-card-hover);
+}
+.imgx-format-copy svg {
+  width: 14px;
+  height: 14px;
+}
+
+.imgx-add-saved {
+  width: 100%;
+  justify-content: center;
+  margin-top: var(--space-3);
+}
+.imgx-add-saved.saved {
+  color: var(--accent-pink);
+  border-color: var(--accent-pink);
+}
+
+/* ===== Меню «Сохранённые» / «Экспорт» в шапке ===== */
+.imgx-export-menu button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.imgx-export-menu .icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 1180px) {
+  .imgx-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .imgx-grid {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imgx-marker:hover {
+    transform: none;
+  }
+}
+
+/* ===== [hidden] должен побеждать display:flex/grid, заданный классами выше =====
+   Специфичность класса и атрибута [hidden] совпадает (0,0,1,0), поэтому
+   без этого правила видимость элементов после переключения через JS
+   иногда не менялась (флекс-контейнеры оставались видимыми). */
+#page-image [hidden] {
+  display: none !important;
+}

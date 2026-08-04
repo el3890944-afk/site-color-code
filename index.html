@@ -1,0 +1,1615 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'sha256-rOUKvZQsqI7LfV+omZpl20pGDQI1EytQKYhIs0AwEic='; style-src 'self' 'unsafe-inline'; img-src 'self' blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+    />
+    <title>HTML Color Picker PRO</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="tokens.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="custom-select.css" />
+    <link rel="stylesheet" href="library.css" />
+    <link rel="stylesheet" href="accessibility.css" />
+    <link rel="stylesheet" href="resources.css" />
+    <link rel="stylesheet" href="image-extractor.css" />
+    <script>
+      // Применяем сохранённые тему и язык до отрисовки, чтобы избежать "мигания"
+      (function () {
+        try {
+          var theme =
+            localStorage.getItem("cp-theme") === "light" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", theme);
+          var lang = localStorage.getItem("cp-lang") || "ru";
+          document.documentElement.lang = lang;
+          if (lang === "ar") document.documentElement.dir = "rtl";
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- ===== Верхняя навигация ===== -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="logo-mark"></span>
+        <span class="logo-text">HTML Color Picker</span>
+        <span class="badge-pro">PRO</span>
+      </div>
+
+      <nav class="topnav">
+        <a href="#" class="topnav-link active" data-page="picker"
+          ><span class="icon" data-icon="eyedropper"></span
+          ><span data-i18n="nav_picker">Picker</span></a
+        >
+        <a href="#" class="topnav-link" data-page="image"
+          ><span class="icon" data-icon="image"></span
+          ><span data-i18n="nav_image">Image</span></a
+        >
+        <a href="#" class="topnav-link" data-page="palette"
+          ><span class="icon" data-icon="palette"></span
+          ><span data-i18n="nav_palette">Palette</span></a
+        >
+        <a href="#" class="topnav-link" data-page="converter"
+          ><span class="icon" data-icon="swap"></span
+          ><span data-i18n="nav_converter">Converter</span></a
+        >
+        <a href="#" class="topnav-link" data-page="library"
+          ><span class="icon" data-icon="book"></span
+          ><span data-i18n="nav_library">Library</span></a
+        >
+        <a href="#" class="topnav-link" data-page="accessibility"
+          ><span class="icon" data-icon="accessibility"></span
+          ><span data-i18n="nav_accessibility">Accessibility</span></a
+        >
+        <a href="#" class="topnav-link" data-page="resources"
+          ><span class="icon" data-icon="fileText"></span
+          ><span data-i18n="nav_resources">Resources</span
+          ><span class="dot"></span
+        ></a>
+      </nav>
+
+      <div class="topbar-right">
+        <button
+          class="icon-btn"
+          id="themeToggle"
+          title="Toggle theme"
+          aria-label="Toggle theme"
+          data-i18n-title="theme_toggle_title"
+          data-icon="sun"
+        ></button>
+        <div class="menu-wrap">
+          <button
+            class="icon-btn"
+            id="langToggle"
+            title="Choose language"
+            aria-label="Choose language"
+            data-i18n-title="lang_toggle_title"
+            data-icon="globe"
+          ></button>
+          <div class="menu lang-menu" id="langMenu">
+            <div class="lang-search-row">
+              <span class="icon" data-icon="search"></span>
+              <input
+                type="text"
+                id="langSearch"
+                class="lang-search-input"
+                data-i18n-placeholder="lang_search_placeholder"
+                placeholder="Search language..."
+              />
+            </div>
+            <div class="lang-list" id="langList"></div>
+          </div>
+        </div>
+        <div class="menu-wrap">
+          <button class="btn btn-primary" id="exportBtn">
+            <span class="icon" data-icon="export"></span>
+            <span data-i18n="export_label">Export</span>
+            <span class="icon chevron" data-icon="chevronDown"></span>
+          </button>
+          <div class="menu" id="exportMenu">
+            <button data-export="css" data-i18n="menu_export_css">
+              Скопировать CSS переменную
+            </button>
+            <button data-export="json" data-i18n="menu_export_json">
+              Скачать JSON
+            </button>
+            <button data-export="png" data-i18n="menu_export_png">
+              Скачать PNG
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== Страница: Picker (не изменялась) ===== -->
+    <div class="app-page active" id="page-picker">
+      <!-- ===== Заголовок страницы ===== -->
+      <section class="page-head">
+        <div>
+          <h1><span class="grad-text">HTML Color</span> Picker</h1>
+          <p class="subtitle" data-i18n="hero_subtitle">
+            Выбирайте, просматривайте и создавайте красивые цвета легко
+          </p>
+        </div>
+        <div class="page-head-actions">
+          <button class="btn btn-ghost" id="uploadBtn">
+            <span class="icon" data-icon="upload"></span>
+            <span data-i18n="upload_image">Upload Image</span>
+          </button>
+          <input type="file" id="uploadInput" accept="image/*" hidden />
+          <div class="menu-wrap">
+            <button class="btn btn-ghost" id="savedColorsBtn">
+              <span class="icon" data-icon="heart"></span>
+              <span data-i18n="saved_colors">Saved Colors</span>
+              <span class="count-badge" id="savedCount">0</span>
+            </button>
+            <div class="menu saved-colors-menu" id="savedColorsMenu">
+              <div class="saved-colors-header">
+                <span data-i18n="saved_colors">Saved Colors</span>
+                <button
+                  type="button"
+                  class="link-btn"
+                  id="clearSavedColors"
+                  data-i18n="clear_all"
+                >
+                  Clear all
+                </button>
+              </div>
+              <div class="swatch-list" id="savedColorsList"></div>
+              <p
+                class="empty-hint"
+                id="savedColorsEmpty"
+                data-i18n="saved_colors_empty"
+              >
+                No saved colors yet. Click the star next to a color to save it.
+              </p>
+            </div>
+          </div>
+          <div class="menu-wrap">
+            <button class="btn btn-primary" id="exportBtn2">
+              <span class="icon" data-icon="export"></span>
+              <span data-i18n="export_label">Export</span>
+              <span class="icon chevron" data-icon="chevronDown"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Основная сетка ===== -->
+      <main class="grid">
+        <!-- Колонка 1: Pick a Color -->
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <h2 data-i18n="card1_title">1. Pick a Color</h2>
+              <p class="card-sub" data-i18n="card1_sub">
+                Choose your perfect color
+              </p>
+            </div>
+            <div class="card-head-actions">
+              <button
+                class="icon-btn sm"
+                id="eyedropperBtn"
+                title="Eyedropper"
+                data-i18n-title="eyedropper_title"
+                data-icon="eyedropper"
+              ></button>
+              <button
+                class="icon-btn sm"
+                id="randomBtn"
+                title="Random color"
+                data-i18n-title="random_title"
+                data-icon="shuffle"
+              ></button>
+            </div>
+          </div>
+
+          <div class="tabs" role="tablist">
+            <button class="tab active" data-tab="wheel" data-i18n="tab_wheel">
+              Wheel
+            </button>
+            <button class="tab" data-tab="sliders" data-i18n="tab_sliders">
+              Sliders
+            </button>
+          </div>
+
+          <div class="wheel-wrap">
+            <div id="wheelBox">
+              <canvas id="wheel" width="260" height="260"></canvas>
+              <div class="wheel-marker" id="marker"></div>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="control-label">
+              <span data-i18n="label_hue">Hue</span>
+            </div>
+            <div class="control-row">
+              <div class="hue-track" id="hueTrack">
+                <div class="hue-thumb" id="hueThumb"></div>
+              </div>
+              <div class="value-box">
+                <input
+                  type="number"
+                  class="value-input"
+                  id="hueValueInput"
+                  min="0"
+                  max="360"
+                  value="30"
+                />
+                <span class="value-unit">°</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="control-label">
+              <span data-i18n="label_saturation">Saturation</span>
+            </div>
+            <div class="control-row">
+              <div
+                class="range-track"
+                id="satTrack"
+                data-min="0"
+                data-max="100"
+              >
+                <div class="range-fill" id="satFill"></div>
+                <div class="range-thumb" id="satThumb"></div>
+              </div>
+              <div class="value-box">
+                <input
+                  type="number"
+                  class="value-input"
+                  id="satValueInput"
+                  min="0"
+                  max="100"
+                  value="60"
+                />
+                <span class="value-unit">%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="control-label">
+              <span data-i18n="label_lightness">Lightness</span>
+            </div>
+            <div class="control-row">
+              <div
+                class="range-track"
+                id="lightTrack"
+                data-min="0"
+                data-max="100"
+              >
+                <div class="range-fill" id="lightFill"></div>
+                <div class="range-thumb" id="lightThumb"></div>
+              </div>
+              <div class="value-box">
+                <input
+                  type="number"
+                  class="value-input"
+                  id="lightValueInput"
+                  min="0"
+                  max="100"
+                  value="33"
+                />
+                <span class="value-unit">%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="control-label">
+              <span data-i18n="label_alpha">Alpha</span>
+            </div>
+            <div class="control-row">
+              <div
+                class="range-track checkerboard"
+                id="alphaTrack"
+                data-min="0"
+                data-max="100"
+              >
+                <div class="range-fill alpha-fill" id="alphaFill"></div>
+                <div class="range-thumb" id="alphaThumb"></div>
+              </div>
+              <div class="value-box">
+                <input
+                  type="number"
+                  class="value-input"
+                  id="alphaValueInput"
+                  min="0"
+                  max="100"
+                  value="100"
+                />
+                <span class="value-unit">%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quick-input">
+            <p class="field-label" data-i18n="quick_input">Quick Input</p>
+            <div class="quick-row">
+              <select id="quickFormat" class="select-sm">
+                <option value="hex">HEX</option>
+                <option value="rgb">RGB</option>
+                <option value="hsl">HSL</option>
+              </select>
+              <input
+                type="text"
+                id="hexInput"
+                class="text-input"
+                value="#9F7F60"
+              />
+              <span class="swatch-preview" id="quickSwatch"></span>
+            </div>
+          </div>
+
+          <div class="recent-colors">
+            <div class="field-label-row">
+              <p class="field-label" data-i18n="recent_colors">Recent Colors</p>
+              <button class="link-btn" id="clearRecent" data-i18n="clear">
+                Clear
+              </button>
+            </div>
+            <div class="swatch-list" id="recentList"></div>
+          </div>
+        </section>
+
+        <!-- Колонка 2: Selected Color -->
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <h2 data-i18n="card2_title">2. Selected Color</h2>
+              <p class="card-sub" data-i18n="card2_sub">
+                Preview and copy your color values
+              </p>
+            </div>
+            <div class="card-head-actions">
+              <button
+                class="icon-btn sm"
+                id="favBtn"
+                title="Add to favorites"
+                data-i18n-title="fav_title"
+                data-icon="star"
+              ></button>
+              <button
+                class="icon-btn sm"
+                id="copyHexTopBtn"
+                title="Copy HEX"
+                data-i18n-title="copy_hex_title"
+                data-icon="copy"
+              ></button>
+            </div>
+          </div>
+
+          <div class="preview-box" id="previewBox">
+            <span class="preview-name" id="colorName">Saddle Brown</span>
+            <span class="preview-hex" id="colorHex">#9F7F60</span>
+            <span class="contrast-badge" id="contrastBadge"
+              ><b>AA</b> Good Contrast</span
+            >
+          </div>
+
+          <div class="field">
+            <label>HEX</label>
+            <div class="field-row">
+              <input type="text" readonly id="outHex" value="#9F7F60" />
+              <button
+                class="copy-btn"
+                data-copy="outHex"
+                data-icon="copy"
+              ></button>
+            </div>
+          </div>
+
+          <div class="field-pair">
+            <div class="field">
+              <label>RGB</label>
+              <div class="field-row">
+                <input type="text" readonly id="outRgb" />
+                <button
+                  class="copy-btn"
+                  data-copy="outRgb"
+                  data-icon="copy"
+                ></button>
+              </div>
+            </div>
+            <div class="field">
+              <label>HSL</label>
+              <div class="field-row">
+                <input type="text" readonly id="outHsl" />
+                <button
+                  class="copy-btn"
+                  data-copy="outHsl"
+                  data-icon="copy"
+                ></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-pair">
+            <div class="field">
+              <label>HSV</label>
+              <div class="field-row">
+                <input type="text" readonly id="outHsv" />
+                <button
+                  class="copy-btn"
+                  data-copy="outHsv"
+                  data-icon="copy"
+                ></button>
+              </div>
+            </div>
+            <div class="field">
+              <label>CMYK</label>
+              <div class="field-row">
+                <input type="text" readonly id="outCmyk" />
+                <button
+                  class="copy-btn"
+                  data-copy="outCmyk"
+                  data-icon="copy"
+                ></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>LAB</label>
+            <div class="field-row">
+              <input type="text" readonly id="outLab" />
+              <button
+                class="copy-btn"
+                data-copy="outLab"
+                data-icon="copy"
+              ></button>
+            </div>
+          </div>
+
+          <div class="harmony">
+            <div class="field-label-row">
+              <p class="field-label" data-i18n="harmony_label">Color Harmony</p>
+              <span class="badge-new" data-i18n="badge_new">New</span>
+            </div>
+            <div class="harmony-grid" id="harmonyGrid"></div>
+          </div>
+
+          <button class="btn btn-gradient full" id="copyAllBtn">
+            <span class="icon" data-icon="copy"></span>
+            <span data-i18n="copy_all">Copy All Values</span>
+          </button>
+        </section>
+
+        <!-- Колонка 3: Shades, Tints & Tones -->
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <h2 data-i18n="card3_title">3. Shades, Tints &amp; Tones</h2>
+              <p class="card-sub" data-i18n="card3_sub">
+                Explore variations of your selected color
+              </p>
+            </div>
+            <div class="card-head-actions">
+              <button
+                class="icon-btn sm"
+                id="filterBtn"
+                title="Filter"
+                data-i18n-title="filter_title"
+                data-icon="filter"
+              ></button>
+            </div>
+          </div>
+
+          <div class="tabs" role="tablist">
+            <button
+              class="tab active"
+              data-variant="shades"
+              data-i18n="tab_shades"
+            >
+              Shades
+            </button>
+            <button class="tab" data-variant="tints" data-i18n="tab_tints">
+              Tints
+            </button>
+            <button class="tab" data-variant="tones" data-i18n="tab_tones">
+              Tones
+            </button>
+          </div>
+
+          <div class="shades-list" id="shadesList"></div>
+
+          <div class="shades-actions">
+            <button class="btn btn-ghost" id="generatePaletteBtn">
+              <span class="icon" data-icon="shuffle"></span>
+              <span data-i18n="generate_palette">Generate Palette</span>
+            </button>
+            <button class="btn btn-ghost" id="exportPaletteBtn">
+              <span class="icon" data-icon="download"></span>
+              <span data-i18n="export_palette">Export Palette</span>
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <!-- ===== Нижняя полоса преимуществ ===== -->
+      <footer class="features">
+        <div class="feature">
+          <span class="feature-icon" data-icon="gift"></span>
+          <div>
+            <b data-i18n="feat1_title">100% Free</b>
+            <p data-i18n="feat1_desc">No registration required</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-icon" data-icon="shield"></span>
+          <div>
+            <b data-i18n="feat2_title">Privacy First</b>
+            <p data-i18n="feat2_desc">All processing in your browser</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-icon" data-icon="download"></span>
+          <div>
+            <b data-i18n="feat3_title">Export Ready</b>
+            <p data-i18n="feat3_desc">PNG, CSS, JSON formats</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-icon" data-icon="accessibility"></span>
+          <div>
+            <b data-i18n="feat4_title">WCAG Compliant</b>
+            <p data-i18n="feat4_desc">Accessibility focused</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-icon" data-icon="offline"></span>
+          <div>
+            <b data-i18n="feat5_title">Works Offline</b>
+            <p data-i18n="feat5_desc">No internet required</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- ===== /Страница: Picker ===== -->
+
+    <!-- ===== Страница: Image Color Extractor ===== -->
+    <div class="app-page" id="page-image">
+      <section class="page-head">
+        <div>
+          <h1>
+            <span data-i18n="imgx_title_plain">Image</span>
+            <span class="grad-text" data-i18n="imgx_title_grad"
+              >Color Extractor</span
+            >
+          </h1>
+          <p class="subtitle" data-i18n="imgx_subtitle">
+            Upload an image and extract colors. Click any color to view and
+            copy its values.
+          </p>
+        </div>
+        <div class="page-head-actions">
+          <button class="btn btn-ghost" id="imgxUploadAnotherTop">
+            <span class="icon" data-icon="upload"></span>
+            <span data-i18n="imgx_upload_another">Upload Another</span>
+          </button>
+          <div class="menu-wrap">
+            <button class="btn btn-ghost" id="imgxSavedBtn">
+              <span class="icon" data-icon="heart"></span>
+              <span data-i18n="saved_colors">Saved Colors</span>
+              <span class="count-badge" id="imgxSavedCount">0</span>
+            </button>
+            <div class="menu saved-colors-menu" id="imgxSavedMenu">
+              <div class="saved-colors-header">
+                <span data-i18n="saved_colors">Saved Colors</span>
+                <button
+                  type="button"
+                  class="link-btn"
+                  id="imgxClearSaved"
+                  data-i18n="imgx_clear_all"
+                >
+                  Clear all
+                </button>
+              </div>
+              <div class="swatch-list" id="imgxSavedList"></div>
+              <p
+                class="empty-hint"
+                id="imgxSavedEmpty"
+                data-i18n="imgx_saved_empty"
+              >
+                No saved colors yet.
+              </p>
+            </div>
+          </div>
+          <div class="menu-wrap">
+            <button class="btn btn-primary" id="imgxExportBtn">
+              <span class="icon" data-icon="export"></span>
+              <span data-i18n="imgx_export_palette">Export Palette</span>
+              <span class="icon chevron" data-icon="chevronDown"></span>
+            </button>
+            <div class="menu imgx-export-menu" id="imgxExportMenu">
+              <button type="button" id="imgxExportJson">
+                <span class="icon" data-icon="download"></span>
+                <span data-i18n="imgx_export_json">Export as JSON</span>
+              </button>
+              <button type="button" id="imgxExportCss">
+                <span class="icon" data-icon="copy"></span>
+                <span data-i18n="imgx_export_css"
+                  >Copy as CSS Variables</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="imgx-grid">
+        <!-- ---- Колонка 1: загрузка ---- -->
+        <div class="imgx-col">
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>
+                  <span class="imgx-step">1.</span
+                  ><span data-i18n="imgx_panel1_title">Upload Image</span>
+                </h2>
+                <p class="card-sub" data-i18n="imgx_panel1_sub">
+                  Upload any image to extract its colors
+                </p>
+              </div>
+            </div>
+
+            <label class="imgx-drop" id="imgxDrop">
+              <span class="icon" data-icon="upload"></span>
+              <p data-i18n="imgx_drop_title">
+                Click to upload or drag and drop
+              </p>
+              <span class="hint" data-i18n="imgx_drop_hint"
+                >PNG, JPG, WEBP up to 10MB</span
+              >
+              <input type="file" id="imgxFileInput" accept="image/*" />
+            </label>
+
+            <div class="imgx-preview-wrap" id="imgxPreviewWrap" hidden>
+              <img id="imgxPreviewImg" alt="" />
+              <button
+                type="button"
+                class="imgx-remove"
+                id="imgxRemoveBtn"
+                data-icon="trash"
+                data-i18n-title="imgx_remove_image_title"
+                title="Remove image"
+                aria-label="Remove image"
+              ></button>
+            </div>
+            <div class="imgx-file-meta" id="imgxFileMeta" hidden>
+              <p class="imgx-file-name" id="imgxFileName"></p>
+              <p class="imgx-file-sub" id="imgxFileSub"></p>
+              <span class="imgx-loaded" id="imgxLoadedBadge"
+                ><span class="icon" data-icon="check"></span
+                ><span data-i18n="imgx_loaded">Image loaded</span></span
+              >
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary imgx-upload-again"
+              id="imgxUploadAgain"
+              hidden
+            >
+              <span class="icon" data-icon="upload"></span>
+              <span data-i18n="imgx_upload_again">Upload Another Image</span>
+            </button>
+
+            <div class="imgx-info" id="imgxInfo" hidden>
+              <h3 data-i18n="imgx_info_title">Image Info</h3>
+              <div class="imgx-info-row">
+                <span data-i18n="imgx_info_format">Format</span>
+                <span id="imgxInfoFormat">—</span>
+              </div>
+              <div class="imgx-info-row">
+                <span data-i18n="imgx_info_dimensions">Dimensions</span>
+                <span id="imgxInfoDimensions">—</span>
+              </div>
+              <div class="imgx-info-row">
+                <span data-i18n="imgx_info_size">File Size</span>
+                <span id="imgxInfoSize">—</span>
+              </div>
+              <div class="imgx-info-row">
+                <span data-i18n="imgx_info_space">Color Space</span>
+                <span id="imgxInfoSpace">—</span>
+              </div>
+              <div class="imgx-info-row">
+                <span data-i18n="imgx_info_total">Total Colors</span>
+                <span id="imgxInfoTotal">—</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ---- Колонка 2: извлечённые цвета ---- -->
+        <div class="imgx-col">
+          <section class="card">
+            <div class="imgx-extracted-head">
+              <div class="card-head">
+                <div>
+                  <h2>
+                    <span class="imgx-step">2.</span
+                    ><span data-i18n="imgx_panel2_title"
+                      >Extracted Colors</span
+                    >
+                  </h2>
+                  <p class="card-sub" id="imgxExtractedSub">
+                    Upload an image to get started
+                  </p>
+                </div>
+              </div>
+              <div class="imgx-head-controls" id="imgxHeadControls" hidden>
+                <span class="imgx-count-chip" id="imgxCountChip">12 Colors</span>
+                <div class="imgx-sort">
+                  <select id="imgxSort" aria-label="Sort colors">
+                    <option value="vibrance" data-i18n="imgx_sort_vibrance">
+                      Sort by Vibrance
+                    </option>
+                    <option value="dominance" data-i18n="imgx_sort_dominance">
+                      Sort by Dominance
+                    </option>
+                    <option value="lightness" data-i18n="imgx_sort_lightness">
+                      Sort by Lightness
+                    </option>
+                    <option value="hue" data-i18n="imgx_sort_hue">
+                      Sort by Hue
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="imgx-empty" id="imgxEmptyState">
+              <span class="icon" data-icon="image"></span>
+              <div>
+                <p style="font-weight: 600; margin-bottom: 4px">
+                  <span data-i18n="imgx_empty_title">No image yet</span>
+                </p>
+                <p data-i18n="imgx_empty_body">
+                  Upload a photo to extract its dominant colors.
+                </p>
+              </div>
+            </div>
+
+            <div class="imgx-canvas-wrap" id="imgxCanvasWrap" hidden>
+              <img id="imgxDisplayImg" alt="" />
+              <div id="imgxMarkers"></div>
+            </div>
+
+            <div class="imgx-strip" id="imgxStrip"></div>
+            <p class="imgx-strip-caption" id="imgxStripCaption" hidden>
+              <span data-i18n="imgx_strip_caption"
+                >Click any color above or on the image to view its details
+                and code.</span
+              >
+            </p>
+          </section>
+        </div>
+
+        <!-- ---- Колонка 3: детали цвета ---- -->
+        <div class="imgx-col">
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>
+                  <span class="imgx-step">3.</span
+                  ><span data-i18n="imgx_panel3_title">Color Details</span>
+                </h2>
+                <p class="card-sub" data-i18n="imgx_panel3_sub">
+                  Click a color to view all formats and values
+                </p>
+              </div>
+            </div>
+
+            <p class="imgx-empty" id="imgxDetailEmpty" style="min-height: 200px">
+              <span data-i18n="imgx_panel3_empty"
+                >Select a color from the palette to see its values here.</span
+              >
+            </p>
+
+            <div id="imgxDetailBody" hidden>
+              <div class="imgx-detail-preview">
+                <span class="imgx-detail-swatch" id="imgxDetailSwatch"></span>
+                <div class="imgx-detail-info">
+                  <span class="imgx-detail-name" id="imgxDetailName"
+                    >Color 1</span
+                  >
+                  <span class="imgx-detail-hex" id="imgxDetailHex"
+                    >#000000</span
+                  >
+                  <span class="imgx-detail-rgb" id="imgxDetailRgb"
+                    >RGB(0, 0, 0)</span
+                  >
+                </div>
+                <button
+                  type="button"
+                  class="imgx-format-copy imgx-detail-copy"
+                  id="imgxDetailCopy"
+                  data-icon="copy"
+                  title="Copy HEX"
+                  data-i18n-title="copy_hex_title"
+                ></button>
+              </div>
+
+              <p class="imgx-formats-title" data-i18n="imgx_formats_title">
+                Color Formats
+              </p>
+              <div id="imgxFormatRows"></div>
+
+              <button
+                type="button"
+                class="btn btn-ghost imgx-add-saved"
+                id="imgxAddSaved"
+              >
+                <span class="icon" data-icon="heart"></span>
+                <span data-i18n="imgx_add_saved">Add to Saved</span>
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!-- ===== /Страница: Image Color Extractor ===== -->
+
+    <!-- ===== Страница: Palette ===== -->
+    <div class="app-page" id="page-palette">
+      <section class="page-head">
+        <div>
+          <h1><span class="grad-text">Color</span> Palette</h1>
+          <p class="subtitle" data-i18n="palette_subtitle">
+            Create, explore and manage beautiful color palettes
+          </p>
+        </div>
+      </section>
+
+      <div class="palette-toolbar">
+        <div class="palette-search">
+          <span class="icon" data-icon="search"></span>
+          <input
+            type="text"
+            id="paletteSearch"
+            data-i18n-placeholder="palette_search_placeholder"
+            placeholder="Search palettes..."
+          />
+        </div>
+        <select class="text-input" id="paletteFilter">
+          <option value="all" data-i18n="palette_filter_all">
+            All Palettes
+          </option>
+          <option value="fav" data-i18n="palette_filter_fav">Favorites</option>
+        </select>
+        <button class="btn btn-primary" id="newPaletteBtn">
+          <span class="icon" data-icon="plus"></span>
+          <span data-i18n="palette_new">New Palette</span>
+        </button>
+      </div>
+
+      <div class="palette-grid">
+        <!-- Список палитр -->
+        <aside class="card palette-sidebar">
+          <div class="palette-sidebar-head">
+            <h3 data-i18n="palette_my_title">My Palettes</h3>
+            <span class="palette-count" id="paletteCount">12 palettes</span>
+          </div>
+          <div class="palette-list" id="paletteList"></div>
+        </aside>
+
+        <!-- Выбранная палитра -->
+        <section class="card palette-main">
+          <div class="palette-main-head">
+            <div class="palette-main-title-row">
+              <h2 id="paletteTitle">Ocean Breeze</h2>
+              <button
+                class="icon-btn sm"
+                id="renamePaletteBtn"
+                title="Rename"
+                data-icon="edit"
+              ></button>
+              <button
+                class="icon-btn sm"
+                id="favPaletteBtn"
+                title="Favorite"
+                data-icon="star"
+              ></button>
+            </div>
+            <p class="card-sub" id="paletteMeta">
+              8 <span data-i18n="palette_colors_word">colors</span> ·
+              <span data-i18n="palette_created">Created</span> 2
+              <span data-i18n="palette_days_ago">days ago</span>
+            </p>
+            <div class="card-head-actions palette-main-actions">
+              <button
+                class="icon-btn sm"
+                id="copyPaletteBtn"
+                title="Copy"
+                data-icon="copy"
+              ></button>
+              <button
+                class="icon-btn sm"
+                id="downloadPaletteBtn"
+                title="Download"
+                data-icon="download"
+              ></button>
+              <button
+                class="icon-btn sm"
+                id="sharePaletteBtn"
+                title="Share"
+                data-icon="share"
+              ></button>
+              <button
+                class="btn btn-ghost sm danger"
+                id="deletePaletteBtn"
+                data-i18n="palette_delete"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+
+          <div class="palette-strip" id="paletteStrip"></div>
+
+          <div class="tabs" role="tablist">
+            <button
+              class="tab active"
+              data-ptab="colors"
+              data-i18n="palette_tab_colors"
+            >
+              Colors
+            </button>
+            <button class="tab" data-ptab="info" data-i18n="palette_tab_info">
+              Info
+            </button>
+          </div>
+
+          <div class="palette-colors-list" id="paletteColorsList"></div>
+          <div class="palette-info" id="paletteInfo" hidden></div>
+
+          <div class="palette-add-row">
+            <button class="btn btn-ghost" id="addColorBtn">
+              <span class="icon" data-icon="plus"></span>
+              <span data-i18n="palette_add_color">Add Color</span>
+            </button>
+            <span class="palette-drop-hint" data-i18n="palette_drop_hint"
+              >or drag &amp; drop colors here</span
+            >
+          </div>
+        </section>
+
+        <!-- Оттенки выбранного цвета -->
+        <aside class="card palette-shades-card">
+          <div class="card-head">
+            <h3 data-i18n="palette_shades_title">Shades &amp; Tints</h3>
+            <button
+              class="icon-btn sm"
+              id="expandShadesBtn"
+              title="Expand"
+              data-icon="expand"
+            ></button>
+          </div>
+          <select class="text-input full" id="shadeColorSelect"></select>
+          <div
+            class="shades-list palette-shades-list"
+            id="paletteShadesList"
+          ></div>
+        </aside>
+      </div>
+    </div>
+    <!-- ===== /Страница: Palette ===== -->
+
+    <!-- ===== Страница: Converter ===== -->
+    <div class="app-page" id="page-converter">
+      <section class="page-head">
+        <div>
+          <h1><span class="grad-text">Color</span> Converter</h1>
+          <p class="subtitle" data-i18n="converter_subtitle">
+            Convert colors between different formats
+          </p>
+        </div>
+        <div class="page-head-actions">
+          <button class="btn btn-ghost" id="convUploadBtn">
+            <span class="icon" data-icon="upload"></span>
+            <span data-i18n="upload_image">Upload Image</span>
+          </button>
+          <input type="file" id="convUploadInput" accept="image/*" hidden />
+          <button class="btn btn-ghost" id="convSwapBtn">
+            <span class="icon" data-icon="swap"></span>
+            <span data-i18n="swap_colors">Swap Colors</span>
+          </button>
+          <div class="menu-wrap">
+            <button class="btn btn-primary" id="convExportBtn">
+              <span class="icon" data-icon="export"></span>
+              <span data-i18n="export_label">Export</span>
+              <span class="icon chevron" data-icon="chevronDown"></span>
+            </button>
+            <div class="menu" id="convExportMenu">
+              <button data-conv-export="css" data-i18n="menu_export_css">
+                Скопировать CSS переменную
+              </button>
+              <button data-conv-export="json" data-i18n="menu_export_json">
+                Скачать JSON
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main class="grid">
+        <!-- Колонка 1: Choose Color -->
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <h2 data-i18n="conv_card1_title">1. Choose Color</h2>
+              <p class="card-sub" data-i18n="conv_card1_sub">
+                Pick a color to convert
+              </p>
+            </div>
+          </div>
+
+          <div class="quick-row" style="margin-bottom: var(--space-4)">
+            <input
+              type="text"
+              class="text-input"
+              id="convHexInput"
+              maxlength="9"
+              spellcheck="false"
+              value="#3498DB"
+            />
+            <button
+              class="icon-btn"
+              id="convEyedropper"
+              title="Eyedropper"
+              data-i18n-title="eyedropper_title"
+              data-icon="eyedropper"
+            ></button>
+          </div>
+
+          <div class="sl-square-wrap">
+            <div id="convSquareBox">
+              <canvas id="convSquare" width="380" height="300"></canvas>
+              <div class="sl-marker" id="convMarker"></div>
+            </div>
+          </div>
+
+          <div class="slider-row">
+            <div class="hue-track" id="convHueTrack">
+              <div class="hue-thumb" id="convHueThumb"></div>
+            </div>
+          </div>
+
+          <div class="field-label" data-i18n="quick_colors">Quick Colors</div>
+          <div class="swatch-list" id="convQuickColors"></div>
+        </section>
+
+        <!-- Колонка 2: Convert to -->
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <h2 data-i18n="conv_card2_title">2. Convert to</h2>
+              <p class="card-sub" data-i18n="conv_card2_sub">
+                Choose formats to convert your color
+              </p>
+            </div>
+          </div>
+
+          <div class="format-grid" id="convFormatGrid"></div>
+          <div class="format-card full" id="convWebSafeCard">
+            <label class="format-card-head">
+              <input
+                type="checkbox"
+                class="format-check"
+                id="fmt-websafe"
+                checked
+              />
+              <span>WEB SAFE</span>
+            </label>
+            <div class="format-value-row">
+              <span class="format-value" id="val-websafe">#3399CC</span>
+              <button
+                class="copy-btn xs"
+                data-copy-raw=""
+                id="copy-websafe"
+                title="Copy"
+              >
+                <span class="icon" data-icon="copy"></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="tip-box">
+            <span class="tip-icon" data-icon="info"></span>
+            <div>
+              <b data-i18n="conv_tip_title">Did you know?</b>
+              <p data-i18n="conv_tip_body">
+                Different color models are useful for different purposes, RGB is
+                for screens, CMYK for print, LAB for perceptual adjustments.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Колонка 3: Preview -->
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <h2 data-i18n="conv_card3_title">3. Preview</h2>
+              <p class="card-sub" data-i18n="conv_card3_sub">
+                See how your color looks
+              </p>
+            </div>
+          </div>
+
+          <div class="preview-box" id="convPreviewBox" style="height: 140px">
+            <span class="preview-hex" id="convPreviewHex">#3498DB</span>
+          </div>
+
+          <div class="info-rows">
+            <div class="info-row">
+              <span data-i18n="conv_color_name">Color Name</span>
+              <span id="convColorName">Dodger Blue</span>
+            </div>
+            <div class="info-row">
+              <span data-i18n="conv_brightness">Brightness</span>
+              <span id="convBrightness">53%</span>
+            </div>
+            <div class="info-row">
+              <span data-i18n="conv_contrast_white"
+                >Contrast Ratio (White)</span
+              >
+              <span id="convContrastWhite">3.12 : 1</span>
+            </div>
+            <div class="info-row">
+              <span data-i18n="conv_contrast_black"
+                >Contrast Ratio (Black)</span
+              >
+              <span id="convContrastBlack">6.72 : 1</span>
+            </div>
+          </div>
+
+          <div class="harmony-section-head">
+            <h3 data-i18n="conv_harmonies_title">Color Harmonies</h3>
+            <a href="#" class="harmony-view-all" data-i18n="conv_view_all"
+              >View All</a
+            >
+          </div>
+          <div class="harmony-list" id="convHarmonyList"></div>
+        </section>
+      </main>
+    </div>
+    <!-- ===== /Страница: Converter ===== -->
+
+    <!-- ===== Страница: Library ===== -->
+    <div class="app-page" id="page-library">
+      <section class="page-head">
+        <div>
+          <h1><span class="grad-text">Color</span> Library</h1>
+          <p class="subtitle" data-i18n="library_subtitle">
+            Browse curated palettes and a library of named colors
+          </p>
+        </div>
+      </section>
+
+      <div class="library-toolbar">
+        <div class="palette-search">
+          <span class="icon" data-icon="search"></span>
+          <input
+            type="text"
+            id="librarySearch"
+            data-i18n-placeholder="library_search_placeholder"
+            placeholder="Search the library..."
+          />
+        </div>
+        <select
+          class="text-input"
+          id="libraryCategoryFilter"
+          aria-label="Category"
+        ></select>
+        <span class="library-count" id="libraryCount"></span>
+      </div>
+
+      <div class="tabs library-tabs" role="tablist">
+        <button
+          class="tab active"
+          data-ltab="palettes"
+          data-i18n="library_tab_palettes"
+        >
+          Palettes
+        </button>
+        <button class="tab" data-ltab="colors" data-i18n="library_tab_colors">
+          Named Colors
+        </button>
+      </div>
+
+      <section class="library-panel" id="libraryPalettesPanel">
+        <div class="library-palette-grid" id="libraryPaletteGrid"></div>
+        <p
+          class="empty-hint library-empty"
+          id="libraryPaletteEmpty"
+          data-i18n="library_empty"
+          hidden
+        >
+          No palettes match your search.
+        </p>
+      </section>
+
+      <section class="library-panel" id="libraryColorsPanel" hidden>
+        <div class="library-color-grid" id="libraryColorGrid"></div>
+        <p
+          class="empty-hint library-empty"
+          id="libraryColorEmpty"
+          data-i18n="library_empty"
+          hidden
+        >
+          No colors match your search.
+        </p>
+      </section>
+    </div>
+    <!-- ===== /Страница: Library ===== -->
+
+    <!-- ===== Страница: Accessibility ===== -->
+    <div class="app-page" id="page-accessibility">
+      <section class="page-head">
+        <div>
+          <h1><span class="grad-text">Color</span> Accessibility</h1>
+          <p class="subtitle" data-i18n="a11y_subtitle">
+            Check color contrast and accessibility compliance
+          </p>
+        </div>
+        <div class="page-head-actions">
+          <button class="btn btn-ghost" id="a11yHowBtn">
+            <span class="icon" data-icon="info"></span>
+            <span data-i18n="a11y_how_it_works">How it works</span>
+          </button>
+          <a
+            class="btn btn-ghost"
+            href="https://www.w3.org/WAI/WCAG21/quickref/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="icon" data-icon="expand"></span>
+            <span data-i18n="a11y_wcag_guidelines">WCAG Guidelines</span>
+          </a>
+        </div>
+      </section>
+
+      <div class="a11y-grid">
+        <!-- ---- Колонка 1: выбор цветов + превью ---- -->
+        <div class="a11y-col">
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>
+                  <span class="a11y-step">1.</span
+                  ><span data-i18n="a11y_select_title">Select Colors</span>
+                </h2>
+                <p class="card-sub" data-i18n="a11y_select_sub">
+                  Choose text and background colors to test
+                </p>
+              </div>
+            </div>
+
+            <div class="a11y-picker-row">
+              <div class="a11y-picker-fields">
+                <div>
+                  <label class="a11y-field-label" for="a11yTextHex" data-i18n="a11y_text_color"
+                    >Text Color</label
+                  >
+                  <div class="a11y-input-row">
+                    <span class="a11y-swatch" id="a11yTextSwatch">
+                      <input type="color" id="a11yTextPicker" aria-label="Text color" />
+                    </span>
+                    <span class="a11y-hex-wrap">
+                      <input type="text" id="a11yTextHex" spellcheck="false" />
+                      <button
+                        type="button"
+                        class="a11y-hex-copy"
+                        id="a11yTextCopy"
+                        data-icon="copy"
+                        data-i18n-title="copy_hex_title"
+                        aria-label="Copy"
+                      ></button>
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="a11y-field-label" for="a11yBgHex" data-i18n="a11y_bg_color"
+                    >Background Color</label
+                  >
+                  <div class="a11y-input-row">
+                    <span class="a11y-swatch" id="a11yBgSwatch">
+                      <input type="color" id="a11yBgPicker" aria-label="Background color" />
+                    </span>
+                    <span class="a11y-hex-wrap">
+                      <input type="text" id="a11yBgHex" spellcheck="false" />
+                      <button
+                        type="button"
+                        class="a11y-hex-copy"
+                        id="a11yBgCopy"
+                        data-icon="copy"
+                        data-i18n-title="copy_hex_title"
+                        aria-label="Copy"
+                      ></button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                class="icon-btn a11y-swap"
+                id="a11ySwap"
+                data-icon="swap"
+                data-i18n-title="swap_colors"
+                aria-label="Swap colors"
+              ></button>
+            </div>
+
+            <p class="a11y-field-label" style="margin-top: var(--space-5)" data-i18n="a11y_quick_presets">
+              Quick Presets
+            </p>
+            <div class="a11y-presets" id="a11yPresets"></div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>
+                  <span class="a11y-step">4.</span
+                  ><span data-i18n="a11y_preview_title">Preview</span>
+                </h2>
+                <p class="card-sub" data-i18n="a11y_preview_sub">
+                  See how your colors look together
+                </p>
+              </div>
+            </div>
+            <div class="a11y-preview" id="a11yPreviewBox">
+              <h3 data-i18n="a11y_preview_heading">Large Heading</h3>
+              <p data-i18n="a11y_preview_body">
+                This is a paragraph of text that demonstrates how your selected
+                colors work together for readability.
+              </p>
+              <a href="#" data-i18n="a11y_preview_link">Link Example</a>
+            </div>
+            <p class="a11y-preview-caption" id="a11yPreviewCaption"></p>
+          </section>
+        </div>
+
+        <!-- ---- Колонка 2: результаты ---- -->
+        <div class="a11y-col">
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>
+                  <span class="a11y-step">2.</span
+                  ><span data-i18n="a11y_results_title">Results</span>
+                </h2>
+                <p class="card-sub" data-i18n="a11y_results_sub">
+                  Contrast ratio and compliance status
+                </p>
+              </div>
+            </div>
+
+            <div class="a11y-ratio-box" id="a11yRatioBox">
+              <div class="a11y-ratio-value" id="a11yRatio">—</div>
+              <div class="a11y-ratio-status" id="a11yRatioStatus"></div>
+            </div>
+
+            <p class="a11y-group-label" data-i18n="a11y_group_aa">WCAG 2.1 AA</p>
+            <div class="a11y-criteria" id="a11yCriteriaAA"></div>
+
+            <p class="a11y-group-label" data-i18n="a11y_group_aaa">WCAG 2.1 AAA</p>
+            <div class="a11y-criteria" id="a11yCriteriaAAA"></div>
+
+            <div class="a11y-meaning">
+              <b data-i18n="a11y_meaning_title">What this means</b>
+              <p id="a11yMeaningText"></p>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-ghost a11y-report-toggle"
+              id="a11yReportToggle"
+              aria-expanded="false"
+              aria-controls="a11yReport"
+            >
+              <span class="icon" data-icon="sliders"></span>
+              <span data-i18n="a11y_view_report">View Full Report</span>
+              <span class="icon chevron" data-icon="chevronDown"></span>
+            </button>
+            <div class="a11y-report" id="a11yReport" hidden>
+              <div id="a11yReportRows"></div>
+              <button type="button" class="btn btn-ghost sm" id="a11yReportCopy"></button>
+            </div>
+          </section>
+        </div>
+
+        <!-- ---- Колонка 3: симулятор + подсказки ---- -->
+        <div class="a11y-col">
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>
+                  <span class="a11y-step">3.</span
+                  ><span data-i18n="a11y_sim_title">Color Blindness Simulator</span>
+                </h2>
+                <p class="card-sub" data-i18n="a11y_sim_sub">
+                  See how colors appear to different types of color blindness
+                </p>
+              </div>
+            </div>
+            <div class="a11y-vision-list" id="a11yVisionList"></div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>
+                  <span class="a11y-step">5.</span
+                  ><span data-i18n="a11y_suggest_title">Color Suggestions</span>
+                </h2>
+                <p class="card-sub" data-i18n="a11y_suggest_sub">
+                  Accessible alternatives for your color combination
+                </p>
+              </div>
+            </div>
+            <div class="a11y-suggest-wrap">
+              <button
+                type="button"
+                class="icon-btn a11y-suggest-arrow"
+                id="a11ySuggestPrev"
+                data-icon="chevronDown"
+                style="transform: rotate(90deg)"
+                aria-label="Previous"
+              ></button>
+              <div class="a11y-suggest-scroll" id="a11ySuggestScroll"></div>
+              <button
+                type="button"
+                class="icon-btn a11y-suggest-arrow"
+                id="a11ySuggestNext"
+                data-icon="chevronDown"
+                style="transform: rotate(-90deg)"
+                aria-label="Next"
+              ></button>
+            </div>
+            <button type="button" class="btn btn-ghost a11y-generate" id="a11yGenerateMore">
+              <span class="icon" data-icon="shuffle"></span>
+              <span data-i18n="a11y_generate_more">Generate More</span>
+            </button>
+          </section>
+        </div>
+      </div>
+
+      <div class="a11y-modal" id="a11yModal" role="dialog" aria-modal="true" hidden>
+        <div class="a11y-modal-box">
+          <h2 data-i18n="a11y_how_it_works">How it works</h2>
+          <p data-i18n="a11y_how_p1">
+            Contrast ratio compares the relative luminance of two colors. It
+            ranges from 1:1 (identical) to 21:1 (black on white).
+          </p>
+          <p data-i18n="a11y_how_p2">
+            WCAG 2.1 asks for at least 4.5:1 for normal text and 3:1 for large
+            text at level AA. Level AAA raises these to 7:1 and 4.5:1.
+          </p>
+          <p data-i18n="a11y_how_p3">
+            Large text means 18pt and above, or 14pt bold and above. Icons and
+            interface controls follow the 3:1 threshold.
+          </p>
+          <button type="button" class="btn btn-primary" id="a11yModalClose">
+            <span data-i18n="a11y_close">Close</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- ===== /Страница: Accessibility ===== -->
+
+    <!-- ===== Страница: Resources ===== -->
+    <div class="app-page" id="page-resources">
+      <section class="page-head">
+        <div>
+          <h1><span class="grad-text">Resources</span></h1>
+          <p class="subtitle" data-i18n="res_subtitle">
+            Tools, guides and resources to master color and build beautiful
+            experiences.
+          </p>
+        </div>
+        <div class="page-head-actions">
+          <div class="res-search">
+            <span class="icon" data-icon="search"></span>
+            <input
+              type="text"
+              id="resSearch"
+              data-i18n-placeholder="res_search_placeholder"
+              placeholder="Search resources..."
+              aria-label="Search resources"
+            />
+          </div>
+        </div>
+      </section>
+
+      <div class="res-grid" id="resSections"></div>
+
+      <div class="res-grid">
+        <section class="card res-card" data-res-card="systems">
+          <div class="res-card-head">
+            <div>
+              <h2 data-i18n="res_systems_title">Color Systems</h2>
+              <p data-i18n="res_systems_desc">
+                Explore popular color systems and standards.
+              </p>
+            </div>
+          </div>
+          <div class="res-chips" id="resSystems"></div>
+          <button type="button" class="res-more" data-soon>
+            <span data-i18n="res_explore_systems">Explore all systems</span>
+            <span class="icon" data-icon="arrowRight"></span>
+          </button>
+        </section>
+
+        <section class="card res-card" data-res-card="inspiration">
+          <div class="res-card-head">
+            <div>
+              <h2 data-i18n="res_inspiration_title">Color Inspiration</h2>
+              <p data-i18n="res_inspiration_desc">
+                Discover beautiful color palettes and trends.
+              </p>
+            </div>
+          </div>
+          <div class="res-palettes" id="resPalettes"></div>
+          <button type="button" class="res-more" id="resBrowsePalettes">
+            <span data-i18n="res_browse_palettes">Browse palettes</span>
+            <span class="icon" data-icon="arrowRight"></span>
+          </button>
+        </section>
+
+        <section class="card res-card" data-res-card="help">
+          <div class="res-card-head">
+            <div>
+              <h2 data-i18n="res_help_title">Help &amp; Support</h2>
+              <p data-i18n="res_help_desc">
+                Get help, report issues or request features.
+              </p>
+            </div>
+          </div>
+          <div class="res-help-grid" id="resHelp"></div>
+        </section>
+      </div>
+
+      <p class="res-empty" id="resEmpty" data-i18n="res_empty" hidden>
+        Nothing matches your search.
+      </p>
+
+      <div class="res-modal" id="resModal" role="dialog" aria-modal="true" hidden>
+        <div class="res-modal-box">
+          <h2 id="resModalTitle"></h2>
+          <p id="resModalBody"></p>
+          <button type="button" class="btn btn-primary" id="resModalClose">
+            <span data-i18n="a11y_close">Close</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- ===== /Страница: Resources ===== -->
+
+    <div class="toast" id="toast"></div>
+
+    <canvas id="hiddenCanvas" hidden></canvas>
+
+    <script src="icons.js"></script>
+    <script src="colorUtils.js"></script>
+    <script src="i18n.js"></script>
+    <script src="custom-select.js"></script>
+    <script src="script.js"></script>
+    <script src="converter.js"></script>
+    <script src="library.js"></script>
+    <script src="accessibility.js"></script>
+    <script src="resources.js"></script>
+    <script src="image-extractor.js"></script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+/* tokens.css — единый источник правды для всех визуальных свойств сайта */
+
+:root {
+  /* Фон */
+  --bg-page: #0a0d17;
+  --bg-card: #10131f;
+  --bg-card-hover: #151929;
+  --bg-input: #0d101b;
+  --bg-elevated: #1a1e2e;
+
+  /* Границы */
+  --border-subtle: #1e2233;
+  --border-default: #262b40;
+  --border-strong: #363c56;
+
+  /* Текст */
+  --text-primary: #f3f4f8;
+  --text-secondary: #a6acc1;
+  --text-muted: #6b7189;
+
+  /* Акценты (логотип / бренд) */
+  --accent-purple: #8b5cf6;
+  --accent-blue: #6366f1;
+  --accent-pink: #ec4899;
+  --accent-gradient: linear-gradient(
+    135deg,
+    var(--accent-purple),
+    var(--accent-blue)
+  );
+  --accent-gradient-wide: linear-gradient(
+    90deg,
+    var(--accent-purple),
+    var(--accent-blue),
+    var(--accent-pink)
+  );
+
+  /* Статусы */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  /* Типографика */
+  --font-base: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
+  --font-size-xs: 11px;
+  --font-size-sm: 13px;
+  --font-size-base: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 28px;
+  --font-size-2xl: 36px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Отступы (шкала 4px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+
+  /* Радиусы */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  /* Тени */
+  --shadow-card:
+    0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -8px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+
+  /* Переходы */
+  --transition-fast: 120ms ease;
+  --transition-base: 200ms ease;
+
+  /* Компоненты */
+  --wheel-size: 260px;
+  --marker-size: 16px;
+  --nav-height: 68px;
+}
+
+/* ---------- Светлая тема ---------- */
+[data-theme="light"] {
+  /* Фон */
+  --bg-page: #f5f6fa;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0f1f7;
+  --bg-input: #ffffff;
+  --bg-elevated: #ffffff;
+
+  /* Границы */
+  --border-subtle: #e6e8f0;
+  --border-default: #d9dce8;
+  --border-strong: #c3c7da;
+
+  /* Текст */
+  --text-primary: #14161f;
+  --text-secondary: #4a4f63;
+  --text-muted: #7b8096;
+
+  /* Тени */
+  --shadow-card:
+    0 1px 2px rgba(20, 22, 31, 0.06), 0 8px 24px -8px rgba(20, 22, 31, 0.12);
+  --shadow-glow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+
+  /* Статусы (более тёмные для светлого фона) */
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+}

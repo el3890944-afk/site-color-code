@@ -1,0 +1,133 @@
+/* custom-select.css — единый вид выпадающих списков вместо нативных
+   <select>, в духе уже существующих .menu-wrap/.menu (Export, Saved
+   Colors, переключатель языка). Применяется ко всем select на сайте:
+   Picker, Image, Palette, Converter, Library, Accessibility, Resources. */
+
+.csel {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Кнопка повторяет внешний вид исходного .text-input/.select-sm,
+   поэтому в разметке на неё переносятся те же классы. */
+.csel-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: start;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+.csel-btn:hover {
+  border-color: var(--border-strong);
+}
+.csel-btn:focus-visible {
+  outline: none;
+  border-color: var(--accent-purple);
+  box-shadow: var(--shadow-glow);
+}
+.csel.open .csel-btn {
+  border-color: var(--accent-purple);
+  box-shadow: var(--shadow-glow);
+}
+
+.csel-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.csel-chevron {
+  flex-shrink: 0;
+  display: inline-flex;
+  color: var(--text-muted);
+  transition: transform var(--transition-fast);
+}
+.csel-chevron svg {
+  width: 13px;
+  height: 13px;
+}
+.csel.open .csel-chevron {
+  transform: rotate(180deg);
+}
+
+.csel-disabled .csel-btn {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== Список опций ===== */
+.csel-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 30;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-2);
+  max-height: 260px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.csel-option {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+.csel-option:hover,
+.csel-option.focused {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+.csel-option.active {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+  background: rgba(139, 92, 246, 0.12);
+}
+.csel-option[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== Варианты размеров, зеркалящие исходные классы select ===== */
+.csel.select-sm {
+  width: 78px;
+}
+.csel.text-input {
+  flex: 1;
+  min-width: 0;
+}
+.csel.full {
+  width: 100%;
+}
+
+/* ===== Адаптивность / уменьшенное движение ===== */
+@media (prefers-reduced-motion: reduce) {
+  .csel-chevron {
+    transition: none;
+  }
+}
