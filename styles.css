@@ -1410,6 +1410,15 @@ body {
 }
 
 
+@media (max-width: 1180px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid > section.card:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (max-width: 1100px) {
   .grid {
     grid-template-columns: 1fr;
@@ -1443,6 +1452,24 @@ body {
   .palette-grid {
     padding-left: var(--space-4);
     padding-right: var(--space-4);
+  }
+}
+@media (max-width: 400px) {
+  .topbar {
+    gap: var(--space-2);
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+  .topbar #exportBtn span:not(.icon) {
+    display: none;
+  }
+  .topbar #exportBtn {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+    gap: 0;
+  }
+  .logo-text {
+    font-size: var(--font-size-sm);
   }
 }
 
