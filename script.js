@@ -657,11 +657,25 @@
       return;
     }
     if (anchorBtn) {
+      // Класс добавляем до замера ширины: пока меню скрыто (display:none),
+      // offsetWidth всегда вернёт 0. Так как всё происходит синхронно —
+      // браузер не успевает отрисовать промежуточный кадр, мигания нет.
+      menu.classList.add("open");
       const rect = anchorBtn.getBoundingClientRect();
+      const menuWidth = menu.offsetWidth || 220;
+      const margin = 8;
+      let rightOffset = window.innerWidth - rect.right;
+      const wouldOverflowLeft = window.innerWidth - rightOffset - menuWidth < margin;
       menu.style.position = "fixed";
       menu.style.top = rect.bottom + 6 + "px";
-      menu.style.right = window.innerWidth - rect.right + "px";
-      menu.style.left = "auto";
+      if (wouldOverflowLeft) {
+        menu.style.left = Math.max(margin, rect.left) + "px";
+        menu.style.right = "auto";
+      } else {
+        menu.style.right = rightOffset + "px";
+        menu.style.left = "auto";
+      }
+      return;
     }
     menu.classList.add("open");
   }
@@ -809,7 +823,7 @@
   $("langToggle").addEventListener("click", (e) => {
     e.stopPropagation();
     $("exportMenu").classList.remove("open");
-    toggleMenu($("langMenu"));
+    toggleMenu($("langMenu"), $("langToggle"));
     if ($("langMenu").classList.contains("open")) {
       renderLangList("");
       $("langSearch").value = "";
@@ -840,14 +854,11 @@
       .querySelectorAll(".bottomnav-sheet-item[data-page]")
       .forEach((a) => a.classList.toggle("active", a.dataset.page === page));
     const moreBtn = $("bottomNavMoreBtn");
-    if (moreBtn)
-      moreBtn.classList.toggle("active", OVERFLOW_PAGES.includes(page));
+    if (moreBtn) moreBtn.classList.toggle("active", OVERFLOW_PAGES.includes(page));
     closeBottomSheet();
   }
   document
-    .querySelectorAll(
-      ".topnav-link[data-page], .bottomnav-link[data-page], .bottomnav-sheet-item[data-page]",
-    )
+    .querySelectorAll(".topnav-link[data-page], .bottomnav-link[data-page], .bottomnav-sheet-item[data-page]")
     .forEach((a) => {
       a.addEventListener("click", (e) => {
         e.preventDefault();
@@ -1131,7 +1142,10 @@
         renderPaletteMain();
       });
       row.querySelector('[data-act="edit"]').addEventListener("click", () => {
-        const next = prompt(t("palette_edit_prompt") || "New HEX value:", hex);
+        const next = prompt(
+          t("palette_edit_prompt") || "New HEX value:",
+          hex,
+        );
         if (next && /^#?[0-9a-fA-F]{6}$/.test(next)) {
           c.hex = next.startsWith("#") ? next : "#" + next;
           persistPalettes();
@@ -1151,10 +1165,7 @@
   function populateShadeSelect(p) {
     const sel = $("shadeColorSelect");
     sel.innerHTML = p.colors
-      .map(
-        (c) =>
-          `<option value="${safeHex(c.hex)}">${escapeHtml(c.name)} — ${safeHex(c.hex)}</option>`,
-      )
+      .map((c) => `<option value="${safeHex(c.hex)}">${escapeHtml(c.name)} — ${safeHex(c.hex)}</option>`)
       .join("");
     if (!activeColorHex || !p.colors.some((c) => c.hex === activeColorHex)) {
       activeColorHex = p.colors[0] ? p.colors[0].hex : "#6497B1";
@@ -1358,13 +1369,9 @@
   document.addEventListener("drop", (e) => {
     if (e.target.closest(imageDropzoneSelector)) return;
     e.preventDefault();
-    const file =
-      e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
     if (file && file.type.startsWith("image/")) {
-      showToast(
-        t("toast_use_image_page") ||
-          "Drop images on the Image page to extract colors",
-      );
+      showToast(t("toast_use_image_page") || "Drop images on the Image page to extract colors");
     }
   });
 })();
