@@ -250,24 +250,28 @@ body {
 
 /* ===== Topbar ===== */
 .topbar {
-  height: var(--nav-height);
+  min-height: var(--nav-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--space-7);
+  flex-wrap: wrap;
+  padding: var(--space-2) var(--space-7);
   border-bottom: 1px solid var(--border-subtle);
-  gap: var(--space-5);
+  gap: var(--space-3) var(--space-5);
 }
 
 .topbar-left {
   display: flex;
   align-items: center;
   gap: var(--space-3);
+  flex-wrap: wrap;
+  min-width: 0;
 }
 
 .logo-mark {
   width: 30px;
   height: 30px;
+  flex-shrink: 0;
   border-radius: var(--radius-circle);
   background: conic-gradient(
     from 180deg,
@@ -1229,9 +1233,14 @@ body {
 .palette-toolbar .csel.text-input {
   padding: 0;
   border-radius: var(--radius-md);
+  flex-shrink: 0;
+  min-width: 150px;
 }
 .palette-toolbar .csel.text-input .csel-btn {
   border-radius: var(--radius-md);
+}
+.palette-toolbar #newPaletteBtn {
+  flex-shrink: 0;
 }
 
 .palette-grid {
