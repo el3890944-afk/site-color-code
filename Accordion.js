@@ -29,7 +29,8 @@
 
     const chevron = document.createElement("span");
     chevron.className = "icon card-collapse-chevron";
-    chevron.innerHTML = (typeof ICONS !== "undefined" && ICONS.chevronDown) || "";
+    chevron.innerHTML =
+      (typeof ICONS !== "undefined" && ICONS.chevronDown) || "";
     head.appendChild(chevron);
     head.classList.add("card-head-toggle");
 
