@@ -639,14 +639,55 @@
 
   $("exportPaletteBtn").addEventListener("click", () => {
     const rows = Array.from(
-      document.querySelectorAll(".shade-row .shade-right span:first-child"),
+      document.querySelectorAll("#shadesList .shade-row .shade-right > span:first-child"),
     ).map((s) => s.textContent);
-    downloadFile(
-      "palette.json",
-      JSON.stringify(rows, null, 2),
-      "application/json",
-    );
-    showToast(t("toast_palette_exported"));
+    const json = JSON.stringify(rows, null, 2);
+    $("exportModalCode").textContent = json;
+    $("exportModal").hidden = false;
+    $("exportModalCopy").onclick = () => {
+      const done = () => showToast(t("toast_palette_exported") || "Copied");
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(json).then(done).catch(() => {
+          const ta = document.createElement("textarea");
+          ta.value = json;
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand("copy");
+            done();
+          } catch (err) {
+            showToast(t("toast_copy_failed") || "Copy failed");
+          }
+          document.body.removeChild(ta);
+        });
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = json;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand("copy");
+          done();
+        } catch (err) {
+          showToast(t("toast_copy_failed") || "Copy failed");
+        }
+        document.body.removeChild(ta);
+      }
+    };
+    $("exportModalDownload").onclick = () => {
+      downloadFile("palette.json", json, "application/json");
+      showToast(t("toast_palette_exported"));
+    };
+  });
+  $("exportModalClose").addEventListener("click", () => {
+    $("exportModal").hidden = true;
+  });
+  $("exportModal").addEventListener("click", (e) => {
+    if (e.target === $("exportModal")) $("exportModal").hidden = true;
   });
 
   /* ---------- Export меню ---------- */

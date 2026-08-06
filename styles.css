@@ -1715,3 +1715,61 @@ body {
     flex-wrap: wrap;
   }
 }
+
+/* ===== Модальное окно «Экспорт кода» ===== */
+.export-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  background: rgba(4, 6, 12, 0.6);
+}
+.export-modal[hidden] {
+  display: none;
+}
+.export-modal-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-6);
+  max-width: 480px;
+  width: 100%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+.export-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+.export-modal-head h2 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+.export-modal-code {
+  margin: 0 0 var(--space-4);
+  padding: var(--space-4);
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  overflow: auto;
+  max-height: 40vh;
+  white-space: pre;
+}
+.export-modal-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+.export-modal-actions .btn {
+  flex: 1;
+  justify-content: center;
+}
