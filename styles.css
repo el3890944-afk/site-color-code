@@ -1773,31 +1773,3 @@ body {
   flex: 1;
   justify-content: center;
 }
-
-/* ===== Рекламный блок (внизу сайта) ===== */
-.ad-slot {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-6) var(--space-7);
-  border-top: 1px solid var(--border-subtle);
-}
-.ad-slot-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
-}
-.ad-slot-frame {
-  width: 300px;
-  max-width: 100%;
-  min-height: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-card);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
