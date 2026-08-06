@@ -1339,9 +1339,21 @@
         "application/json",
       );
     });
-    $("sharePaletteBtn").addEventListener("click", () => {
+    $("sharePaletteBtn").addEventListener("click", async () => {
       const p = getActivePalette();
-      copyText(p.colors.map((c) => safeHex(c.hex)).join(", "));
+      const hexList = p.colors.map((c) => safeHex(c.hex)).join(", ");
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: p.name,
+            text: `${p.name} — ${hexList}`,
+          });
+        } catch (err) {
+          // Пользователь закрыл системное окно «Поделиться» — ничего не делаем.
+        }
+        return;
+      }
+      copyText(hexList);
       showToast(
         t("toast_palette_link_copied") || "Palette colors copied to share",
       );
