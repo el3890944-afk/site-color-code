@@ -639,7 +639,9 @@
 
   $("exportPaletteBtn").addEventListener("click", () => {
     const rows = Array.from(
-      document.querySelectorAll("#shadesList .shade-row .shade-right > span:first-child"),
+      document.querySelectorAll(
+        "#shadesList .shade-row .shade-right > span:first-child",
+      ),
     ).map((s) => s.textContent);
     const json = JSON.stringify(rows, null, 2);
     $("exportModalCode").textContent = json;
@@ -647,21 +649,24 @@
     $("exportModalCopy").onclick = () => {
       const done = () => showToast(t("toast_palette_exported") || "Copied");
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(json).then(done).catch(() => {
-          const ta = document.createElement("textarea");
-          ta.value = json;
-          ta.style.position = "fixed";
-          ta.style.opacity = "0";
-          document.body.appendChild(ta);
-          ta.select();
-          try {
-            document.execCommand("copy");
-            done();
-          } catch (err) {
-            showToast(t("toast_copy_failed") || "Copy failed");
-          }
-          document.body.removeChild(ta);
-        });
+        navigator.clipboard
+          .writeText(json)
+          .then(done)
+          .catch(() => {
+            const ta = document.createElement("textarea");
+            ta.value = json;
+            ta.style.position = "fixed";
+            ta.style.opacity = "0";
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+              document.execCommand("copy");
+              done();
+            } catch (err) {
+              showToast(t("toast_copy_failed") || "Copy failed");
+            }
+            document.body.removeChild(ta);
+          });
       } else {
         const ta = document.createElement("textarea");
         ta.value = json;
@@ -706,7 +711,8 @@
       const menuWidth = menu.offsetWidth || 220;
       const margin = 8;
       let rightOffset = window.innerWidth - rect.right;
-      const wouldOverflowLeft = window.innerWidth - rightOffset - menuWidth < margin;
+      const wouldOverflowLeft =
+        window.innerWidth - rightOffset - menuWidth < margin;
       menu.style.position = "fixed";
       menu.style.top = rect.bottom + 6 + "px";
       if (wouldOverflowLeft) {
@@ -895,11 +901,14 @@
       .querySelectorAll(".bottomnav-sheet-item[data-page]")
       .forEach((a) => a.classList.toggle("active", a.dataset.page === page));
     const moreBtn = $("bottomNavMoreBtn");
-    if (moreBtn) moreBtn.classList.toggle("active", OVERFLOW_PAGES.includes(page));
+    if (moreBtn)
+      moreBtn.classList.toggle("active", OVERFLOW_PAGES.includes(page));
     closeBottomSheet();
   }
   document
-    .querySelectorAll(".topnav-link[data-page], .bottomnav-link[data-page], .bottomnav-sheet-item[data-page]")
+    .querySelectorAll(
+      ".topnav-link[data-page], .bottomnav-link[data-page], .bottomnav-sheet-item[data-page]",
+    )
     .forEach((a) => {
       a.addEventListener("click", (e) => {
         e.preventDefault();
@@ -1183,10 +1192,7 @@
         renderPaletteMain();
       });
       row.querySelector('[data-act="edit"]').addEventListener("click", () => {
-        const next = prompt(
-          t("palette_edit_prompt") || "New HEX value:",
-          hex,
-        );
+        const next = prompt(t("palette_edit_prompt") || "New HEX value:", hex);
         if (next && /^#?[0-9a-fA-F]{6}$/.test(next)) {
           c.hex = next.startsWith("#") ? next : "#" + next;
           persistPalettes();
@@ -1206,7 +1212,10 @@
   function populateShadeSelect(p) {
     const sel = $("shadeColorSelect");
     sel.innerHTML = p.colors
-      .map((c) => `<option value="${safeHex(c.hex)}">${escapeHtml(c.name)} — ${safeHex(c.hex)}</option>`)
+      .map(
+        (c) =>
+          `<option value="${safeHex(c.hex)}">${escapeHtml(c.name)} — ${safeHex(c.hex)}</option>`,
+      )
       .join("");
     if (!activeColorHex || !p.colors.some((c) => c.hex === activeColorHex)) {
       activeColorHex = p.colors[0] ? p.colors[0].hex : "#6497B1";
@@ -1422,9 +1431,13 @@
   document.addEventListener("drop", (e) => {
     if (e.target.closest(imageDropzoneSelector)) return;
     e.preventDefault();
-    const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    const file =
+      e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
     if (file && file.type.startsWith("image/")) {
-      showToast(t("toast_use_image_page") || "Drop images on the Image page to extract colors");
+      showToast(
+        t("toast_use_image_page") ||
+          "Drop images on the Image page to extract colors",
+      );
     }
   });
 })();
