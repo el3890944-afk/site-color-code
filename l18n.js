@@ -1893,17 +1893,237 @@ const I18N = {
     id: "Semua Palet",
     sv: "Alla paletter",
   },
-  palette_filter_fav: { en: "Favorites", fr: "Favoris", ar: "المفضلة", es: "Favoritos", de: "Favoriten", it: "Preferiti", pt: "Favoritos", zh: "收藏夹", ja: "お気に入り", ko: "즐겨찾기", hi: "पसंदीदा", tr: "Favoriler", pl: "Ulubione", nl: "Favorieten", uk: "Обране", vi: "Yêu thích", th: "รายการโปรด", id: "Favorit", sv: "Favoriter" },
-  palette_new: { en: "New Palette", fr: "Nouvelle palette", ar: "لوحة جديدة", es: "Nueva paleta", de: "Neue Palette", it: "Nuova palette", pt: "Nova paleta", zh: "新建调色板", ja: "新しいパレット", ko: "새 팔레트", hi: "नया पैलेट", tr: "Yeni Palet", pl: "Nowa paleta", nl: "Nieuw palet", uk: "Нова палітра", vi: "Bảng màu mới", th: "จานสีใหม่", id: "Palet Baru", sv: "Ny palett" },
-  palette_my_title: { en: "My Palettes", fr: "Mes palettes", ar: "لوحاتي", es: "Mis paletas", de: "Meine Paletten", it: "Le mie palette", pt: "Minhas paletas", zh: "我的调色板", ja: "マイパレット", ko: "내 팔레트", hi: "मेरे पैलेट", tr: "Paletlerim", pl: "Moje palety", nl: "Mijn paletten", uk: "Мої палітри", vi: "Bảng màu của tôi", th: "จานสีของฉัน", id: "Palet Saya", sv: "Mina paletter" },
-  palette_count_word: { en: "palettes", fr: "palettes", ar: "لوحة", es: "paletas", de: "Paletten", it: "palette", pt: "paletas", zh: "个调色板", ja: "パレット", ko: "팔레트", hi: "पैलेट", tr: "palet", pl: "palet", nl: "paletten", uk: "палітр", vi: "bảng màu", th: "จานสี", id: "palet", sv: "paletter" },
-  palette_colors_word: { en: "colors", fr: "couleurs", ar: "لون", es: "colores", de: "Farben", it: "colori", pt: "cores", zh: "种颜色", ja: "色", ko: "색상", hi: "रंग", tr: "renk", pl: "kolorów", nl: "kleuren", uk: "кольорів", vi: "màu", th: "สี", id: "warna", sv: "färger" },
-  palette_created: { en: "Created", fr: "Créée", ar: "أُنشئت", es: "Creada", de: "Erstellt", it: "Creata", pt: "Criada", zh: "创建于", ja: "作成日", ko: "생성됨", hi: "बनाया गया", tr: "Oluşturuldu", pl: "Utworzono", nl: "Gemaakt", uk: "Створено", vi: "Đã tạo", th: "สร้างเมื่อ", id: "Dibuat", sv: "Skapad" },
-  palette_days_ago: { en: "days ago", fr: "il y a jours", ar: "منذ أيام", es: "días atrás", de: "Tagen", it: "giorni fa", pt: "dias atrás", zh: "天前", ja: "日前", ko: "일 전", hi: "दिन पहले", tr: "gün önce", pl: "dni temu", nl: "dagen geleden", uk: "дн. тому", vi: "ngày trước", th: "วันที่แล้ว", id: "hari lalu", sv: "dagar sedan" },
-  palette_delete: { en: "Delete", fr: "Supprimer", ar: "حذف", es: "Eliminar", de: "Löschen", it: "Elimina", pt: "Excluir", zh: "删除", ja: "削除", ko: "삭제", hi: "हटाएं", tr: "Sil", pl: "Usuń", nl: "Verwijderen", uk: "Видалити", vi: "Xóa", th: "ลบ", id: "Hapus", sv: "Ta bort" },
-  palette_tab_colors: { en: "Colors", fr: "Couleurs", ar: "الألوان", es: "Colores", de: "Farben", it: "Colori", pt: "Cores", zh: "颜色", ja: "カラー", ko: "색상", hi: "रंग", tr: "Renkler", pl: "Kolory", nl: "Kleuren", uk: "Кольори", vi: "Màu sắc", th: "สี", id: "Warna", sv: "Färger" },
-  palette_tab_info: { en: "Info", fr: "Infos", ar: "معلومات", es: "Info", de: "Info", it: "Info", pt: "Info", zh: "信息", ja: "情報", ko: "정보", hi: "जानकारी", tr: "Bilgi", pl: "Informacje", nl: "Info", uk: "Інфо", vi: "Thông tin", th: "ข้อมูล", id: "Info", sv: "Info" },
-  palette_add_color: { en: "Add Color", fr: "Ajouter une couleur", ar: "إضافة لون", es: "Añadir color", de: "Farbe hinzufügen", it: "Aggiungi colore", pt: "Adicionar cor", zh: "添加颜色", ja: "色を追加", ko: "색상 추가", hi: "रंग जोड़ें", tr: "Renk Ekle", pl: "Dodaj kolor", nl: "Kleur toevoegen", uk: "Додати колір", vi: "Thêm màu", th: "เพิ่มสี", id: "Tambah Warna", sv: "Lägg till färg" },
+  palette_filter_fav: {
+    en: "Favorites",
+    fr: "Favoris",
+    ar: "المفضلة",
+    es: "Favoritos",
+    de: "Favoriten",
+    it: "Preferiti",
+    pt: "Favoritos",
+    zh: "收藏夹",
+    ja: "お気に入り",
+    ko: "즐겨찾기",
+    hi: "पसंदीदा",
+    tr: "Favoriler",
+    pl: "Ulubione",
+    nl: "Favorieten",
+    uk: "Обране",
+    vi: "Yêu thích",
+    th: "รายการโปรด",
+    id: "Favorit",
+    sv: "Favoriter",
+  },
+  palette_new: {
+    en: "New Palette",
+    fr: "Nouvelle palette",
+    ar: "لوحة جديدة",
+    es: "Nueva paleta",
+    de: "Neue Palette",
+    it: "Nuova palette",
+    pt: "Nova paleta",
+    zh: "新建调色板",
+    ja: "新しいパレット",
+    ko: "새 팔레트",
+    hi: "नया पैलेट",
+    tr: "Yeni Palet",
+    pl: "Nowa paleta",
+    nl: "Nieuw palet",
+    uk: "Нова палітра",
+    vi: "Bảng màu mới",
+    th: "จานสีใหม่",
+    id: "Palet Baru",
+    sv: "Ny palett",
+  },
+  palette_my_title: {
+    en: "My Palettes",
+    fr: "Mes palettes",
+    ar: "لوحاتي",
+    es: "Mis paletas",
+    de: "Meine Paletten",
+    it: "Le mie palette",
+    pt: "Minhas paletas",
+    zh: "我的调色板",
+    ja: "マイパレット",
+    ko: "내 팔레트",
+    hi: "मेरे पैलेट",
+    tr: "Paletlerim",
+    pl: "Moje palety",
+    nl: "Mijn paletten",
+    uk: "Мої палітри",
+    vi: "Bảng màu của tôi",
+    th: "จานสีของฉัน",
+    id: "Palet Saya",
+    sv: "Mina paletter",
+  },
+  palette_count_word: {
+    en: "palettes",
+    fr: "palettes",
+    ar: "لوحة",
+    es: "paletas",
+    de: "Paletten",
+    it: "palette",
+    pt: "paletas",
+    zh: "个调色板",
+    ja: "パレット",
+    ko: "팔레트",
+    hi: "पैलेट",
+    tr: "palet",
+    pl: "palet",
+    nl: "paletten",
+    uk: "палітр",
+    vi: "bảng màu",
+    th: "จานสี",
+    id: "palet",
+    sv: "paletter",
+  },
+  palette_colors_word: {
+    en: "colors",
+    fr: "couleurs",
+    ar: "لون",
+    es: "colores",
+    de: "Farben",
+    it: "colori",
+    pt: "cores",
+    zh: "种颜色",
+    ja: "色",
+    ko: "색상",
+    hi: "रंग",
+    tr: "renk",
+    pl: "kolorów",
+    nl: "kleuren",
+    uk: "кольорів",
+    vi: "màu",
+    th: "สี",
+    id: "warna",
+    sv: "färger",
+  },
+  palette_created: {
+    en: "Created",
+    fr: "Créée",
+    ar: "أُنشئت",
+    es: "Creada",
+    de: "Erstellt",
+    it: "Creata",
+    pt: "Criada",
+    zh: "创建于",
+    ja: "作成日",
+    ko: "생성됨",
+    hi: "बनाया गया",
+    tr: "Oluşturuldu",
+    pl: "Utworzono",
+    nl: "Gemaakt",
+    uk: "Створено",
+    vi: "Đã tạo",
+    th: "สร้างเมื่อ",
+    id: "Dibuat",
+    sv: "Skapad",
+  },
+  palette_days_ago: {
+    en: "days ago",
+    fr: "il y a jours",
+    ar: "منذ أيام",
+    es: "días atrás",
+    de: "Tagen",
+    it: "giorni fa",
+    pt: "dias atrás",
+    zh: "天前",
+    ja: "日前",
+    ko: "일 전",
+    hi: "दिन पहले",
+    tr: "gün önce",
+    pl: "dni temu",
+    nl: "dagen geleden",
+    uk: "дн. тому",
+    vi: "ngày trước",
+    th: "วันที่แล้ว",
+    id: "hari lalu",
+    sv: "dagar sedan",
+  },
+  palette_delete: {
+    en: "Delete",
+    fr: "Supprimer",
+    ar: "حذف",
+    es: "Eliminar",
+    de: "Löschen",
+    it: "Elimina",
+    pt: "Excluir",
+    zh: "删除",
+    ja: "削除",
+    ko: "삭제",
+    hi: "हटाएं",
+    tr: "Sil",
+    pl: "Usuń",
+    nl: "Verwijderen",
+    uk: "Видалити",
+    vi: "Xóa",
+    th: "ลบ",
+    id: "Hapus",
+    sv: "Ta bort",
+  },
+  palette_tab_colors: {
+    en: "Colors",
+    fr: "Couleurs",
+    ar: "الألوان",
+    es: "Colores",
+    de: "Farben",
+    it: "Colori",
+    pt: "Cores",
+    zh: "颜色",
+    ja: "カラー",
+    ko: "색상",
+    hi: "रंग",
+    tr: "Renkler",
+    pl: "Kolory",
+    nl: "Kleuren",
+    uk: "Кольори",
+    vi: "Màu sắc",
+    th: "สี",
+    id: "Warna",
+    sv: "Färger",
+  },
+  palette_tab_info: {
+    en: "Info",
+    fr: "Infos",
+    ar: "معلومات",
+    es: "Info",
+    de: "Info",
+    it: "Info",
+    pt: "Info",
+    zh: "信息",
+    ja: "情報",
+    ko: "정보",
+    hi: "जानकारी",
+    tr: "Bilgi",
+    pl: "Informacje",
+    nl: "Info",
+    uk: "Інфо",
+    vi: "Thông tin",
+    th: "ข้อมูล",
+    id: "Info",
+    sv: "Info",
+  },
+  palette_add_color: {
+    en: "Add Color",
+    fr: "Ajouter une couleur",
+    ar: "إضافة لون",
+    es: "Añadir color",
+    de: "Farbe hinzufügen",
+    it: "Aggiungi colore",
+    pt: "Adicionar cor",
+    zh: "添加颜色",
+    ja: "色を追加",
+    ko: "색상 추가",
+    hi: "रंग जोड़ें",
+    tr: "Renk Ekle",
+    pl: "Dodaj kolor",
+    nl: "Kleur toevoegen",
+    uk: "Додати колір",
+    vi: "Thêm màu",
+    th: "เพิ่มสี",
+    id: "Tambah Warna",
+    sv: "Lägg till färg",
+  },
   palette_drop_hint: {
     en: "or drag & drop colors here",
     fr: "ou glissez-déposez des couleurs ici",
@@ -1923,7 +2143,7 @@ const I18N = {
     vi: "hoặc kéo và thả màu vào đây",
     th: "หรือลากและวางสีที่นี่",
     id: "atau seret & lepas warna di sini",
-    sv: "eller dra och släpp färger här"
+    sv: "eller dra och släpp färger här",
   },
   palette_shades_title: {
     en: "Shades & Tints",
@@ -1946,9 +2166,69 @@ const I18N = {
     id: "Bayangan & Tint",
     sv: "Nyanser & Toner",
   },
-  palette_none_found: { en: "No palettes found", fr: "Aucune palette trouvée", ar: "لم يُعثر على لوحات", es: "No se encontraron paletas", de: "Keine Paletten gefunden", it: "Nessuna palette trovata", pt: "Nenhuma paleta encontrada", zh: "未找到调色板", ja: "パレットが見つかりません", ko: "팔레트를 찾을 수 없습니다", hi: "कोई पैलेट नहीं मिला", tr: "Palet bulunamadı", pl: "Nie znaleziono palet", nl: "Geen paletten gevonden", uk: "Палітри не знайдено", vi: "Không tìm thấy bảng màu", th: "ไม่พบจานสี", id: "Palet tidak ditemukan", sv: "Inga paletter hittades" },
-  palette_edit_prompt: { en: "New HEX value:", fr: "Nouvelle valeur HEX :", ar: "قيمة HEX جديدة:", es: "Nuevo valor HEX:", de: "Neuer HEX-Wert:", it: "Nuovo valore HEX:", pt: "Novo valor HEX:", zh: "新的 HEX 值：", ja: "新しいHEX値：", ko: "새 HEX 값:", hi: "नया HEX मान:", tr: "Yeni HEX değeri:", pl: "Nowa wartość HEX:", nl: "Nieuwe HEX-waarde:", uk: "Нове значення HEX:", vi: "Giá trị HEX mới:", th: "ค่า HEX ใหม่:", id: "Nilai HEX baru:", sv: "Nytt HEX-värde:" },
-  palette_rename_prompt: { en: "Palette name:", fr: "Nom de la palette :", ar: "اسم اللوحة:", es: "Nombre de la paleta:", de: "Palettenname:", it: "Nome palette:", pt: "Nome da paleta:", zh: "调色板名称：", ja: "パレット名：", ko: "팔레트 이름:", hi: "पैलेट का नाम:", tr: "Palet adı:", pl: "Nazwa palety:", nl: "Paletnaam:", uk: "Назва палітри:", vi: "Tên bảng màu:", th: "ชื่อจานสี:", id: "Nama palet:", sv: "Palettnamn:" },
+  palette_none_found: {
+    en: "No palettes found",
+    fr: "Aucune palette trouvée",
+    ar: "لم يُعثر على لوحات",
+    es: "No se encontraron paletas",
+    de: "Keine Paletten gefunden",
+    it: "Nessuna palette trovata",
+    pt: "Nenhuma paleta encontrada",
+    zh: "未找到调色板",
+    ja: "パレットが見つかりません",
+    ko: "팔레트를 찾을 수 없습니다",
+    hi: "कोई पैलेट नहीं मिला",
+    tr: "Palet bulunamadı",
+    pl: "Nie znaleziono palet",
+    nl: "Geen paletten gevonden",
+    uk: "Палітри не знайдено",
+    vi: "Không tìm thấy bảng màu",
+    th: "ไม่พบจานสี",
+    id: "Palet tidak ditemukan",
+    sv: "Inga paletter hittades",
+  },
+  palette_edit_prompt: {
+    en: "New HEX value:",
+    fr: "Nouvelle valeur HEX :",
+    ar: "قيمة HEX جديدة:",
+    es: "Nuevo valor HEX:",
+    de: "Neuer HEX-Wert:",
+    it: "Nuovo valore HEX:",
+    pt: "Novo valor HEX:",
+    zh: "新的 HEX 值：",
+    ja: "新しいHEX値：",
+    ko: "새 HEX 값:",
+    hi: "नया HEX मान:",
+    tr: "Yeni HEX değeri:",
+    pl: "Nowa wartość HEX:",
+    nl: "Nieuwe HEX-waarde:",
+    uk: "Нове значення HEX:",
+    vi: "Giá trị HEX mới:",
+    th: "ค่า HEX ใหม่:",
+    id: "Nilai HEX baru:",
+    sv: "Nytt HEX-värde:",
+  },
+  palette_rename_prompt: {
+    en: "Palette name:",
+    fr: "Nom de la palette :",
+    ar: "اسم اللوحة:",
+    es: "Nombre de la paleta:",
+    de: "Palettenname:",
+    it: "Nome palette:",
+    pt: "Nome da paleta:",
+    zh: "调色板名称：",
+    ja: "パレット名：",
+    ko: "팔레트 이름:",
+    hi: "पैलेट का नाम:",
+    tr: "Palet adı:",
+    pl: "Nazwa palety:",
+    nl: "Paletnaam:",
+    uk: "Назва палітри:",
+    vi: "Tên bảng màu:",
+    th: "ชื่อจานสี:",
+    id: "Nama palet:",
+    sv: "Palettnamn:",
+  },
   palette_cannot_delete_last: {
     en: "Keep at least one palette",
     fr: "Conservez au moins une palette",
@@ -1968,7 +2248,7 @@ const I18N = {
     vi: "Giữ lại ít nhất một bảng màu",
     th: "เก็บจานสีไว้อย่างน้อยหนึ่งอัน",
     id: "Simpan minimal satu palet",
-    sv: "Behåll minst en palett"
+    sv: "Behåll minst en palett",
   },
   palette_delete_confirm: {
     en: "Delete this palette?",
@@ -2054,7 +2334,27 @@ const I18N = {
     id: "Palet dibuat",
     sv: "Palett skapad",
   },
-  toast_color_added: { en: "Color added", fr: "Couleur ajoutée", ar: "تمت إضافة اللون", es: "Color añadido", de: "Farbe hinzugefügt", it: "Colore aggiunto", pt: "Cor adicionada", zh: "已添加颜色", ja: "色を追加しました", ko: "색상이 추가되었습니다", hi: "रंग जोड़ा गया", tr: "Renk eklendi", pl: "Dodano kolor", nl: "Kleur toegevoegd", uk: "Колір додано", vi: "Đã thêm màu", th: "เพิ่มสีแล้ว", id: "Warna ditambahkan", sv: "Färg tillagd" },
+  toast_color_added: {
+    en: "Color added",
+    fr: "Couleur ajoutée",
+    ar: "تمت إضافة اللون",
+    es: "Color añadido",
+    de: "Farbe hinzugefügt",
+    it: "Colore aggiunto",
+    pt: "Cor adicionada",
+    zh: "已添加颜色",
+    ja: "色を追加しました",
+    ko: "색상이 추가되었습니다",
+    hi: "रंग जोड़ा गया",
+    tr: "Renk eklendi",
+    pl: "Dodano kolor",
+    nl: "Kleur toegevoegd",
+    uk: "Колір додано",
+    vi: "Đã thêm màu",
+    th: "เพิ่มสีแล้ว",
+    id: "Warna ditambahkan",
+    sv: "Färg tillagd",
+  },
   toast_palette_link_copied: {
     en: "Palette colors copied to share",
     fr: "Couleurs de la palette copiées pour le partage",
@@ -2074,7 +2374,7 @@ const I18N = {
     vi: "Đã sao chép màu bảng màu để chia sẻ",
     th: "คัดลอกสีจานสีเพื่อแชร์แล้ว",
     id: "Warna palet disalin untuk dibagikan",
-    sv: "Palettfärger kopierade för delning"
+    sv: "Palettfärger kopierade för delning",
   },
 
   /* ---------- Converter page ---------- */
@@ -2120,7 +2420,27 @@ const I18N = {
     id: "Tukar Warna",
     sv: "Byt färger",
   },
-  conv_card1_title: { en: "1. Choose Color", fr: "1. Choisir une couleur", ar: "1. اختر لونًا", es: "1. Elegir color", de: "1. Farbe wählen", it: "1. Scegli colore", pt: "1. Escolher cor", zh: "1. 选择颜色", ja: "1. 色を選択", ko: "1. 색상 선택", hi: "1. रंग चुनें", tr: "1. Renk Seç", pl: "1. Wybierz kolor", nl: "1. Kleur kiezen", uk: "1. Виберіть колір", vi: "1. Chọn màu", th: "1. เลือกสี", id: "1. Pilih Warna", sv: "1. Välj färg" },
+  conv_card1_title: {
+    en: "1. Choose Color",
+    fr: "1. Choisir une couleur",
+    ar: "1. اختر لونًا",
+    es: "1. Elegir color",
+    de: "1. Farbe wählen",
+    it: "1. Scegli colore",
+    pt: "1. Escolher cor",
+    zh: "1. 选择颜色",
+    ja: "1. 色を選択",
+    ko: "1. 색상 선택",
+    hi: "1. रंग चुनें",
+    tr: "1. Renk Seç",
+    pl: "1. Wybierz kolor",
+    nl: "1. Kleur kiezen",
+    uk: "1. Виберіть колір",
+    vi: "1. Chọn màu",
+    th: "1. เลือกสี",
+    id: "1. Pilih Warna",
+    sv: "1. Välj färg",
+  },
   conv_card1_sub: {
     en: "Pick a color to convert",
     fr: "Choisissez une couleur à convertir",
@@ -2140,7 +2460,7 @@ const I18N = {
     vi: "Chọn một màu để chuyển đổi",
     th: "เลือกสีที่จะแปลง",
     id: "Pilih warna untuk dikonversi",
-    sv: "Välj en färg att konvertera"
+    sv: "Välj en färg att konvertera",
   },
   conv_card2_title: {
     en: "2. Convert to",
@@ -2182,7 +2502,7 @@ const I18N = {
     vi: "Chọn định dạng để chuyển đổi màu của bạn",
     th: "เลือกรูปแบบเพื่อแปลงสีของคุณ",
     id: "Pilih format untuk mengonversi warna Anda",
-    sv: "Välj format för att konvertera din färg"
+    sv: "Välj format för att konvertera din färg",
   },
   conv_card3_title: {
     en: "3. Preview",
@@ -2224,7 +2544,7 @@ const I18N = {
     vi: "Xem màu của bạn trông như thế nào",
     th: "ดูว่าสีของคุณมีลักษณะอย่างไร",
     id: "Lihat tampilan warna Anda",
-    sv: "Se hur din färg ser ut"
+    sv: "Se hur din färg ser ut",
   },
   conv_tip_title: {
     en: "Did you know?",
@@ -2266,7 +2586,7 @@ const I18N = {
     vi: "Các mô hình màu khác nhau hữu ích cho các mục đích khác nhau: RGB cho màn hình, CMYK cho in ấn, LAB cho điều chỉnh cảm nhận.",
     th: "โมเดลสีต่างกันมีประโยชน์ต่างกัน: RGB สำหรับหน้าจอ, CMYK สำหรับงานพิมพ์, LAB สำหรับการปรับแต่งการรับรู้สี",
     id: "Model warna berbeda berguna untuk tujuan berbeda: RGB untuk layar, CMYK untuk cetak, LAB untuk penyesuaian persepsi.",
-    sv: "Olika färgmodeller är användbara för olika syften: RGB för skärmar, CMYK för tryck, LAB för perceptuella justeringar."
+    sv: "Olika färgmodeller är användbara för olika syften: RGB för skärmar, CMYK för tryck, LAB för perceptuella justeringar.",
   },
   conv_color_name: {
     en: "Color Name",
@@ -2289,8 +2609,48 @@ const I18N = {
     id: "Nama Warna",
     sv: "Färgnamn",
   },
-  conv_brightness: { en: "Brightness", fr: "Luminosité", ar: "السطوع", es: "Brillo", de: "Helligkeit", it: "Luminosità", pt: "Brilho", zh: "亮度", ja: "明るさ", ko: "밝기", hi: "चमक", tr: "Parlaklık", pl: "Jasność", nl: "Helderheid", uk: "Яскравість", vi: "Độ sáng", th: "ความสว่าง", id: "Kecerahan", sv: "Ljusstyrka" },
-  conv_contrast_white: { en: "Contrast Ratio (White)", fr: "Contraste (blanc)", ar: "التباين (أبيض)", es: "Contraste (blanco)", de: "Kontrast (Weiß)", it: "Contrasto (bianco)", pt: "Contraste (branco)", zh: "对比度（白色）", ja: "コントラスト（白）", ko: "대비 (흰색)", hi: "कंट्रास्ट (सफेद)", tr: "Kontrast (Beyaz)", pl: "Kontrast (biały)", nl: "Contrast (wit)", uk: "Контраст (білий)", vi: "Độ tương phản (trắng)", th: "คอนทราสต์ (ขาว)", id: "Kontras (putih)", sv: "Kontrast (vit)" },
+  conv_brightness: {
+    en: "Brightness",
+    fr: "Luminosité",
+    ar: "السطوع",
+    es: "Brillo",
+    de: "Helligkeit",
+    it: "Luminosità",
+    pt: "Brilho",
+    zh: "亮度",
+    ja: "明るさ",
+    ko: "밝기",
+    hi: "चमक",
+    tr: "Parlaklık",
+    pl: "Jasność",
+    nl: "Helderheid",
+    uk: "Яскравість",
+    vi: "Độ sáng",
+    th: "ความสว่าง",
+    id: "Kecerahan",
+    sv: "Ljusstyrka",
+  },
+  conv_contrast_white: {
+    en: "Contrast Ratio (White)",
+    fr: "Contraste (blanc)",
+    ar: "التباين (أبيض)",
+    es: "Contraste (blanco)",
+    de: "Kontrast (Weiß)",
+    it: "Contrasto (bianco)",
+    pt: "Contraste (branco)",
+    zh: "对比度（白色）",
+    ja: "コントラスト（白）",
+    ko: "대비 (흰색)",
+    hi: "कंट्रास्ट (सफेद)",
+    tr: "Kontrast (Beyaz)",
+    pl: "Kontrast (biały)",
+    nl: "Contrast (wit)",
+    uk: "Контраст (білий)",
+    vi: "Độ tương phản (trắng)",
+    th: "คอนทราสต์ (ขาว)",
+    id: "Kontras (putih)",
+    sv: "Kontrast (vit)",
+  },
   conv_contrast_black: {
     en: "Contrast Ratio (Black)",
     fr: "Contraste (noir)",
@@ -2310,7 +2670,7 @@ const I18N = {
     vi: "Độ tương phản (đen)",
     th: "คอนทราสต์ (ดำ)",
     id: "Kontras (hitam)",
-    sv: "Kontrast (svart)"
+    sv: "Kontrast (svart)",
   },
   conv_harmonies_title: {
     en: "Color Harmonies",
@@ -2333,13 +2693,153 @@ const I18N = {
     id: "Harmoni Warna",
     sv: "Färgharmonier",
   },
-  conv_view_all: { en: "View All", fr: "Tout voir", ar: "عرض الكل", es: "Ver todo", de: "Alle anzeigen", it: "Vedi tutto", pt: "Ver tudo", zh: "查看全部", ja: "すべて表示", ko: "모두 보기", hi: "सभी देखें", tr: "Tümünü Gör", pl: "Zobacz wszystko", nl: "Alles bekijken", uk: "Переглянути все", vi: "Xem tất cả", th: "ดูทั้งหมด", id: "Lihat Semua", sv: "Visa alla" },
-  harmony_complementary: { en: "Complementary", fr: "Complémentaire", ar: "متكامل", es: "Complementario", de: "Komplementär", it: "Complementare", pt: "Complementar", zh: "互补色", ja: "補色", ko: "보색", hi: "पूरक", tr: "Tamamlayıcı", pl: "Dopełniające", nl: "Complementair", uk: "Комплементарна", vi: "Bổ sung", th: "สีตรงข้าม", id: "Komplementer", sv: "Komplementär" },
-  harmony_analogous: { en: "Analogous", fr: "Analogue", ar: "متناظر", es: "Análogo", de: "Analog", it: "Analogo", pt: "Análogo", zh: "类似色", ja: "類似色", ko: "유사색", hi: "समान", tr: "Analog", pl: "Analogiczne", nl: "Analoog", uk: "Аналогова", vi: "Tương tự", th: "สีคล้ายกัน", id: "Analog", sv: "Analog" },
-  harmony_triadic: { en: "Triadic", fr: "Triadique", ar: "ثلاثي", es: "Triádico", de: "Triadisch", it: "Triadico", pt: "Triádico", zh: "三角色", ja: "トライアド", ko: "삼원색", hi: "त्रिकोणीय", tr: "Üçlü", pl: "Triadyczne", nl: "Triadisch", uk: "Тріадна", vi: "Bộ ba", th: "สีสามเส้า", id: "Triadik", sv: "Triadisk" },
-  harmony_tetradic: { en: "Tetradic", fr: "Tétradique", ar: "رباعي", es: "Tetrádico", de: "Tetradisch", it: "Tetradico", pt: "Tetrádico", zh: "四角色", ja: "テトラード", ko: "사원색", hi: "चतुष्कोणीय", tr: "Dörtlü", pl: "Tetradyczne", nl: "Tetradisch", uk: "Тетрадна", vi: "Bộ bốn", th: "สีสี่เส้า", id: "Tetradik", sv: "Tetradisk" },
-  harmony_monochromatic: { en: "Monochromatic", fr: "Monochrome", ar: "أحادي اللون", es: "Monocromático", de: "Monochromatisch", it: "Monocromatico", pt: "Monocromático", zh: "单色", ja: "モノクロマティック", ko: "단색", hi: "एकवर्णी", tr: "Monokromatik", pl: "Monochromatyczne", nl: "Monochroom", uk: "Монохромна", vi: "Đơn sắc", th: "สีเดียว", id: "Monokromatik", sv: "Monokromatisk" },
-  toast_exported_json: { en: "JSON downloaded", fr: "JSON téléchargé", ar: "تم تنزيل JSON", es: "JSON descargado", de: "JSON heruntergeladen", it: "JSON scaricato", pt: "JSON baixado", zh: "JSON 已下载", ja: "JSONをダウンロードしました", ko: "JSON이 다운로드되었습니다", hi: "JSON डाउनलोड हुआ", tr: "JSON indirildi", pl: "Pobrano JSON", nl: "JSON gedownload", uk: "JSON завантажено", vi: "Đã tải xuống JSON", th: "ดาวน์โหลด JSON แล้ว", id: "JSON diunduh", sv: "JSON nedladdad" },
+  conv_view_all: {
+    en: "View All",
+    fr: "Tout voir",
+    ar: "عرض الكل",
+    es: "Ver todo",
+    de: "Alle anzeigen",
+    it: "Vedi tutto",
+    pt: "Ver tudo",
+    zh: "查看全部",
+    ja: "すべて表示",
+    ko: "모두 보기",
+    hi: "सभी देखें",
+    tr: "Tümünü Gör",
+    pl: "Zobacz wszystko",
+    nl: "Alles bekijken",
+    uk: "Переглянути все",
+    vi: "Xem tất cả",
+    th: "ดูทั้งหมด",
+    id: "Lihat Semua",
+    sv: "Visa alla",
+  },
+  harmony_complementary: {
+    en: "Complementary",
+    fr: "Complémentaire",
+    ar: "متكامل",
+    es: "Complementario",
+    de: "Komplementär",
+    it: "Complementare",
+    pt: "Complementar",
+    zh: "互补色",
+    ja: "補色",
+    ko: "보색",
+    hi: "पूरक",
+    tr: "Tamamlayıcı",
+    pl: "Dopełniające",
+    nl: "Complementair",
+    uk: "Комплементарна",
+    vi: "Bổ sung",
+    th: "สีตรงข้าม",
+    id: "Komplementer",
+    sv: "Komplementär",
+  },
+  harmony_analogous: {
+    en: "Analogous",
+    fr: "Analogue",
+    ar: "متناظر",
+    es: "Análogo",
+    de: "Analog",
+    it: "Analogo",
+    pt: "Análogo",
+    zh: "类似色",
+    ja: "類似色",
+    ko: "유사색",
+    hi: "समान",
+    tr: "Analog",
+    pl: "Analogiczne",
+    nl: "Analoog",
+    uk: "Аналогова",
+    vi: "Tương tự",
+    th: "สีคล้ายกัน",
+    id: "Analog",
+    sv: "Analog",
+  },
+  harmony_triadic: {
+    en: "Triadic",
+    fr: "Triadique",
+    ar: "ثلاثي",
+    es: "Triádico",
+    de: "Triadisch",
+    it: "Triadico",
+    pt: "Triádico",
+    zh: "三角色",
+    ja: "トライアド",
+    ko: "삼원색",
+    hi: "त्रिकोणीय",
+    tr: "Üçlü",
+    pl: "Triadyczne",
+    nl: "Triadisch",
+    uk: "Тріадна",
+    vi: "Bộ ba",
+    th: "สีสามเส้า",
+    id: "Triadik",
+    sv: "Triadisk",
+  },
+  harmony_tetradic: {
+    en: "Tetradic",
+    fr: "Tétradique",
+    ar: "رباعي",
+    es: "Tetrádico",
+    de: "Tetradisch",
+    it: "Tetradico",
+    pt: "Tetrádico",
+    zh: "四角色",
+    ja: "テトラード",
+    ko: "사원색",
+    hi: "चतुष्कोणीय",
+    tr: "Dörtlü",
+    pl: "Tetradyczne",
+    nl: "Tetradisch",
+    uk: "Тетрадна",
+    vi: "Bộ bốn",
+    th: "สีสี่เส้า",
+    id: "Tetradik",
+    sv: "Tetradisk",
+  },
+  harmony_monochromatic: {
+    en: "Monochromatic",
+    fr: "Monochrome",
+    ar: "أحادي اللون",
+    es: "Monocromático",
+    de: "Monochromatisch",
+    it: "Monocromatico",
+    pt: "Monocromático",
+    zh: "单色",
+    ja: "モノクロマティック",
+    ko: "단색",
+    hi: "एकवर्णी",
+    tr: "Monokromatik",
+    pl: "Monochromatyczne",
+    nl: "Monochroom",
+    uk: "Монохромна",
+    vi: "Đơn sắc",
+    th: "สีเดียว",
+    id: "Monokromatik",
+    sv: "Monokromatisk",
+  },
+  toast_exported_json: {
+    en: "JSON downloaded",
+    fr: "JSON téléchargé",
+    ar: "تم تنزيل JSON",
+    es: "JSON descargado",
+    de: "JSON heruntergeladen",
+    it: "JSON scaricato",
+    pt: "JSON baixado",
+    zh: "JSON 已下载",
+    ja: "JSONをダウンロードしました",
+    ko: "JSON이 다운로드되었습니다",
+    hi: "JSON डाउनलोड हुआ",
+    tr: "JSON indirildi",
+    pl: "Pobrano JSON",
+    nl: "JSON gedownload",
+    uk: "JSON завантажено",
+    vi: "Đã tải xuống JSON",
+    th: "ดาวน์โหลด JSON แล้ว",
+    id: "JSON diunduh",
+    sv: "JSON nedladdad",
+  },
   toast_exported_css: {
     en: "CSS variable copied",
     fr: "Variable CSS copiée",
@@ -2359,7 +2859,7 @@ const I18N = {
     vi: "Đã sao chép biến CSS",
     th: "คัดลอกตัวแปร CSS แล้ว",
     id: "Variabel CSS disalin",
-    sv: "CSS-variabel kopierad"
+    sv: "CSS-variabel kopierad",
   },
   toast_color_read: {
     en: "Color read from image",
@@ -2402,7 +2902,7 @@ const I18N = {
     vi: "Kiểm tra độ tương phản màu và tuân thủ khả năng truy cập",
     th: "ตรวจสอบคอนทราสต์สีและการปฏิบัติตามมาตรฐานการเข้าถึง",
     id: "Periksa kontras warna dan kepatuhan aksesibilitas",
-    sv: "Kontrollera färgkontrast och tillgänglighetsefterlevnad"
+    sv: "Kontrollera färgkontrast och tillgänglighetsefterlevnad",
   },
   a11y_how_it_works: {
     en: "How it works",
@@ -2423,7 +2923,7 @@ const I18N = {
     vi: "Cách hoạt động",
     th: "วิธีการทำงาน",
     id: "Cara kerja",
-    sv: "Så fungerar det"
+    sv: "Så fungerar det",
   },
   a11y_wcag_guidelines: {
     en: "WCAG Guidelines",
@@ -2444,7 +2944,7 @@ const I18N = {
     vi: "Hướng dẫn WCAG",
     th: "แนวทาง WCAG",
     id: "Panduan WCAG",
-    sv: "WCAG-riktlinjer"
+    sv: "WCAG-riktlinjer",
   },
   a11y_close: {
     en: "Close",
@@ -2465,7 +2965,7 @@ const I18N = {
     vi: "Đóng",
     th: "ปิด",
     id: "Tutup",
-    sv: "Stäng"
+    sv: "Stäng",
   },
   a11y_how_p1: {
     en: "Contrast ratio compares the relative luminance of two colors. It ranges from 1:1 (identical) to 21:1 (black on white).",
@@ -2486,7 +2986,7 @@ const I18N = {
     vi: "Tỷ lệ tương phản so sánh độ sáng tương đối của hai màu, từ 1:1 (giống hệt) đến 21:1 (đen trên trắng).",
     th: "อัตราส่วนคอนทราสต์เปรียบเทียบความสว่างสัมพัทธ์ของสองสี ตั้งแต่ 1:1 (เหมือนกัน) ถึง 21:1 (ดำบนขาว)",
     id: "Rasio kontras membandingkan luminansi relatif dua warna, mulai dari 1:1 (identik) hingga 21:1 (hitam di atas putih).",
-    sv: "Kontrastförhållandet jämför den relativa luminansen hos två färger, från 1:1 (identiska) till 21:1 (svart på vitt)."
+    sv: "Kontrastförhållandet jämför den relativa luminansen hos två färger, från 1:1 (identiska) till 21:1 (svart på vitt).",
   },
   a11y_how_p2: {
     en: "WCAG 2.1 asks for at least 4.5:1 for normal text and 3:1 for large text at level AA. Level AAA raises these to 7:1 and 4.5:1.",
@@ -2507,7 +3007,7 @@ const I18N = {
     vi: "WCAG 2.1 yêu cầu ít nhất 4,5:1 cho văn bản thường và 3:1 cho văn bản lớn ở cấp AA. Cấp AAA nâng lên 7:1 và 4,5:1.",
     th: "WCAG 2.1 กำหนดให้ข้อความปกติมีอัตราส่วนอย่างน้อย 4.5:1 และข้อความขนาดใหญ่ 3:1 ในระดับ AA ระดับ AAA เพิ่มเป็น 7:1 และ 4.5:1",
     id: "WCAG 2.1 mensyaratkan minimal 4.5:1 untuk teks normal dan 3:1 untuk teks besar pada level AA. Level AAA menaikkannya menjadi 7:1 dan 4.5:1.",
-    sv: "WCAG 2.1 kräver minst 4,5:1 för normal text och 3:1 för stor text på nivå AA. Nivå AAA höjer detta till 7:1 och 4,5:1."
+    sv: "WCAG 2.1 kräver minst 4,5:1 för normal text och 3:1 för stor text på nivå AA. Nivå AAA höjer detta till 7:1 och 4,5:1.",
   },
   a11y_how_p3: {
     en: "Large text means 18pt and above, or 14pt bold and above. Icons and interface controls follow the 3:1 threshold.",
@@ -2528,7 +3028,7 @@ const I18N = {
     vi: "Văn bản lớn nghĩa là 18pt trở lên, hoặc 14pt in đậm trở lên. Biểu tượng và điều khiển giao diện tuân theo ngưỡng 3:1.",
     th: "ข้อความขนาดใหญ่หมายถึง 18pt ขึ้นไป หรือ 14pt ตัวหนาขึ้นไป ไอคอนและองค์ประกอบควบคุมใช้เกณฑ์ 3:1",
     id: "Teks besar berarti 18pt ke atas, atau 14pt tebal ke atas. Ikon dan kontrol antarmuka mengikuti ambang batas 3:1.",
-    sv: "Stor text betyder 18pt och större, eller 14pt fetstil och större. Ikoner och gränssnittskontroller följer tröskeln 3:1."
+    sv: "Stor text betyder 18pt och större, eller 14pt fetstil och större. Ikoner och gränssnittskontroller följer tröskeln 3:1.",
   },
   a11y_select_title: {
     en: "Select Colors",
@@ -2549,7 +3049,7 @@ const I18N = {
     vi: "Chọn màu",
     th: "เลือกสี",
     id: "Pilih Warna",
-    sv: "Välj färger"
+    sv: "Välj färger",
   },
   a11y_select_sub: {
     en: "Choose text and background colors to test",
@@ -2570,7 +3070,7 @@ const I18N = {
     vi: "Chọn màu văn bản và nền để kiểm tra",
     th: "เลือกสีข้อความและพื้นหลังเพื่อทดสอบ",
     id: "Pilih warna teks dan latar untuk diuji",
-    sv: "Välj text- och bakgrundsfärger att testa"
+    sv: "Välj text- och bakgrundsfärger att testa",
   },
   a11y_text_color: {
     en: "Text Color",
@@ -2591,7 +3091,7 @@ const I18N = {
     vi: "Màu văn bản",
     th: "สีข้อความ",
     id: "Warna Teks",
-    sv: "Textfärg"
+    sv: "Textfärg",
   },
   a11y_bg_color: {
     en: "Background Color",
@@ -2612,7 +3112,7 @@ const I18N = {
     vi: "Màu nền",
     th: "สีพื้นหลัง",
     id: "Warna Latar",
-    sv: "Bakgrundsfärg"
+    sv: "Bakgrundsfärg",
   },
   a11y_quick_presets: {
     en: "Quick Presets",
@@ -2633,7 +3133,7 @@ const I18N = {
     vi: "Cài đặt sẵn nhanh",
     th: "ค่าที่ตั้งไว้ล่วงหน้าด่วน",
     id: "Preset Cepat",
-    sv: "Snabbförval"
+    sv: "Snabbförval",
   },
   a11y_add_preset: {
     en: "Save current pair as a preset",
@@ -2654,7 +3154,7 @@ const I18N = {
     vi: "Lưu cặp hiện tại làm cài đặt sẵn",
     th: "บันทึกคู่ปัจจุบันเป็นค่าที่ตั้งไว้ล่วงหน้า",
     id: "Simpan pasangan saat ini sebagai preset",
-    sv: "Spara aktuellt par som förval"
+    sv: "Spara aktuellt par som förval",
   },
   a11y_preset_added: {
     en: "Preset saved",
@@ -2675,7 +3175,7 @@ const I18N = {
     vi: "Đã lưu cài đặt sẵn",
     th: "บันทึกค่าที่ตั้งไว้ล่วงหน้าแล้ว",
     id: "Preset disimpan",
-    sv: "Förval sparat"
+    sv: "Förval sparat",
   },
   a11y_preset_exists: {
     en: "This pair is already saved",
@@ -2696,7 +3196,7 @@ const I18N = {
     vi: "Cặp này đã được lưu",
     th: "บันทึกคู่นี้ไว้แล้ว",
     id: "Pasangan ini sudah disimpan",
-    sv: "Detta par är redan sparat"
+    sv: "Detta par är redan sparat",
   },
   a11y_preset_removed: {
     en: "Preset removed",
@@ -2717,7 +3217,7 @@ const I18N = {
     vi: "Đã xóa cài đặt sẵn",
     th: "ลบค่าที่ตั้งไว้ล่วงหน้าแล้ว",
     id: "Preset dihapus",
-    sv: "Förval borttaget"
+    sv: "Förval borttaget",
   },
   a11y_results_title: {
     en: "Results",
@@ -2738,7 +3238,7 @@ const I18N = {
     vi: "Kết quả",
     th: "ผลลัพธ์",
     id: "Hasil",
-    sv: "Resultat"
+    sv: "Resultat",
   },
   a11y_results_sub: {
     en: "Contrast ratio and compliance status",
@@ -2759,7 +3259,7 @@ const I18N = {
     vi: "Tỷ lệ tương phản và trạng thái tuân thủ",
     th: "อัตราส่วนคอนทราสต์และสถานะการปฏิบัติตาม",
     id: "Rasio kontras dan status kepatuhan",
-    sv: "Kontrastförhållande och efterlevnadsstatus"
+    sv: "Kontrastförhållande och efterlevnadsstatus",
   },
   a11y_status_excellent: {
     en: "Excellent Contrast",
@@ -2780,7 +3280,7 @@ const I18N = {
     vi: "Độ tương phản xuất sắc",
     th: "คอนทราสต์ยอดเยี่ยม",
     id: "Kontras Sangat Baik",
-    sv: "Utmärkt kontrast"
+    sv: "Utmärkt kontrast",
   },
   a11y_status_good: {
     en: "Good Contrast",
@@ -2801,7 +3301,7 @@ const I18N = {
     vi: "Độ tương phản tốt",
     th: "คอนทราสต์ดี",
     id: "Kontras Baik",
-    sv: "Bra kontrast"
+    sv: "Bra kontrast",
   },
   a11y_status_limited: {
     en: "Large Text Only",
@@ -2822,7 +3322,7 @@ const I18N = {
     vi: "Chỉ văn bản lớn",
     th: "เฉพาะข้อความขนาดใหญ่",
     id: "Hanya Teks Besar",
-    sv: "Endast stor text"
+    sv: "Endast stor text",
   },
   a11y_status_poor: {
     en: "Low Contrast",
@@ -2843,7 +3343,7 @@ const I18N = {
     vi: "Độ tương phản thấp",
     th: "คอนทราสต์ต่ำ",
     id: "Kontras Rendah",
-    sv: "Låg kontrast"
+    sv: "Låg kontrast",
   },
   a11y_group_aa: {
     en: "WCAG 2.1 AA",
@@ -2864,7 +3364,7 @@ const I18N = {
     vi: "WCAG 2.1 AA",
     th: "WCAG 2.1 AA",
     id: "WCAG 2.1 AA",
-    sv: "WCAG 2.1 AA"
+    sv: "WCAG 2.1 AA",
   },
   a11y_group_aaa: {
     en: "WCAG 2.1 AAA",
@@ -2885,7 +3385,7 @@ const I18N = {
     vi: "WCAG 2.1 AAA",
     th: "WCAG 2.1 AAA",
     id: "WCAG 2.1 AAA",
-    sv: "WCAG 2.1 AAA"
+    sv: "WCAG 2.1 AAA",
   },
   a11y_normal_text: {
     en: "Normal Text",
@@ -2906,7 +3406,7 @@ const I18N = {
     vi: "Văn bản thường",
     th: "ข้อความปกติ",
     id: "Teks Normal",
-    sv: "Normal text"
+    sv: "Normal text",
   },
   a11y_large_text: {
     en: "Large Text",
@@ -2927,7 +3427,7 @@ const I18N = {
     vi: "Văn bản lớn",
     th: "ข้อความขนาดใหญ่",
     id: "Teks Besar",
-    sv: "Stor text"
+    sv: "Stor text",
   },
   a11y_pass: {
     en: "Pass",
@@ -2948,7 +3448,7 @@ const I18N = {
     vi: "Đạt",
     th: "ผ่าน",
     id: "Lolos",
-    sv: "Godkänd"
+    sv: "Godkänd",
   },
   a11y_fail: {
     en: "Fail",
@@ -2969,7 +3469,7 @@ const I18N = {
     vi: "Không đạt",
     th: "ไม่ผ่าน",
     id: "Gagal",
-    sv: "Underkänd"
+    sv: "Underkänd",
   },
   a11y_meaning_title: {
     en: "What this means",
@@ -2990,7 +3490,7 @@ const I18N = {
     vi: "Điều này có nghĩa là gì",
     th: "ความหมายคืออะไร",
     id: "Apa artinya ini",
-    sv: "Vad detta betyder"
+    sv: "Vad detta betyder",
   },
   a11y_meaning_aaa: {
     en: "This color combination meets all WCAG 2.1 AA and AAA standards for text readability.",
@@ -3011,7 +3511,7 @@ const I18N = {
     vi: "Sự kết hợp màu này đáp ứng tất cả các tiêu chuẩn WCAG 2.1 AA và AAA về khả năng đọc văn bản.",
     th: "การผสมสีนี้เป็นไปตามมาตรฐาน WCAG 2.1 ทั้งระดับ AA และ AAA สำหรับการอ่านข้อความ",
     id: "Kombinasi warna ini memenuhi semua standar WCAG 2.1 AA dan AAA untuk keterbacaan teks.",
-    sv: "Denna färgkombination uppfyller alla WCAG 2.1 AA- och AAA-standarder för textläsbarhet."
+    sv: "Denna färgkombination uppfyller alla WCAG 2.1 AA- och AAA-standarder för textläsbarhet.",
   },
   a11y_meaning_aa: {
     en: "This combination meets WCAG 2.1 AA for all text sizes and AAA for large text only.",
@@ -3032,7 +3532,7 @@ const I18N = {
     vi: "Sự kết hợp này đáp ứng WCAG 2.1 AA cho mọi kích thước văn bản và AAA chỉ cho văn bản lớn.",
     th: "การผสมนี้เป็นไปตาม WCAG 2.1 AA สำหรับข้อความทุกขนาด และ AAA เฉพาะข้อความขนาดใหญ่เท่านั้น",
     id: "Kombinasi ini memenuhi WCAG 2.1 AA untuk semua ukuran teks dan AAA hanya untuk teks besar.",
-    sv: "Denna kombination uppfyller WCAG 2.1 AA för alla textstorlekar och AAA endast för stor text."
+    sv: "Denna kombination uppfyller WCAG 2.1 AA för alla textstorlekar och AAA endast för stor text.",
   },
   a11y_meaning_large_only: {
     en: "This combination is only safe for large text (18pt+, or 14pt bold). Increase the difference in lightness for body text.",
@@ -3053,7 +3553,7 @@ const I18N = {
     vi: "Sự kết hợp này chỉ an toàn cho văn bản lớn (18pt+ hoặc 14pt in đậm). Tăng độ chênh lệch độ sáng cho văn bản nội dung.",
     th: "การผสมนี้ปลอดภัยเฉพาะข้อความขนาดใหญ่ (18pt ขึ้นไป หรือ 14pt ตัวหนา) เพิ่มความต่างของความสว่างสำหรับข้อความเนื้อหา",
     id: "Kombinasi ini hanya aman untuk teks besar (18pt+ atau 14pt tebal). Tingkatkan perbedaan kecerahan untuk teks isi.",
-    sv: "Denna kombination är endast säker för stor text (18pt+ eller 14pt fetstil). Öka ljushetsskillnaden för brödtext."
+    sv: "Denna kombination är endast säker för stor text (18pt+ eller 14pt fetstil). Öka ljushetsskillnaden för brödtext.",
   },
   a11y_meaning_fail: {
     en: "This combination fails WCAG 2.1 at every level. Pick a lighter or darker text color before using it.",
@@ -3074,7 +3574,7 @@ const I18N = {
     vi: "Sự kết hợp này không đạt WCAG 2.1 ở mọi cấp độ. Hãy chọn màu văn bản sáng hơn hoặc tối hơn trước khi sử dụng.",
     th: "การผสมนี้ไม่ผ่าน WCAG 2.1 ในทุกระดับ เลือกสีข้อความที่สว่างขึ้นหรือเข้มขึ้นก่อนใช้งาน",
     id: "Kombinasi ini gagal WCAG 2.1 di semua level. Pilih warna teks yang lebih terang atau gelap sebelum menggunakannya.",
-    sv: "Denna kombination misslyckas med WCAG 2.1 på alla nivåer. Välj en ljusare eller mörkare textfärg innan du använder den."
+    sv: "Denna kombination misslyckas med WCAG 2.1 på alla nivåer. Välj en ljusare eller mörkare textfärg innan du använder den.",
   },
   a11y_view_report: {
     en: "View Full Report",
@@ -3095,7 +3595,7 @@ const I18N = {
     vi: "Xem báo cáo đầy đủ",
     th: "ดูรายงานฉบับเต็ม",
     id: "Lihat Laporan Lengkap",
-    sv: "Visa fullständig rapport"
+    sv: "Visa fullständig rapport",
   },
   a11y_copy_report: {
     en: "Copy report",
@@ -3116,7 +3616,7 @@ const I18N = {
     vi: "Sao chép báo cáo",
     th: "คัดลอกรายงาน",
     id: "Salin Laporan",
-    sv: "Kopiera rapport"
+    sv: "Kopiera rapport",
   },
   a11y_report_text: {
     en: "Text color",
@@ -3137,7 +3637,7 @@ const I18N = {
     vi: "Màu văn bản",
     th: "สีข้อความ",
     id: "Warna Teks",
-    sv: "Textfärg"
+    sv: "Textfärg",
   },
   a11y_report_bg: {
     en: "Background color",
@@ -3158,7 +3658,7 @@ const I18N = {
     vi: "Màu nền",
     th: "สีพื้นหลัง",
     id: "Warna Latar",
-    sv: "Bakgrundsfärg"
+    sv: "Bakgrundsfärg",
   },
   a11y_report_ratio: {
     en: "Contrast ratio",
@@ -3179,7 +3679,7 @@ const I18N = {
     vi: "Tỷ lệ tương phản",
     th: "อัตราส่วนคอนทราสต์",
     id: "Rasio Kontras",
-    sv: "Kontrastförhållande"
+    sv: "Kontrastförhållande",
   },
   a11y_report_lum_text: {
     en: "Text luminance",
@@ -3200,7 +3700,7 @@ const I18N = {
     vi: "Độ sáng văn bản",
     th: "ความสว่างข้อความ",
     id: "Luminansi Teks",
-    sv: "Textluminans"
+    sv: "Textluminans",
   },
   a11y_report_lum_bg: {
     en: "Background luminance",
@@ -3221,7 +3721,7 @@ const I18N = {
     vi: "Độ sáng nền",
     th: "ความสว่างพื้นหลัง",
     id: "Luminansi Latar",
-    sv: "Bakgrundsluminans"
+    sv: "Bakgrundsluminans",
   },
   a11y_report_best: {
     en: "Highest level passed",
@@ -3242,7 +3742,7 @@ const I18N = {
     vi: "Cấp độ cao nhất đạt được",
     th: "ระดับสูงสุดที่ผ่าน",
     id: "Level Tertinggi Lolos",
-    sv: "Högsta godkända nivå"
+    sv: "Högsta godkända nivå",
   },
   a11y_sim_title: {
     en: "Color Blindness Simulator",
@@ -3263,7 +3763,7 @@ const I18N = {
     vi: "Trình mô phỏng mù màu",
     th: "เครื่องจำลองตาบอดสี",
     id: "Simulator Buta Warna",
-    sv: "Färgblindhetssimulator"
+    sv: "Färgblindhetssimulator",
   },
   a11y_sim_sub: {
     en: "See how colors appear to different types of color blindness",
@@ -3284,7 +3784,7 @@ const I18N = {
     vi: "Xem màu sắc hiển thị như thế nào với các loại mù màu khác nhau",
     th: "ดูว่าสีปรากฏอย่างไรในภาวะตาบอดสีแต่ละประเภท",
     id: "Lihat bagaimana warna tampak pada berbagai jenis buta warna",
-    sv: "Se hur färger visas vid olika typer av färgblindhet"
+    sv: "Se hur färger visas vid olika typer av färgblindhet",
   },
   a11y_vision_normal: {
     en: "Normal Vision",
@@ -3305,7 +3805,7 @@ const I18N = {
     vi: "Thị lực bình thường",
     th: "การมองเห็นปกติ",
     id: "Penglihatan Normal",
-    sv: "Normal syn"
+    sv: "Normal syn",
   },
   a11y_vision_deuteranopia: {
     en: "Deuteranopia",
@@ -3326,7 +3826,7 @@ const I18N = {
     vi: "Mù màu xanh lá",
     th: "ตาบอดสีเขียว",
     id: "Deuteranopia",
-    sv: "Deuteranopi"
+    sv: "Deuteranopi",
   },
   a11y_vision_protanopia: {
     en: "Protanopia",
@@ -3347,7 +3847,7 @@ const I18N = {
     vi: "Mù màu đỏ",
     th: "ตาบอดสีแดง",
     id: "Protanopia",
-    sv: "Protanopi"
+    sv: "Protanopi",
   },
   a11y_vision_tritanopia: {
     en: "Tritanopia",
@@ -3368,7 +3868,7 @@ const I18N = {
     vi: "Mù màu xanh dương",
     th: "ตาบอดสีน้ำเงิน",
     id: "Tritanopia",
-    sv: "Tritanopi"
+    sv: "Tritanopi",
   },
   a11y_vision_monochromacy: {
     en: "Monochromacy",
@@ -3389,7 +3889,7 @@ const I18N = {
     vi: "Mù toàn màu",
     th: "ตาบอดสีทั้งหมด",
     id: "Monokromasi",
-    sv: "Monokromasi"
+    sv: "Monokromasi",
   },
   a11y_preview_title: {
     en: "Preview",
@@ -3410,7 +3910,7 @@ const I18N = {
     vi: "Xem trước",
     th: "ตัวอย่าง",
     id: "Pratinjau",
-    sv: "Förhandsvisning"
+    sv: "Förhandsvisning",
   },
   a11y_preview_sub: {
     en: "See how your colors look together",
@@ -3431,7 +3931,7 @@ const I18N = {
     vi: "Xem màu của bạn trông như thế nào khi kết hợp",
     th: "ดูว่าสีของคุณดูเป็นอย่างไรเมื่อใช้ร่วมกัน",
     id: "Lihat tampilan warna Anda bersama",
-    sv: "Se hur dina färger ser ut tillsammans"
+    sv: "Se hur dina färger ser ut tillsammans",
   },
   a11y_preview_heading: {
     en: "Large Heading",
@@ -3452,7 +3952,7 @@ const I18N = {
     vi: "Tiêu đề lớn",
     th: "หัวข้อขนาดใหญ่",
     id: "Judul Besar",
-    sv: "Stor rubrik"
+    sv: "Stor rubrik",
   },
   a11y_preview_body: {
     en: "This is a paragraph of text that demonstrates how your selected colors work together for readability.",
@@ -3473,7 +3973,7 @@ const I18N = {
     vi: "Đây là đoạn văn bản minh họa cách các màu bạn chọn kết hợp để tăng khả năng đọc.",
     th: "นี่คือย่อหน้าข้อความที่แสดงให้เห็นว่าสีที่คุณเลือกทำงานร่วมกันอย่างไรเพื่อการอ่านที่ดี",
     id: "Ini adalah paragraf teks yang menunjukkan bagaimana warna pilihan Anda bekerja sama untuk keterbacaan.",
-    sv: "Detta är ett textstycke som visar hur dina valda färger fungerar tillsammans för läsbarhet."
+    sv: "Detta är ett textstycke som visar hur dina valda färger fungerar tillsammans för läsbarhet.",
   },
   a11y_preview_link: {
     en: "Link Example",
@@ -3494,7 +3994,7 @@ const I18N = {
     vi: "Ví dụ liên kết",
     th: "ตัวอย่างลิงก์",
     id: "Contoh Tautan",
-    sv: "Länkexempel"
+    sv: "Länkexempel",
   },
   a11y_preview_caption: {
     en: "The quick brown fox jumps over the lazy dog.",
@@ -3515,7 +4015,7 @@ const I18N = {
     vi: "Cô bé quàng khăn đỏ đi qua rừng gặp sói.",
     th: "เป็นมนุษย์สุดประเสริฐเลิศคุณค่า กว่าบรรดาฝูงสัตว์เดรัจฉาน",
     id: "Muharram yang baru saja lewat mengingatkan kita akan pentingnya sejarah.",
-    sv: "Flygande bäckasiner söka hwila på mjuka tuvor."
+    sv: "Flygande bäckasiner söka hwila på mjuka tuvor.",
   },
   a11y_preview_caption_sim: {
     en: "Preview shown as seen with",
@@ -3536,7 +4036,7 @@ const I18N = {
     vi: "Xem trước hiển thị như được nhìn thấy với",
     th: "แสดงตัวอย่างตามที่เห็นด้วย",
     id: "Pratinjau ditampilkan seperti terlihat dengan",
-    sv: "Förhandsvisning visad som den ses med"
+    sv: "Förhandsvisning visad som den ses med",
   },
   a11y_suggest_title: {
     en: "Color Suggestions",
@@ -3557,7 +4057,7 @@ const I18N = {
     vi: "Gợi ý màu sắc",
     th: "ข้อเสนอแนะสี",
     id: "Saran Warna",
-    sv: "Färgförslag"
+    sv: "Färgförslag",
   },
   a11y_suggest_sub: {
     en: "Accessible alternatives for your color combination",
@@ -3578,7 +4078,7 @@ const I18N = {
     vi: "Các lựa chọn thay thế dễ tiếp cận cho sự kết hợp màu của bạn",
     th: "ทางเลือกที่เข้าถึงได้สำหรับการผสมสีของคุณ",
     id: "Alternatif yang mudah diakses untuk kombinasi warna Anda",
-    sv: "Tillgängliga alternativ för din färgkombination"
+    sv: "Tillgängliga alternativ för din färgkombination",
   },
   a11y_generate_more: {
     en: "Generate More",
@@ -3599,7 +4099,7 @@ const I18N = {
     vi: "Tạo thêm",
     th: "สร้างเพิ่มเติม",
     id: "Buat Lagi",
-    sv: "Generera fler"
+    sv: "Generera fler",
   },
   a11y_apply_suggestion: {
     en: "Use as text color",
@@ -3620,7 +4120,7 @@ const I18N = {
     vi: "Dùng làm màu văn bản",
     th: "ใช้เป็นสีข้อความ",
     id: "Gunakan sebagai warna teks",
-    sv: "Använd som textfärg"
+    sv: "Använd som textfärg",
   },
   a11y_suggestion_applied: {
     en: "Text color updated",
@@ -3641,7 +4141,7 @@ const I18N = {
     vi: "Đã cập nhật màu văn bản",
     th: "อัปเดตสีข้อความแล้ว",
     id: "Warna teks diperbarui",
-    sv: "Textfärg uppdaterad"
+    sv: "Textfärg uppdaterad",
   },
   a11y_no_suggestions: {
     en: "No accessible alternatives found for this background.",
@@ -3662,7 +4162,7 @@ const I18N = {
     vi: "Không tìm thấy lựa chọn thay thế dễ tiếp cận cho nền này.",
     th: "ไม่พบทางเลือกที่เข้าถึงได้สำหรับพื้นหลังนี้",
     id: "Tidak ada alternatif yang mudah diakses untuk latar ini.",
-    sv: "Inga tillgängliga alternativ hittades för denna bakgrund."
+    sv: "Inga tillgängliga alternativ hittades för denna bakgrund.",
   },
   /* ---------- Ключи, найденные отсутствующими (баг с сырым текстом) ---------- */
   clear_all: {
@@ -3792,6 +4292,175 @@ const I18N = {
     id: "Unduh File",
     sv: "Ladda ner fil",
   },
+  /* ---------- PWA: приложение и уведомления ---------- */
+  res_app_title: {
+    en: "App & Offline",
+    es: "App y sin conexión",
+    fr: "Application et hors ligne",
+    de: "App & Offline",
+    it: "App e offline",
+    pt: "App e offline",
+    zh: "应用与离线",
+    ja: "アプリとオフライン",
+    ko: "앱 및 오프라인",
+    ar: "التطبيق ووضع عدم الاتصال",
+    hi: "ऐप और ऑफ़लाइन",
+    tr: "Uygulama ve Çevrimdışı",
+    pl: "Aplikacja i offline",
+    nl: "App & offline",
+    uk: "Застосунок і офлайн",
+    vi: "Ứng dụng & Ngoại tuyến",
+    th: "แอปและออฟไลน์",
+    id: "Aplikasi & Offline",
+    sv: "App & offline",
+  },
+  res_app_desc: {
+    en: "Install this site as an app and enable reminders.",
+    es: "Instala este sitio como app y activa los recordatorios.",
+    fr: "Installez ce site comme application et activez les rappels.",
+    de: "Installieren Sie diese Website als App und aktivieren Sie Erinnerungen.",
+    it: "Installa questo sito come app e attiva i promemoria.",
+    pt: "Instale este site como aplicativo e ative os lembretes.",
+    zh: "将此网站安装为应用并启用提醒。",
+    ja: "このサイトをアプリとしてインストールし、リマインダーを有効にします。",
+    ko: "이 사이트를 앱으로 설치하고 알림을 활성화하세요.",
+    ar: "ثبّت هذا الموقع كتطبيق وفعّل التذكيرات.",
+    hi: "इस साइट को ऐप के रूप में इंस्टॉल करें और रिमाइंडर सक्षम करें।",
+    tr: "Bu siteyi uygulama olarak yükleyin ve hatırlatıcıları etkinleştirin.",
+    pl: "Zainstaluj tę stronę jako aplikację i włącz przypomnienia.",
+    nl: "Installeer deze site als app en schakel herinneringen in.",
+    uk: "Встановіть цей сайт як застосунок і увімкніть нагадування.",
+    vi: "Cài đặt trang này như một ứng dụng và bật lời nhắc.",
+    th: "ติดตั้งไซต์นี้เป็นแอปและเปิดใช้งานการแจ้งเตือน",
+    id: "Instal situs ini sebagai aplikasi dan aktifkan pengingat.",
+    sv: "Installera denna webbplats som en app och aktivera påminnelser.",
+  },
+  res_app_install: {
+    en: "Install App",
+    es: "Instalar app",
+    fr: "Installer l'application",
+    de: "App installieren",
+    it: "Installa app",
+    pt: "Instalar aplicativo",
+    zh: "安装应用",
+    ja: "アプリをインストール",
+    ko: "앱 설치",
+    ar: "تثبيت التطبيق",
+    hi: "ऐप इंस्टॉल करें",
+    tr: "Uygulamayı Yükle",
+    pl: "Zainstaluj aplikację",
+    nl: "App installeren",
+    uk: "Встановити застосунок",
+    vi: "Cài đặt ứng dụng",
+    th: "ติดตั้งแอป",
+    id: "Instal Aplikasi",
+    sv: "Installera app",
+  },
+  res_app_notify: {
+    en: "Enable Notifications",
+    es: "Activar notificaciones",
+    fr: "Activer les notifications",
+    de: "Benachrichtigungen aktivieren",
+    it: "Attiva notifiche",
+    pt: "Ativar notificações",
+    zh: "启用通知",
+    ja: "通知を有効にする",
+    ko: "알림 활성화",
+    ar: "تفعيل الإشعارات",
+    hi: "सूचनाएं सक्षम करें",
+    tr: "Bildirimleri Etkinleştir",
+    pl: "Włącz powiadomienia",
+    nl: "Meldingen inschakelen",
+    uk: "Увімкнути сповіщення",
+    vi: "Bật thông báo",
+    th: "เปิดใช้งานการแจ้งเตือน",
+    id: "Aktifkan Notifikasi",
+    sv: "Aktivera aviseringar",
+  },
+  res_app_notify_unsupported: {
+    en: "Notifications are not supported in this browser.",
+    es: "Las notificaciones no son compatibles con este navegador.",
+    fr: "Les notifications ne sont pas prises en charge par ce navigateur.",
+    de: "Benachrichtigungen werden von diesem Browser nicht unterstützt.",
+    it: "Le notifiche non sono supportate in questo browser.",
+    pt: "As notificações não são compatíveis com este navegador.",
+    zh: "此浏览器不支持通知。",
+    ja: "このブラウザは通知に対応していません。",
+    ko: "이 브라우저에서는 알림이 지원되지 않습니다.",
+    ar: "الإشعارات غير مدعومة في هذا المتصفح.",
+    hi: "इस ब्राउज़र में सूचनाएं समर्थित नहीं हैं।",
+    tr: "Bu tarayıcıda bildirimler desteklenmiyor.",
+    pl: "Powiadomienia nie są obsługiwane w tej przeglądarce.",
+    nl: "Meldingen worden niet ondersteund in deze browser.",
+    uk: "Сповіщення не підтримуються в цьому браузері.",
+    vi: "Trình duyệt này không hỗ trợ thông báo.",
+    th: "เบราว์เซอร์นี้ไม่รองรับการแจ้งเตือน",
+    id: "Notifikasi tidak didukung di browser ini.",
+    sv: "Aviseringar stöds inte i denna webbläsare.",
+  },
+  res_app_notify_on: {
+    en: "Notifications are enabled.",
+    es: "Las notificaciones están activadas.",
+    fr: "Les notifications sont activées.",
+    de: "Benachrichtigungen sind aktiviert.",
+    it: "Le notifiche sono attive.",
+    pt: "As notificações estão ativadas.",
+    zh: "通知已启用。",
+    ja: "通知は有効です。",
+    ko: "알림이 활성화되었습니다.",
+    ar: "الإشعارات مفعّلة.",
+    hi: "सूचनाएं सक्षम हैं।",
+    tr: "Bildirimler etkin.",
+    pl: "Powiadomienia są włączone.",
+    nl: "Meldingen zijn ingeschakeld.",
+    uk: "Сповіщення увімкнено.",
+    vi: "Đã bật thông báo.",
+    th: "เปิดใช้งานการแจ้งเตือนแล้ว",
+    id: "Notifikasi diaktifkan.",
+    sv: "Aviseringar är aktiverade.",
+  },
+  res_app_notify_blocked: {
+    en: "Notifications are blocked in your browser settings.",
+    es: "Las notificaciones están bloqueadas en la configuración de tu navegador.",
+    fr: "Les notifications sont bloquées dans les paramètres de votre navigateur.",
+    de: "Benachrichtigungen sind in Ihren Browsereinstellungen blockiert.",
+    it: "Le notifiche sono bloccate nelle impostazioni del browser.",
+    pt: "As notificações estão bloqueadas nas configurações do navegador.",
+    zh: "通知已在浏览器设置中被阻止。",
+    ja: "通知はブラウザの設定でブロックされています。",
+    ko: "브라우저 설정에서 알림이 차단되었습니다.",
+    ar: "الإشعارات محظورة في إعدادات متصفحك.",
+    hi: "आपके ब्राउज़र सेटिंग्स में सूचनाएं अवरुद्ध हैं।",
+    tr: "Bildirimler tarayıcı ayarlarınızda engellenmiş.",
+    pl: "Powiadomienia są zablokowane w ustawieniach przeglądarki.",
+    nl: "Meldingen zijn geblokkeerd in je browserinstellingen.",
+    uk: "Сповіщення заблоковано в налаштуваннях браузера.",
+    vi: "Thông báo bị chặn trong cài đặt trình duyệt của bạn.",
+    th: "การแจ้งเตือนถูกบล็อกในการตั้งค่าเบราว์เซอร์ของคุณ",
+    id: "Notifikasi diblokir di pengaturan browser Anda.",
+    sv: "Aviseringar är blockerade i dina webbläsarinställningar.",
+  },
+  res_app_notify_welcome: {
+    en: "You'll now get reminders here.",
+    es: "Ahora recibirás recordatorios aquí.",
+    fr: "Vous recevrez désormais des rappels ici.",
+    de: "Sie erhalten jetzt hier Erinnerungen.",
+    it: "Ora riceverai promemoria qui.",
+    pt: "Agora você receberá lembretes aqui.",
+    zh: "您现在将在此处收到提醒。",
+    ja: "これからここにリマインダーが届きます。",
+    ko: "이제 여기서 알림을 받게 됩니다.",
+    ar: "ستصلك التذكيرات هنا الآن.",
+    hi: "अब आपको यहां रिमाइंडर मिलेंगे।",
+    tr: "Artık buradan hatırlatıcılar alacaksınız.",
+    pl: "Będziesz teraz otrzymywać tu przypomnienia.",
+    nl: "Je ontvangt hier voortaan herinneringen.",
+    uk: "Тепер ви отримуватимете тут нагадування.",
+    vi: "Bây giờ bạn sẽ nhận được lời nhắc tại đây.",
+    th: "ตอนนี้คุณจะได้รับการแจ้งเตือนที่นี่",
+    id: "Anda sekarang akan menerima pengingat di sini.",
+    sv: "Du får nu påminnelser här.",
+  },
   toast_copy_failed: {
     en: "Copy failed",
     fr: "Échec de la copie",
@@ -3834,7 +4503,7 @@ const I18N = {
     vi: "Sao chép thất bại",
     th: "คัดลอกล้มเหลว",
     id: "Salin gagal",
-    sv: "Kopiering misslyckades"
+    sv: "Kopiering misslyckades",
   },
   res_search_placeholder: {
     en: "Search resources...",
@@ -3855,7 +4524,7 @@ const I18N = {
     vi: "Tìm kiếm tài nguyên...",
     th: "ค้นหาแหล่งข้อมูล...",
     id: "Cari sumber daya...",
-    sv: "Sök resurser..."
+    sv: "Sök resurser...",
   },
   res_empty: {
     en: "Nothing matches your search.",
@@ -3876,7 +4545,7 @@ const I18N = {
     vi: "Không có gì khớp với tìm kiếm của bạn.",
     th: "ไม่มีสิ่งใดตรงกับการค้นหาของคุณ",
     id: "Tidak ada yang cocok dengan pencarian Anda.",
-    sv: "Inget matchar din sökning."
+    sv: "Inget matchar din sökning.",
   },
   res_more_soon: {
     en: "This section is still in the works",
@@ -3897,7 +4566,7 @@ const I18N = {
     vi: "Phần này vẫn đang được xây dựng",
     th: "ส่วนนี้ยังอยู่ระหว่างดำเนินการ",
     id: "Bagian ini masih dalam pengerjaan",
-    sv: "Detta avsnitt är fortfarande under arbete"
+    sv: "Detta avsnitt är fortfarande under arbete",
   },
   res_badge_new: {
     en: "New",
@@ -3918,7 +4587,7 @@ const I18N = {
     vi: "Mới",
     th: "ใหม่",
     id: "Baru",
-    sv: "Nytt"
+    sv: "Nytt",
   },
   res_guides_title: {
     en: "Guides & Articles",
@@ -3939,7 +4608,7 @@ const I18N = {
     vi: "Hướng dẫn & Bài viết",
     th: "คู่มือและบทความ",
     id: "Panduan & Artikel",
-    sv: "Guider & artiklar"
+    sv: "Guider & artiklar",
   },
   res_guides_desc: {
     en: "In-depth guides and best practices for working with color.",
@@ -3960,7 +4629,7 @@ const I18N = {
     vi: "Hướng dẫn chuyên sâu và các phương pháp tốt nhất khi làm việc với màu sắc.",
     th: "คู่มือเชิงลึกและแนวปฏิบัติที่ดีที่สุดในการทำงานกับสี",
     id: "Panduan mendalam dan praktik terbaik untuk bekerja dengan warna.",
-    sv: "Djupgående guider och bästa praxis för att arbeta med färg."
+    sv: "Djupgående guider och bästa praxis för att arbeta med färg.",
   },
   res_view_all_guides: {
     en: "View all guides",
@@ -3981,7 +4650,7 @@ const I18N = {
     vi: "Xem tất cả hướng dẫn",
     th: "ดูคู่มือทั้งหมด",
     id: "Lihat semua panduan",
-    sv: "Visa alla guider"
+    sv: "Visa alla guider",
   },
   res_guide_theory: {
     en: "Color Theory Basics",
@@ -4002,7 +4671,7 @@ const I18N = {
     vi: "Kiến thức cơ bản về lý thuyết màu sắc",
     th: "พื้นฐานทฤษฎีสี",
     id: "Dasar-dasar Teori Warna",
-    sv: "Grunderna i färgteori"
+    sv: "Grunderna i färgteori",
   },
   res_guide_theory_sub: {
     en: "Understand hue, saturation, and more",
@@ -4023,7 +4692,7 @@ const I18N = {
     vi: "Hiểu về sắc độ, độ bão hòa và hơn thế nữa",
     th: "ทำความเข้าใจเฉดสี ความอิ่มตัว และอื่นๆ",
     id: "Pahami rona, saturasi, dan lainnya",
-    sv: "Förstå nyans, mättnad och mer"
+    sv: "Förstå nyans, mättnad och mer",
   },
   res_guide_theory_body: {
     en: "Every color can be described by three properties: hue (its position on the color wheel), saturation (how vivid it is), and lightness (how much white or black it contains). Working in HSL instead of HEX makes it much easier to build a palette, because you can hold the hue steady and change only lightness to get a consistent set of shades.",
@@ -4044,7 +4713,7 @@ const I18N = {
     vi: "Mỗi màu có thể được mô tả bằng ba thuộc tính: sắc độ (vị trí trên bánh xe màu), độ bão hòa (mức độ rực rỡ) và độ sáng (lượng trắng hoặc đen chứa trong đó). Làm việc với HSL thay vì HEX giúp việc xây dựng bảng màu dễ dàng hơn nhiều, vì bạn có thể giữ nguyên sắc độ và chỉ thay đổi độ sáng để có một bộ sắc thái nhất quán.",
     th: "ทุกสีสามารถอธิบายได้ด้วยสามคุณสมบัติ: เฉดสี (ตำแหน่งบนวงล้อสี) ความอิ่มตัว (ความสดของสี) และความสว่าง (ปริมาณสีขาวหรือดำที่มี) การทำงานด้วย HSL แทน HEX ทำให้สร้างจานสีง่ายขึ้นมาก เพราะคุณสามารถตรึงเฉดสีไว้และเปลี่ยนเฉพาะความสว่างเพื่อให้ได้ชุดโทนสีที่สอดคล้องกัน",
     id: "Setiap warna dapat dijelaskan dengan tiga properti: rona (posisinya pada roda warna), saturasi (seberapa cerah), dan kecerahan (seberapa banyak putih atau hitam yang dikandungnya). Bekerja dengan HSL alih-alih HEX membuat pembuatan palet jauh lebih mudah, karena Anda dapat menjaga rona tetap stabil dan hanya mengubah kecerahan untuk mendapatkan rangkaian corak yang konsisten.",
-    sv: "Varje färg kan beskrivas med tre egenskaper: nyans (dess position på färghjulet), mättnad (hur levande den är) och ljushet (hur mycket vitt eller svart den innehåller). Att arbeta i HSL istället för HEX gör det mycket enklare att bygga en palett, eftersom du kan hålla nyansen konstant och bara ändra ljusheten för att få en konsekvent uppsättning nyanser."
+    sv: "Varje färg kan beskrivas med tre egenskaper: nyans (dess position på färghjulet), mättnad (hur levande den är) och ljushet (hur mycket vitt eller svart den innehåller). Att arbeta i HSL istället för HEX gör det mycket enklare att bygga en palett, eftersom du kan hålla nyansen konstant och bara ändra ljusheten för att få en konsekvent uppsättning nyanser.",
   },
   res_guide_a11y: {
     en: "How to Use Color Accessibility",
@@ -4065,7 +4734,7 @@ const I18N = {
     vi: "Cách sử dụng khả năng truy cập màu sắc",
     th: "วิธีใช้การเข้าถึงสี",
     id: "Cara Menggunakan Aksesibilitas Warna",
-    sv: "Så använder du färgtillgänglighet"
+    sv: "Så använder du färgtillgänglighet",
   },
   res_guide_a11y_sub: {
     en: "Build inclusive and accessible designs",
@@ -4086,7 +4755,7 @@ const I18N = {
     vi: "Xây dựng thiết kế toàn diện và dễ tiếp cận",
     th: "สร้างการออกแบบที่ครอบคลุมและเข้าถึงได้",
     id: "Bangun desain yang inklusif dan mudah diakses",
-    sv: "Bygg inkluderande och tillgängliga designer"
+    sv: "Bygg inkluderande och tillgängliga designer",
   },
   res_guide_a11y_body: {
     en: "Color alone should never carry meaning: pair it with text, icons or patterns so the message survives for people who cannot distinguish certain hues. Check every text and background pair against WCAG on the Accessibility page, and remember that interface controls and icons need at least 3:1 against their surroundings.",
@@ -4107,7 +4776,7 @@ const I18N = {
     vi: "Màu sắc một mình không bao giờ nên mang ý nghĩa: hãy kết hợp nó với văn bản, biểu tượng hoặc hoa văn để thông điệp vẫn truyền tải được cho những người không phân biệt được một số sắc độ. Kiểm tra từng cặp văn bản và nền theo WCAG trên trang Khả năng truy cập, và nhớ rằng các điều khiển giao diện và biểu tượng cần ít nhất 3:1 so với môi trường xung quanh.",
     th: "สีเพียงอย่างเดียวไม่ควรสื่อความหมาย ควรจับคู่กับข้อความ ไอคอน หรือลวดลาย เพื่อให้ข้อความยังสื่อถึงคนที่แยกแยะเฉดสีบางอย่างไม่ได้ ตรวจสอบคู่ข้อความและพื้นหลังทุกคู่ตาม WCAG ที่หน้าการเข้าถึง และจำไว้ว่าองค์ประกอบควบคุมและไอคอนต้องมีอัตราส่วนอย่างน้อย 3:1 เทียบกับสภาพแวดล้อม",
     id: "Warna saja tidak boleh membawa makna: padukan dengan teks, ikon, atau pola agar pesan tetap tersampaikan bagi orang yang tidak dapat membedakan rona tertentu. Periksa setiap pasangan teks dan latar dengan WCAG di halaman Aksesibilitas, dan ingat bahwa kontrol antarmuka dan ikon memerlukan setidaknya 3:1 terhadap sekitarnya.",
-    sv: "Färg ensam bör aldrig bära betydelse: kombinera den med text, ikoner eller mönster så att budskapet når fram även till dem som inte kan skilja vissa nyanser åt. Kontrollera varje text- och bakgrundspar mot WCAG på Tillgänglighetssidan, och kom ihåg att gränssnittskontroller och ikoner behöver minst 3:1 mot sin omgivning."
+    sv: "Färg ensam bör aldrig bära betydelse: kombinera den med text, ikoner eller mönster så att budskapet når fram även till dem som inte kan skilja vissa nyanser åt. Kontrollera varje text- och bakgrundspar mot WCAG på Tillgänglighetssidan, och kom ihåg att gränssnittskontroller och ikoner behöver minst 3:1 mot sin omgivning.",
   },
   res_guide_palettes: {
     en: "Choosing Better Color Palettes",
@@ -4128,7 +4797,7 @@ const I18N = {
     vi: "Chọn bảng màu tốt hơn",
     th: "การเลือกจานสีที่ดีกว่า",
     id: "Memilih Palet Warna yang Lebih Baik",
-    sv: "Att välja bättre färgpaletter"
+    sv: "Att välja bättre färgpaletter",
   },
   res_guide_palettes_sub: {
     en: "Tips for creating beautiful color schemes",
@@ -4149,7 +4818,7 @@ const I18N = {
     vi: "Mẹo tạo bảng phối màu đẹp",
     th: "เคล็ดลับการสร้างชุดสีที่สวยงาม",
     id: "Kiat membuat skema warna yang indah",
-    sv: "Tips för att skapa vackra färgscheman"
+    sv: "Tips för att skapa vackra färgscheman",
   },
   res_guide_palettes_body: {
     en: "Start from one base color and derive the rest: a complementary hue for accents, two or three neutrals for surfaces, and a spread of lightness steps for states. Keep the number of saturated colors small — most of the interface should be neutral, with saturation reserved for the elements you actually want people to notice.",
@@ -4170,7 +4839,7 @@ const I18N = {
     vi: "Bắt đầu từ một màu cơ bản và suy ra phần còn lại: một sắc độ bổ sung cho điểm nhấn, hai hoặc ba màu trung tính cho bề mặt, và một dải mức độ sáng cho các trạng thái. Giữ số lượng màu bão hòa ít — phần lớn giao diện nên trung tính, độ bão hòa dành riêng cho những yếu tố bạn thực sự muốn người dùng chú ý.",
     th: "เริ่มจากสีพื้นฐานหนึ่งสีแล้วสร้างสีอื่นๆ ต่อ: เฉดสีตรงข้ามสำหรับจุดเน้น สีกลางสองหรือสามสีสำหรับพื้นผิว และช่วงระดับความสว่างสำหรับสถานะต่างๆ จำกัดจำนวนสีที่อิ่มตัวให้น้อย ส่วนใหญ่ของอินเทอร์เฟซควรเป็นสีกลาง โดยเก็บความอิ่มตัวไว้สำหรับองค์ประกอบที่ต้องการให้โดดเด่นจริงๆ",
     id: "Mulailah dengan satu warna dasar dan turunkan sisanya: satu rona komplementer untuk aksen, dua atau tiga warna netral untuk permukaan, dan rentang tingkat kecerahan untuk status. Jaga agar jumlah warna jenuh tetap sedikit — sebagian besar antarmuka harus netral, dengan saturasi disediakan untuk elemen yang benar-benar ingin Anda tonjolkan.",
-    sv: "Börja med en basfärg och härled resten: en komplementär nyans för accenter, två eller tre neutrala färger för ytor och ett spann av ljushetsnivåer för tillstånd. Håll antalet mättade färger lågt — större delen av gränssnittet bör vara neutralt, med mättnad reserverad för element du verkligen vill att folk ska lägga märke till."
+    sv: "Börja med en basfärg och härled resten: en komplementär nyans för accenter, två eller tre neutrala färger för ytor och ett spann av ljushetsnivåer för tillstånd. Håll antalet mättade färger lågt — större delen av gränssnittet bör vara neutralt, med mättnad reserverad för element du verkligen vill att folk ska lägga märke till.",
   },
   res_guide_gradients: {
     en: "Working with Gradients",
@@ -4191,7 +4860,7 @@ const I18N = {
     vi: "Làm việc với gradient",
     th: "การทำงานกับไล่เฉดสี",
     id: "Bekerja dengan Gradien",
-    sv: "Att arbeta med toningar"
+    sv: "Att arbeta med toningar",
   },
   res_guide_gradients_sub: {
     en: "Create smooth and dynamic gradients",
@@ -4212,7 +4881,7 @@ const I18N = {
     vi: "Tạo gradient mượt mà và sống động",
     th: "สร้างไล่เฉดสีที่ราบรื่นและมีชีวิตชีวา",
     id: "Buat gradien yang halus dan dinamis",
-    sv: "Skapa mjuka och dynamiska toningar"
+    sv: "Skapa mjuka och dynamiska toningar",
   },
   res_guide_gradients_body: {
     en: "Gradients between colors far apart on the wheel pass through muddy midpoints. Keep the hue distance short, or add an intermediate stop that stays saturated. Interpolating in a perceptual space such as OKLCH gives noticeably cleaner results than plain sRGB, especially for long transitions across a large surface.",
@@ -4233,7 +4902,7 @@ const I18N = {
     vi: "Gradient giữa các màu cách xa nhau trên bánh xe màu đi qua các điểm giữa bị đục. Giữ khoảng cách sắc độ ngắn, hoặc thêm một điểm dừng trung gian vẫn giữ độ bão hòa. Nội suy trong không gian cảm nhận như OKLCH cho kết quả rõ ràng sạch hơn so với sRGB thông thường, đặc biệt với các chuyển tiếp dài trên bề mặt lớn.",
     th: "ไล่เฉดสีระหว่างสีที่ห่างกันมากบนวงล้อจะผ่านจุดกึ่งกลางที่ขุ่นมัว รักษาระยะห่างของเฉดสีให้สั้น หรือเพิ่มจุดหยุดกลางที่ยังคงความอิ่มตัว การประมาณค่าในพื้นที่การรับรู้อย่าง OKLCH ให้ผลลัพธ์ที่สะอาดกว่า sRGB ทั่วไปอย่างเห็นได้ชัด โดยเฉพาะการไล่เฉดยาวบนพื้นที่ขนาดใหญ่",
     id: "Gradien antara warna yang berjauhan pada roda melewati titik tengah yang keruh. Jaga jarak rona tetap pendek, atau tambahkan pemberhentian tengah yang tetap jenuh. Interpolasi dalam ruang persepsi seperti OKLCH memberikan hasil yang terlihat lebih bersih daripada sRGB biasa, terutama untuk transisi panjang pada permukaan besar.",
-    sv: "Toningar mellan färger långt ifrån varandra på hjulet passerar genom grumliga mellanpunkter. Håll nyansavståndet kort, eller lägg till ett mellanstopp som förblir mättat. Interpolering i ett perceptuellt utrymme som OKLCH ger märkbart renare resultat än vanlig sRGB, särskilt för långa övergångar över en stor yta."
+    sv: "Toningar mellan färger långt ifrån varandra på hjulet passerar genom grumliga mellanpunkter. Håll nyansavståndet kort, eller lägg till ett mellanstopp som förblir mättat. Interpolering i ett perceptuellt utrymme som OKLCH ger märkbart renare resultat än vanlig sRGB, särskilt för långa övergångar över en stor yta.",
   },
   res_tools_title: {
     en: "Tools & Utilities",
@@ -4254,7 +4923,7 @@ const I18N = {
     vi: "Công cụ & Tiện ích",
     th: "เครื่องมือและยูทิลิตี้",
     id: "Alat & Utilitas",
-    sv: "Verktyg & verktygsprogram"
+    sv: "Verktyg & verktygsprogram",
   },
   res_tools_desc: {
     en: "Helpful tools to generate, analyze and convert colors.",
@@ -4275,7 +4944,7 @@ const I18N = {
     vi: "Công cụ hữu ích để tạo, phân tích và chuyển đổi màu sắc.",
     th: "เครื่องมือที่มีประโยชน์ในการสร้าง วิเคราะห์ และแปลงสี",
     id: "Alat berguna untuk membuat, menganalisis, dan mengonversi warna.",
-    sv: "Användbara verktyg för att generera, analysera och konvertera färger."
+    sv: "Användbara verktyg för att generera, analysera och konvertera färger.",
   },
   res_view_all_tools: {
     en: "View all tools",
@@ -4296,7 +4965,7 @@ const I18N = {
     vi: "Xem tất cả công cụ",
     th: "ดูเครื่องมือทั้งหมด",
     id: "Lihat semua alat",
-    sv: "Visa alla verktyg"
+    sv: "Visa alla verktyg",
   },
   res_tool_contrast: {
     en: "Contrast Checker",
@@ -4317,7 +4986,7 @@ const I18N = {
     vi: "Trình kiểm tra độ tương phản",
     th: "เครื่องมือตรวจสอบคอนทราสต์",
     id: "Pemeriksa Kontras",
-    sv: "Kontrastkontroll"
+    sv: "Kontrastkontroll",
   },
   res_tool_contrast_sub: {
     en: "Check contrast between two colors",
@@ -4338,7 +5007,7 @@ const I18N = {
     vi: "Kiểm tra độ tương phản giữa hai màu",
     th: "ตรวจสอบคอนทราสต์ระหว่างสองสี",
     id: "Periksa kontras antara dua warna",
-    sv: "Kontrollera kontrast mellan två färger"
+    sv: "Kontrollera kontrast mellan två färger",
   },
   res_tool_gradient: {
     en: "Gradient Generator",
@@ -4359,7 +5028,7 @@ const I18N = {
     vi: "Trình tạo gradient",
     th: "เครื่องมือสร้างไล่เฉดสี",
     id: "Pembuat Gradien",
-    sv: "Toningsgenerator"
+    sv: "Toningsgenerator",
   },
   res_tool_gradient_sub: {
     en: "Create and customize gradients",
@@ -4380,7 +5049,7 @@ const I18N = {
     vi: "Tạo và tùy chỉnh gradient",
     th: "สร้างและปรับแต่งไล่เฉดสี",
     id: "Buat dan sesuaikan gradien",
-    sv: "Skapa och anpassa toningar"
+    sv: "Skapa och anpassa toningar",
   },
   res_tool_cvd: {
     en: "Color Blindness Simulator",
@@ -4401,7 +5070,7 @@ const I18N = {
     vi: "Trình mô phỏng mù màu",
     th: "เครื่องจำลองตาบอดสี",
     id: "Simulator Buta Warna",
-    sv: "Färgblindhetssimulator"
+    sv: "Färgblindhetssimulator",
   },
   res_tool_cvd_sub: {
     en: "Simulate how colors appear to others",
@@ -4422,7 +5091,7 @@ const I18N = {
     vi: "Mô phỏng màu sắc hiển thị với người khác như thế nào",
     th: "จำลองว่าสีปรากฏต่อผู้อื่นอย่างไร",
     id: "Simulasikan bagaimana warna tampak bagi orang lain",
-    sv: "Simulera hur färger visas för andra"
+    sv: "Simulera hur färger visas för andra",
   },
   res_tool_extractor: {
     en: "Image Color Extractor",
@@ -4443,7 +5112,7 @@ const I18N = {
     vi: "Trình trích xuất màu ảnh",
     th: "เครื่องมือแยกสีจากภาพ",
     id: "Pengekstrak Warna Gambar",
-    sv: "Bildfärgsextraktor"
+    sv: "Bildfärgsextraktor",
   },
   res_tool_extractor_sub: {
     en: "Extract colors from any image",
@@ -4464,7 +5133,7 @@ const I18N = {
     vi: "Trích xuất màu từ bất kỳ hình ảnh nào",
     th: "แยกสีจากภาพใดก็ได้",
     id: "Ekstrak warna dari gambar apa pun",
-    sv: "Extrahera färger från valfri bild"
+    sv: "Extrahera färger från valfri bild",
   },
   res_assets_title: {
     en: "Downloads & Assets",
@@ -4485,7 +5154,7 @@ const I18N = {
     vi: "Tải xuống & Tài nguyên",
     th: "ดาวน์โหลดและทรัพยากร",
     id: "Unduhan & Aset",
-    sv: "Nedladdningar & tillgångar"
+    sv: "Nedladdningar & tillgångar",
   },
   res_assets_desc: {
     en: "Free resources, templates and color assets for your projects.",
@@ -4506,7 +5175,7 @@ const I18N = {
     vi: "Tài nguyên, mẫu và tài sản màu miễn phí cho dự án của bạn.",
     th: "แหล่งข้อมูล เทมเพลต และทรัพยากรสีฟรีสำหรับโปรเจกต์ของคุณ",
     id: "Sumber daya, templat, dan aset warna gratis untuk proyek Anda.",
-    sv: "Gratis resurser, mallar och färgtillgångar för dina projekt."
+    sv: "Gratis resurser, mallar och färgtillgångar för dina projekt.",
   },
   res_view_all_assets: {
     en: "View all assets",
@@ -4527,7 +5196,7 @@ const I18N = {
     vi: "Xem tất cả tài nguyên",
     th: "ดูทรัพยากรทั้งหมด",
     id: "Lihat semua aset",
-    sv: "Visa alla tillgångar"
+    sv: "Visa alla tillgångar",
   },
   res_asset_templates: {
     en: "Color Palette Templates",
@@ -4548,7 +5217,7 @@ const I18N = {
     vi: "Mẫu bảng màu",
     th: "เทมเพลตจานสี",
     id: "Templat Palet Warna",
-    sv: "Färgpalettmallar"
+    sv: "Färgpalettmallar",
   },
   res_asset_templates_sub: {
     en: "Ready-to-use palette templates",
@@ -4569,7 +5238,7 @@ const I18N = {
     vi: "Mẫu bảng màu sẵn sàng sử dụng",
     th: "เทมเพลตจานสีพร้อมใช้งาน",
     id: "Templat palet siap pakai",
-    sv: "Färdiga palettmallar"
+    sv: "Färdiga palettmallar",
   },
   res_asset_uikits: {
     en: "UI Kits & Components",
@@ -4590,7 +5259,7 @@ const I18N = {
     vi: "Bộ UI & Thành phần",
     th: "UI Kit และคอมโพเนนต์",
     id: "Kit UI & Komponen",
-    sv: "UI-kit & komponenter"
+    sv: "UI-kit & komponenter",
   },
   res_asset_uikits_sub: {
     en: "Figma and HTML color components",
@@ -4611,7 +5280,7 @@ const I18N = {
     vi: "Thành phần màu Figma và HTML",
     th: "คอมโพเนนต์สี Figma และ HTML",
     id: "Komponen warna Figma dan HTML",
-    sv: "Figma- och HTML-färgkomponenter"
+    sv: "Figma- och HTML-färgkomponenter",
   },
   res_asset_uikits_body: {
     en: "A UI kit is only as good as its color tokens. Define surfaces, borders, text levels and accents once, name them by role rather than by hue, and every component built on top stays consistent — and switching to a light or high-contrast theme becomes a matter of swapping values, not rewriting components.",
@@ -4632,7 +5301,7 @@ const I18N = {
     vi: "Bộ UI chỉ tốt bằng các token màu của nó. Định nghĩa bề mặt, viền, mức văn bản và điểm nhấn một lần, đặt tên theo vai trò thay vì sắc độ, và mọi thành phần xây dựng trên đó sẽ luôn nhất quán — chuyển sang giao diện sáng hoặc tương phản cao chỉ đơn giản là hoán đổi giá trị, không cần viết lại thành phần.",
     th: "UI Kit จะดีได้เท่ากับโทเค็นสีของมันเท่านั้น กำหนดพื้นผิว ขอบ ระดับข้อความ และสีเน้นเพียงครั้งเดียว ตั้งชื่อตามบทบาทแทนที่จะเป็นเฉดสี แล้วทุกคอมโพเนนต์ที่สร้างขึ้นบนนั้นจะยังคงสอดคล้องกัน การเปลี่ยนไปใช้ธีมสว่างหรือคอนทราสต์สูงจะกลายเป็นเพียงการสลับค่า ไม่ใช่การเขียนคอมโพเนนต์ใหม่",
     id: "Kit UI hanya sebaik token warnanya. Tentukan permukaan, batas, level teks, dan aksen sekali, beri nama berdasarkan peran bukan rona, dan setiap komponen yang dibangun di atasnya akan tetap konsisten — beralih ke tema terang atau kontras tinggi menjadi soal menukar nilai, bukan menulis ulang komponen.",
-    sv: "Ett UI-kit är bara så bra som dess färgtoken. Definiera ytor, kanter, textnivåer och accenter en gång, namnge dem efter roll snarare än nyans, så förblir varje komponent byggd ovanpå konsekvent — att byta till ett ljust eller högkontrastigt tema blir bara en fråga om att byta värden, inte skriva om komponenter."
+    sv: "Ett UI-kit är bara så bra som dess färgtoken. Definiera ytor, kanter, textnivåer och accenter en gång, namnge dem efter roll snarare än nyans, så förblir varje komponent byggd ovanpå konsekvent — att byta till ett ljust eller högkontrastigt tema blir bara en fråga om att byta värden, inte skriva om komponenter.",
   },
   res_asset_gradients: {
     en: "Gradient Backgrounds",
@@ -4653,7 +5322,7 @@ const I18N = {
     vi: "Nền gradient",
     th: "พื้นหลังไล่เฉดสี",
     id: "Latar Gradien",
-    sv: "Toningsbakgrunder"
+    sv: "Toningsbakgrunder",
   },
   res_asset_gradients_sub: {
     en: "Beautiful gradient backgrounds",
@@ -4674,7 +5343,7 @@ const I18N = {
     vi: "Nền gradient tuyệt đẹp",
     th: "พื้นหลังไล่เฉดสีที่สวยงาม",
     id: "Latar gradien yang indah",
-    sv: "Vackra toningsbakgrunder"
+    sv: "Vackra toningsbakgrunder",
   },
   res_asset_swatches: {
     en: "Color Icons & Swatches",
@@ -4695,7 +5364,7 @@ const I18N = {
     vi: "Biểu tượng & Mẫu màu",
     th: "ไอคอนและตัวอย่างสี",
     id: "Ikon & Contoh Warna",
-    sv: "Färgikoner & swatchar"
+    sv: "Färgikoner & swatchar",
   },
   res_asset_swatches_sub: {
     en: "Download palettes as JSON",
@@ -4716,7 +5385,7 @@ const I18N = {
     vi: "Tải bảng màu dưới dạng JSON",
     th: "ดาวน์โหลดจานสีเป็น JSON",
     id: "Unduh palet sebagai JSON",
-    sv: "Ladda ner paletter som JSON"
+    sv: "Ladda ner paletter som JSON",
   },
   res_systems_title: {
     en: "Color Systems",
@@ -4737,7 +5406,7 @@ const I18N = {
     vi: "Hệ thống màu",
     th: "ระบบสี",
     id: "Sistem Warna",
-    sv: "Färgsystem"
+    sv: "Färgsystem",
   },
   res_systems_desc: {
     en: "Explore popular color systems and standards.",
@@ -4758,7 +5427,7 @@ const I18N = {
     vi: "Khám phá các hệ thống và tiêu chuẩn màu phổ biến.",
     th: "สำรวจระบบสีและมาตรฐานยอดนิยม",
     id: "Jelajahi sistem dan standar warna populer.",
-    sv: "Utforska populära färgsystem och standarder."
+    sv: "Utforska populära färgsystem och standarder.",
   },
   res_explore_systems: {
     en: "Explore all systems",
@@ -4779,7 +5448,7 @@ const I18N = {
     vi: "Khám phá tất cả hệ thống",
     th: "สำรวจระบบทั้งหมด",
     id: "Jelajahi semua sistem",
-    sv: "Utforska alla system"
+    sv: "Utforska alla system",
   },
   res_inspiration_title: {
     en: "Color Inspiration",
@@ -4800,7 +5469,7 @@ const I18N = {
     vi: "Cảm hứng màu sắc",
     th: "แรงบันดาลใจด้านสี",
     id: "Inspirasi Warna",
-    sv: "Färginspiration"
+    sv: "Färginspiration",
   },
   res_inspiration_desc: {
     en: "Discover beautiful color palettes and trends.",
@@ -4821,7 +5490,7 @@ const I18N = {
     vi: "Khám phá bảng màu và xu hướng tuyệt đẹp.",
     th: "ค้นพบจานสีที่สวยงามและเทรนด์ต่างๆ",
     id: "Temukan palet warna dan tren yang indah.",
-    sv: "Upptäck vackra färgpaletter och trender."
+    sv: "Upptäck vackra färgpaletter och trender.",
   },
   res_browse_palettes: {
     en: "Browse palettes",
@@ -4842,7 +5511,7 @@ const I18N = {
     vi: "Duyệt bảng màu",
     th: "เรียกดูจานสี",
     id: "Jelajahi Palet",
-    sv: "Bläddra bland paletter"
+    sv: "Bläddra bland paletter",
   },
   res_help_title: {
     en: "Help & Support",
@@ -4863,7 +5532,7 @@ const I18N = {
     vi: "Trợ giúp & Hỗ trợ",
     th: "ความช่วยเหลือและการสนับสนุน",
     id: "Bantuan & Dukungan",
-    sv: "Hjälp & support"
+    sv: "Hjälp & support",
   },
   res_help_desc: {
     en: "Get help, report issues or request features.",
@@ -4884,7 +5553,7 @@ const I18N = {
     vi: "Nhận trợ giúp, báo cáo sự cố hoặc yêu cầu tính năng.",
     th: "รับความช่วยเหลือ รายงานปัญหา หรือขอฟีเจอร์ใหม่",
     id: "Dapatkan bantuan, laporkan masalah, atau minta fitur.",
-    sv: "Få hjälp, rapportera problem eller begär funktioner."
+    sv: "Få hjälp, rapportera problem eller begär funktioner.",
   },
   res_help_docs: {
     en: "Documentation",
@@ -4905,7 +5574,7 @@ const I18N = {
     vi: "Tài liệu",
     th: "เอกสาร",
     id: "Dokumentasi",
-    sv: "Dokumentation"
+    sv: "Dokumentation",
   },
   res_help_docs_sub: {
     en: "Complete usage guide",
@@ -4926,7 +5595,7 @@ const I18N = {
     vi: "Hướng dẫn sử dụng đầy đủ",
     th: "คู่มือการใช้งานฉบับสมบูรณ์",
     id: "Panduan penggunaan lengkap",
-    sv: "Fullständig användarguide"
+    sv: "Fullständig användarguide",
   },
   res_help_docs_body: {
     en: "Every page of the app works offline and stores your palettes, saved colors and presets in the browser. Clearing site data resets them, so export anything you want to keep as JSON from the Export menu before wiping your browser storage.",
@@ -4947,7 +5616,7 @@ const I18N = {
     vi: "Mọi trang của ứng dụng hoạt động ngoại tuyến và lưu trữ bảng màu, màu đã lưu và cài đặt sẵn của bạn trong trình duyệt. Xóa dữ liệu trang web sẽ đặt lại chúng, vì vậy hãy xuất bất kỳ thứ gì bạn muốn giữ dưới dạng JSON từ menu Xuất trước khi xóa bộ nhớ trình duyệt.",
     th: "ทุกหน้าของแอปทำงานแบบออฟไลน์และเก็บจานสี สีที่บันทึกไว้ และค่าที่ตั้งไว้ล่วงหน้าไว้ในเบราว์เซอร์ การล้างข้อมูลเว็บไซต์จะรีเซ็ตสิ่งเหล่านี้ ดังนั้นควรส่งออกสิ่งที่ต้องการเก็บไว้เป็น JSON จากเมนูส่งออกก่อนล้างที่เก็บข้อมูลเบราว์เซอร์",
     id: "Setiap halaman aplikasi bekerja secara offline dan menyimpan palet, warna tersimpan, dan preset Anda di browser. Menghapus data situs akan mengatur ulang semuanya, jadi ekspor apa pun yang ingin Anda simpan sebagai JSON dari menu Ekspor sebelum menghapus penyimpanan browser.",
-    sv: "Varje sida i appen fungerar offline och lagrar dina paletter, sparade färger och förval i webbläsaren. Att rensa webbplatsdata återställer dem, så exportera allt du vill behålla som JSON från Exportera-menyn innan du rensar webbläsarlagringen."
+    sv: "Varje sida i appen fungerar offline och lagrar dina paletter, sparade färger och förval i webbläsaren. Att rensa webbplatsdata återställer dem, så exportera allt du vill behålla som JSON från Exportera-menyn innan du rensar webbläsarlagringen.",
   },
   res_help_faq: {
     en: "FAQ",
@@ -4968,7 +5637,7 @@ const I18N = {
     vi: "Câu hỏi thường gặp",
     th: "คำถามที่พบบ่อย",
     id: "Pertanyaan Umum",
-    sv: "Vanliga frågor"
+    sv: "Vanliga frågor",
   },
   res_help_faq_sub: {
     en: "Frequently asked questions",
@@ -4989,7 +5658,7 @@ const I18N = {
     vi: "Các câu hỏi thường gặp",
     th: "คำถามที่พบบ่อย",
     id: "Pertanyaan yang sering diajukan",
-    sv: "Vanliga frågor"
+    sv: "Vanliga frågor",
   },
   res_help_faq_body: {
     en: "Why does the eyedropper only work in some browsers? It relies on the EyeDropper API, which Chrome and Edge support but Firefox and Safari do not. Why does a contrast ratio differ from another tool? Some checkers round differently or measure against a different background — the formula here follows WCAG 2.1 exactly.",
@@ -5010,7 +5679,7 @@ const I18N = {
     vi: "Tại sao công cụ hút màu chỉ hoạt động trên một số trình duyệt? Nó phụ thuộc vào API EyeDropper, được Chrome và Edge hỗ trợ nhưng Firefox và Safari thì không. Tại sao tỷ lệ tương phản khác với công cụ khác? Một số công cụ kiểm tra làm tròn khác nhau hoặc đo trên nền khác — công thức ở đây tuân theo chính xác WCAG 2.1.",
     th: "เหตุใดที่หยดสีจึงทำงานได้เฉพาะในบางเบราว์เซอร์ เนื่องจากใช้ EyeDropper API ซึ่ง Chrome และ Edge รองรับแต่ Firefox และ Safari ไม่รองรับ เหตุใดอัตราส่วนคอนทราสต์จึงต่างจากเครื่องมืออื่น เครื่องมือตรวจสอบบางตัวปัดเศษต่างกันหรือวัดกับพื้นหลังต่างกัน สูตรที่นี่เป็นไปตาม WCAG 2.1 อย่างเคร่งครัด",
     id: "Mengapa pipet warna hanya berfungsi di beberapa browser? Ini bergantung pada API EyeDropper, yang didukung Chrome dan Edge tetapi tidak Firefox dan Safari. Mengapa rasio kontras berbeda dari alat lain? Beberapa pemeriksa membulatkan secara berbeda atau mengukur terhadap latar yang berbeda — rumus di sini mengikuti persis WCAG 2.1.",
-    sv: "Varför fungerar pipetten bara i vissa webbläsare? Den bygger på EyeDropper-API:et, som stöds av Chrome och Edge men inte Firefox och Safari. Varför skiljer sig ett kontrastförhållande från ett annat verktyg? Vissa kontroller avrundar annorlunda eller mäter mot en annan bakgrund — formeln här följer exakt WCAG 2.1."
+    sv: "Varför fungerar pipetten bara i vissa webbläsare? Den bygger på EyeDropper-API:et, som stöds av Chrome och Edge men inte Firefox och Safari. Varför skiljer sig ett kontrastförhållande från ett annat verktyg? Vissa kontroller avrundar annorlunda eller mäter mot en annan bakgrund — formeln här följer exakt WCAG 2.1.",
   },
   res_help_issue: {
     en: "Report an Issue",
@@ -5031,7 +5700,7 @@ const I18N = {
     vi: "Báo cáo sự cố",
     th: "รายงานปัญหา",
     id: "Laporkan Masalah",
-    sv: "Rapportera ett problem"
+    sv: "Rapportera ett problem",
   },
   res_help_issue_sub: {
     en: "Help us improve",
@@ -5052,7 +5721,7 @@ const I18N = {
     vi: "Giúp chúng tôi cải thiện",
     th: "ช่วยเราปรับปรุง",
     id: "Bantu kami meningkatkan",
-    sv: "Hjälp oss att förbättra"
+    sv: "Hjälp oss att förbättra",
   },
   res_help_issue_body: {
     en: "A useful bug report needs three things: what you did, what you expected, and what happened instead. Add your browser and version, and a HEX value if the problem involves a specific color — that is usually enough to reproduce the issue on the first try.",
@@ -5073,7 +5742,7 @@ const I18N = {
     vi: "Một báo cáo lỗi hữu ích cần ba điều: bạn đã làm gì, bạn mong đợi điều gì, và điều gì đã xảy ra thay vào đó. Thêm trình duyệt và phiên bản của bạn, cùng giá trị HEX nếu sự cố liên quan đến một màu cụ thể — điều này thường đủ để tái hiện sự cố ngay lần thử đầu tiên.",
     th: "รายงานข้อบกพร่องที่มีประโยชน์ต้องการสามสิ่ง: คุณทำอะไร คุณคาดหวังอะไร และเกิดอะไรขึ้นแทน เพิ่มเบราว์เซอร์และเวอร์ชันของคุณ และค่า HEX หากปัญหาเกี่ยวข้องกับสีที่เฉพาะเจาะจง — โดยทั่วไปก็เพียงพอที่จะทำให้เกิดปัญหาซ้ำได้ในครั้งแรก",
     id: "Laporan bug yang berguna membutuhkan tiga hal: apa yang Anda lakukan, apa yang Anda harapkan, dan apa yang terjadi sebagai gantinya. Tambahkan browser dan versi Anda, serta nilai HEX jika masalah melibatkan warna tertentu — biasanya itu cukup untuk mereproduksi masalah pada percobaan pertama.",
-    sv: "En användbar felrapport behöver tre saker: vad du gjorde, vad du förväntade dig och vad som hände istället. Lägg till din webbläsare och version, samt ett HEX-värde om problemet gäller en specifik färg — det räcker oftast för att återskapa problemet på första försöket."
+    sv: "En användbar felrapport behöver tre saker: vad du gjorde, vad du förväntade dig och vad som hände istället. Lägg till din webbläsare och version, samt ett HEX-värde om problemet gäller en specifik färg — det räcker oftast för att återskapa problemet på första försöket.",
   },
   res_help_feature: {
     en: "Request a Feature",
@@ -5094,7 +5763,7 @@ const I18N = {
     vi: "Yêu cầu tính năng",
     th: "ขอฟีเจอร์ใหม่",
     id: "Minta Fitur",
-    sv: "Begär en funktion"
+    sv: "Begär en funktion",
   },
   res_help_feature_sub: {
     en: "Suggest new ideas",
@@ -5115,7 +5784,7 @@ const I18N = {
     vi: "Đề xuất ý tưởng mới",
     th: "เสนอไอเดียใหม่",
     id: "Sarankan ide baru",
-    sv: "Föreslå nya idéer"
+    sv: "Föreslå nya idéer",
   },
   res_help_feature_body: {
     en: "Describe the problem you are trying to solve rather than the control you imagine — the task usually suggests a better solution than the first interface that comes to mind. Mention how often you hit it and what you do today as a workaround.",
@@ -5136,7 +5805,7 @@ const I18N = {
     vi: "Hãy mô tả vấn đề bạn đang cố gắng giải quyết thay vì điều khiển bạn tưởng tượng — nhiệm vụ thường gợi ý một giải pháp tốt hơn so với giao diện đầu tiên nghĩ đến. Đề cập bạn gặp phải điều này bao lâu một lần và bạn đang làm gì để khắc phục tạm thời.",
     th: "อธิบายปัญหาที่คุณพยายามแก้ไขแทนที่จะเป็นตัวควบคุมที่คุณจินตนาการไว้ งานมักจะบ่งบอกถึงวิธีแก้ปัญหาที่ดีกว่าอินเทอร์เฟซแรกที่นึกถึง ระบุว่าคุณพบปัญหานี้บ่อยแค่ไหนและตอนนี้คุณแก้ไขปัญหาชั่วคราวอย่างไร",
     id: "Jelaskan masalah yang ingin Anda selesaikan, bukan kontrol yang Anda bayangkan — tugas biasanya menyarankan solusi yang lebih baik daripada antarmuka pertama yang terpikirkan. Sebutkan seberapa sering Anda mengalaminya dan apa yang Anda lakukan sekarang sebagai solusi sementara.",
-    sv: "Beskriv problemet du försöker lösa istället för kontrollen du föreställer dig — uppgiften brukar antyda en bättre lösning än det första gränssnittet som dyker upp i huvudet. Nämn hur ofta du stöter på det och vad du gör idag som en tillfällig lösning."
+    sv: "Beskriv problemet du försöker lösa istället för kontrollen du föreställer dig — uppgiften brukar antyda en bättre lösning än det första gränssnittet som dyker upp i huvudet. Nämn hur ofta du stöter på det och vad du gör idag som en tillfällig lösning.",
   },
   /* ---------- Страница Image Color Extractor ---------- */
   imgx_title_plain: {
@@ -5158,7 +5827,7 @@ const I18N = {
     vi: "Hình ảnh",
     th: "รูปภาพ",
     id: "Gambar",
-    sv: "Bild"
+    sv: "Bild",
   },
   imgx_title_grad: {
     en: "Color Extractor",
@@ -5179,7 +5848,7 @@ const I18N = {
     vi: "Trình trích xuất màu",
     th: "เครื่องมือแยกสี",
     id: "Pengekstrak Warna",
-    sv: "Färgextraktor"
+    sv: "Färgextraktor",
   },
   imgx_subtitle: {
     en: "Upload an image and extract colors. Click any color to view and copy its values.",
@@ -5200,7 +5869,7 @@ const I18N = {
     vi: "Tải lên hình ảnh và trích xuất màu. Nhấp vào bất kỳ màu nào để xem và sao chép giá trị của nó.",
     th: "อัปโหลดภาพและแยกสี คลิกสีใดก็ได้เพื่อดูและคัดลอกค่าของมัน",
     id: "Unggah gambar dan ekstrak warna. Klik warna apa pun untuk melihat dan menyalin nilainya.",
-    sv: "Ladda upp en bild och extrahera färger. Klicka på valfri färg för att se och kopiera dess värden."
+    sv: "Ladda upp en bild och extrahera färger. Klicka på valfri färg för att se och kopiera dess värden.",
   },
   imgx_upload_another: {
     en: "Upload Another",
@@ -5221,7 +5890,7 @@ const I18N = {
     vi: "Tải lên ảnh khác",
     th: "อัปโหลดอีกภาพ",
     id: "Unggah Lainnya",
-    sv: "Ladda upp en annan"
+    sv: "Ladda upp en annan",
   },
   imgx_export_palette: {
     en: "Export Palette",
@@ -5242,7 +5911,7 @@ const I18N = {
     vi: "Xuất bảng màu",
     th: "ส่งออกจานสี",
     id: "Ekspor Palet",
-    sv: "Exportera palett"
+    sv: "Exportera palett",
   },
   imgx_clear_all: {
     en: "Clear all",
@@ -5263,7 +5932,7 @@ const I18N = {
     vi: "Xóa tất cả",
     th: "ล้างทั้งหมด",
     id: "Hapus Semua",
-    sv: "Rensa allt"
+    sv: "Rensa allt",
   },
   imgx_saved_empty: {
     en: "No saved colors yet.",
@@ -5284,7 +5953,7 @@ const I18N = {
     vi: "Chưa có màu nào được lưu.",
     th: "ยังไม่มีสีที่บันทึกไว้",
     id: "Belum ada warna tersimpan.",
-    sv: "Inga sparade färger ännu."
+    sv: "Inga sparade färger ännu.",
   },
   imgx_export_json: {
     en: "Export as JSON",
@@ -5305,7 +5974,7 @@ const I18N = {
     vi: "Xuất dưới dạng JSON",
     th: "ส่งออกเป็น JSON",
     id: "Ekspor sebagai JSON",
-    sv: "Exportera som JSON"
+    sv: "Exportera som JSON",
   },
   imgx_export_css: {
     en: "Copy as CSS Variables",
@@ -5326,7 +5995,7 @@ const I18N = {
     vi: "Sao chép dưới dạng biến CSS",
     th: "คัดลอกเป็นตัวแปร CSS",
     id: "Salin sebagai Variabel CSS",
-    sv: "Kopiera som CSS-variabler"
+    sv: "Kopiera som CSS-variabler",
   },
   imgx_panel1_title: {
     en: "Upload Image",
@@ -5347,7 +6016,7 @@ const I18N = {
     vi: "Tải lên hình ảnh",
     th: "อัปโหลดภาพ",
     id: "Unggah Gambar",
-    sv: "Ladda upp bild"
+    sv: "Ladda upp bild",
   },
   imgx_panel1_sub: {
     en: "Upload any image to extract its colors",
@@ -5368,7 +6037,7 @@ const I18N = {
     vi: "Tải lên bất kỳ hình ảnh nào để trích xuất màu của nó",
     th: "อัปโหลดภาพใดก็ได้เพื่อแยกสีของมัน",
     id: "Unggah gambar apa pun untuk mengekstrak warnanya",
-    sv: "Ladda upp valfri bild för att extrahera dess färger"
+    sv: "Ladda upp valfri bild för att extrahera dess färger",
   },
   imgx_drop_title: {
     en: "Click to upload or drag and drop",
@@ -5389,7 +6058,7 @@ const I18N = {
     vi: "Nhấp để tải lên hoặc kéo và thả",
     th: "คลิกเพื่ออัปโหลดหรือลากและวาง",
     id: "Klik untuk mengunggah atau seret & lepas",
-    sv: "Klicka för att ladda upp eller dra och släpp"
+    sv: "Klicka för att ladda upp eller dra och släpp",
   },
   imgx_drop_hint: {
     en: "PNG, JPG, WEBP up to 10MB",
@@ -5410,7 +6079,7 @@ const I18N = {
     vi: "PNG, JPG, WEBP tối đa 10MB",
     th: "PNG, JPG, WEBP สูงสุด 10MB",
     id: "PNG, JPG, WEBP hingga 10MB",
-    sv: "PNG, JPG, WEBP upp till 10MB"
+    sv: "PNG, JPG, WEBP upp till 10MB",
   },
   imgx_remove_image_title: {
     en: "Remove image",
@@ -5431,7 +6100,7 @@ const I18N = {
     vi: "Xóa hình ảnh",
     th: "ลบภาพ",
     id: "Hapus gambar",
-    sv: "Ta bort bild"
+    sv: "Ta bort bild",
   },
   imgx_loaded: {
     en: "Image loaded",
@@ -5452,7 +6121,7 @@ const I18N = {
     vi: "Đã tải hình ảnh",
     th: "โหลดภาพแล้ว",
     id: "Gambar dimuat",
-    sv: "Bild laddad"
+    sv: "Bild laddad",
   },
   imgx_upload_again: {
     en: "Upload Another Image",
@@ -5473,7 +6142,7 @@ const I18N = {
     vi: "Tải lên hình ảnh khác",
     th: "อัปโหลดภาพอื่น",
     id: "Unggah gambar lain",
-    sv: "Ladda upp en till bild"
+    sv: "Ladda upp en till bild",
   },
   imgx_info_title: {
     en: "Image Info",
@@ -5494,7 +6163,7 @@ const I18N = {
     vi: "Thông tin hình ảnh",
     th: "ข้อมูลภาพ",
     id: "Info Gambar",
-    sv: "Bildinfo"
+    sv: "Bildinfo",
   },
   imgx_info_format: {
     en: "Format",
@@ -5515,7 +6184,7 @@ const I18N = {
     vi: "Định dạng",
     th: "รูปแบบ",
     id: "Format",
-    sv: "Format"
+    sv: "Format",
   },
   imgx_info_dimensions: {
     en: "Dimensions",
@@ -5536,7 +6205,7 @@ const I18N = {
     vi: "Kích thước",
     th: "ขนาด",
     id: "Dimensi",
-    sv: "Dimensioner"
+    sv: "Dimensioner",
   },
   imgx_info_size: {
     en: "File Size",
@@ -5557,7 +6226,7 @@ const I18N = {
     vi: "Kích thước tệp",
     th: "ขนาดไฟล์",
     id: "Ukuran File",
-    sv: "Filstorlek"
+    sv: "Filstorlek",
   },
   imgx_info_space: {
     en: "Color Space",
@@ -5578,7 +6247,7 @@ const I18N = {
     vi: "Không gian màu",
     th: "พื้นที่สี",
     id: "Ruang Warna",
-    sv: "Färgrymd"
+    sv: "Färgrymd",
   },
   imgx_info_total: {
     en: "Total Colors",
@@ -5599,7 +6268,7 @@ const I18N = {
     vi: "Tổng số màu",
     th: "สีทั้งหมด",
     id: "Total Warna",
-    sv: "Totalt antal färger"
+    sv: "Totalt antal färger",
   },
   imgx_optimized: {
     en: "(optimized)",
@@ -5620,7 +6289,7 @@ const I18N = {
     vi: "(đã tối ưu)",
     th: "(ปรับให้เหมาะสมแล้ว)",
     id: "(dioptimalkan)",
-    sv: "(optimerad)"
+    sv: "(optimerad)",
   },
   imgx_panel2_title: {
     en: "Extracted Colors",
@@ -5641,7 +6310,7 @@ const I18N = {
     vi: "Màu đã trích xuất",
     th: "สีที่แยกออกมา",
     id: "Warna Terekstrak",
-    sv: "Extraherade färger"
+    sv: "Extraherade färger",
   },
   imgx_panel2_sub: {
     en: "{n} dominant colors extracted from your image",
@@ -5662,7 +6331,7 @@ const I18N = {
     vi: "Đã trích xuất {n} màu chủ đạo từ hình ảnh của bạn",
     th: "แยกสีเด่น {n} สีจากภาพของคุณ",
     id: "{n} warna dominan diekstrak dari gambar Anda",
-    sv: "{n} dominerande färger extraherade från din bild"
+    sv: "{n} dominerande färger extraherade från din bild",
   },
   imgx_panel2_sub_empty: {
     en: "Upload an image to get started",
@@ -5683,7 +6352,7 @@ const I18N = {
     vi: "Tải lên hình ảnh để bắt đầu",
     th: "อัปโหลดภาพเพื่อเริ่มต้น",
     id: "Unggah gambar untuk memulai",
-    sv: "Ladda upp en bild för att komma igång"
+    sv: "Ladda upp en bild för att komma igång",
   },
   imgx_colors_word: {
     en: "Colors",
@@ -5704,7 +6373,7 @@ const I18N = {
     vi: "Màu sắc",
     th: "สี",
     id: "Warna",
-    sv: "Färger"
+    sv: "Färger",
   },
   imgx_sort_vibrance: {
     en: "Sort by Vibrance",
@@ -5725,7 +6394,7 @@ const I18N = {
     vi: "Sắp xếp theo độ rực rỡ",
     th: "เรียงตามความสด",
     id: "Urutkan berdasarkan kecerahan",
-    sv: "Sortera efter livfullhet"
+    sv: "Sortera efter livfullhet",
   },
   imgx_sort_dominance: {
     en: "Sort by Dominance",
@@ -5746,7 +6415,7 @@ const I18N = {
     vi: "Sắp xếp theo mức chiếm ưu thế",
     th: "เรียงตามความโดดเด่น",
     id: "Urutkan berdasarkan dominasi",
-    sv: "Sortera efter dominans"
+    sv: "Sortera efter dominans",
   },
   imgx_sort_lightness: {
     en: "Sort by Lightness",
@@ -5767,7 +6436,7 @@ const I18N = {
     vi: "Sắp xếp theo độ sáng",
     th: "เรียงตามความสว่าง",
     id: "Urutkan berdasarkan kecerahan warna",
-    sv: "Sortera efter ljushet"
+    sv: "Sortera efter ljushet",
   },
   imgx_sort_hue: {
     en: "Sort by Hue",
@@ -5788,7 +6457,7 @@ const I18N = {
     vi: "Sắp xếp theo sắc độ",
     th: "เรียงตามเฉดสี",
     id: "Urutkan berdasarkan rona",
-    sv: "Sortera efter nyans"
+    sv: "Sortera efter nyans",
   },
   imgx_empty_title: {
     en: "No image yet",
@@ -5809,7 +6478,7 @@ const I18N = {
     vi: "Chưa có hình ảnh",
     th: "ยังไม่มีภาพ",
     id: "Belum ada gambar",
-    sv: "Ingen bild ännu"
+    sv: "Ingen bild ännu",
   },
   imgx_empty_body: {
     en: "Upload a photo to extract its dominant colors.",
@@ -5830,7 +6499,7 @@ const I18N = {
     vi: "Tải lên ảnh để trích xuất các màu chủ đạo.",
     th: "อัปโหลดภาพถ่ายเพื่อแยกสีเด่นของมัน",
     id: "Unggah foto untuk mengekstrak warna dominannya.",
-    sv: "Ladda upp ett foto för att extrahera dess dominerande färger."
+    sv: "Ladda upp ett foto för att extrahera dess dominerande färger.",
   },
   imgx_strip_caption: {
     en: "Click any color above or on the image to view its details and code.",
@@ -5851,7 +6520,7 @@ const I18N = {
     vi: "Nhấp vào bất kỳ màu nào ở trên hoặc trên hình ảnh để xem chi tiết và mã của nó.",
     th: "คลิกสีใดก็ได้ด้านบนหรือบนภาพเพื่อดูรายละเอียดและโค้ด",
     id: "Klik warna apa pun di atas atau pada gambar untuk melihat detail dan kodenya.",
-    sv: "Klicka på valfri färg ovan eller på bilden för att se dess detaljer och kod."
+    sv: "Klicka på valfri färg ovan eller på bilden för att se dess detaljer och kod.",
   },
   imgx_panel3_title: {
     en: "Color Details",
@@ -5872,7 +6541,7 @@ const I18N = {
     vi: "Chi tiết màu",
     th: "รายละเอียดสี",
     id: "Detail Warna",
-    sv: "Färgdetaljer"
+    sv: "Färgdetaljer",
   },
   imgx_panel3_sub: {
     en: "Click a color to view all formats and values",
@@ -5893,7 +6562,7 @@ const I18N = {
     vi: "Nhấp vào một màu để xem tất cả định dạng và giá trị của nó",
     th: "คลิกสีเพื่อดูรูปแบบและค่าทั้งหมด",
     id: "Klik warna untuk melihat semua format dan nilainya",
-    sv: "Klicka på en färg för att se alla format och värden"
+    sv: "Klicka på en färg för att se alla format och värden",
   },
   imgx_panel3_empty: {
     en: "Select a color from the palette to see its values here.",
@@ -5914,7 +6583,7 @@ const I18N = {
     vi: "Chọn một màu từ bảng màu để xem giá trị của nó tại đây.",
     th: "เลือกสีจากจานสีเพื่อดูค่าของมันที่นี่",
     id: "Pilih warna dari palet untuk melihat nilainya di sini.",
-    sv: "Välj en färg från paletten för att se dess värden här."
+    sv: "Välj en färg från paletten för att se dess värden här.",
   },
   imgx_formats_title: {
     en: "Color Formats",
@@ -5935,7 +6604,7 @@ const I18N = {
     vi: "Định dạng màu",
     th: "รูปแบบสี",
     id: "Format Warna",
-    sv: "Färgformat"
+    sv: "Färgformat",
   },
   imgx_color_label: {
     en: "Color",
@@ -5956,7 +6625,7 @@ const I18N = {
     vi: "Màu",
     th: "สี",
     id: "Warna",
-    sv: "Färg"
+    sv: "Färg",
   },
   imgx_add_saved: {
     en: "Add to Saved",
@@ -5977,7 +6646,7 @@ const I18N = {
     vi: "Thêm vào đã lưu",
     th: "เพิ่มลงในรายการที่บันทึกไว้",
     id: "Tambahkan ke Tersimpan",
-    sv: "Lägg till i sparade"
+    sv: "Lägg till i sparade",
   },
   imgx_remove_saved: {
     en: "Remove from Saved",
@@ -5998,7 +6667,7 @@ const I18N = {
     vi: "Xóa khỏi đã lưu",
     th: "ลบออกจากรายการที่บันทึกไว้",
     id: "Hapus dari Tersimpan",
-    sv: "Ta bort från sparade"
+    sv: "Ta bort från sparade",
   },
   imgx_saved_added: {
     en: "Color saved",
@@ -6019,7 +6688,7 @@ const I18N = {
     vi: "Đã lưu màu",
     th: "บันทึกสีแล้ว",
     id: "Warna disimpan",
-    sv: "Färg sparad"
+    sv: "Färg sparad",
   },
   imgx_saved_removed: {
     en: "Color removed",
@@ -6040,7 +6709,7 @@ const I18N = {
     vi: "Đã xóa màu",
     th: "ลบสีแล้ว",
     id: "Warna dihapus",
-    sv: "Färg borttagen"
+    sv: "Färg borttagen",
   },
   imgx_exported_json: {
     en: "Palette exported",
@@ -6061,7 +6730,7 @@ const I18N = {
     vi: "Đã xuất bảng màu",
     th: "ส่งออกจานสีแล้ว",
     id: "Palet diekspor",
-    sv: "Palett exporterad"
+    sv: "Palett exporterad",
   },
   imgx_exported_css: {
     en: "CSS variables copied",
@@ -6082,7 +6751,7 @@ const I18N = {
     vi: "Đã sao chép các biến CSS",
     th: "คัดลอกตัวแปร CSS แล้ว",
     id: "Variabel CSS disalin",
-    sv: "CSS-variabler kopierade"
+    sv: "CSS-variabler kopierade",
   },
   imgx_invalid_file: {
     en: "Please upload an image file",
@@ -6103,7 +6772,7 @@ const I18N = {
     vi: "Vui lòng tải lên tệp hình ảnh",
     th: "โปรดอัปโหลดไฟล์ภาพ",
     id: "Silakan unggah file gambar",
-    sv: "Ladda upp en bildfil"
+    sv: "Ladda upp en bildfil",
   },
   imgx_file_too_large: {
     en: "Image is larger than 10MB",
@@ -6124,7 +6793,7 @@ const I18N = {
     vi: "Hình ảnh lớn hơn 10MB",
     th: "ภาพมีขนาดใหญ่กว่า 10MB",
     id: "Gambar lebih besar dari 10MB",
-    sv: "Bilden är större än 10MB"
+    sv: "Bilden är större än 10MB",
   },
   imgx_extract_failed: {
     en: "Couldn't analyze this image",
@@ -6145,7 +6814,7 @@ const I18N = {
     vi: "Không thể phân tích hình ảnh này",
     th: "ไม่สามารถวิเคราะห์ภาพนี้ได้",
     id: "Tidak dapat menganalisis gambar ini",
-    sv: "Kunde inte analysera denna bild"
+    sv: "Kunde inte analysera denna bild",
   },
   imgx_image_removed: {
     en: "Image removed",
@@ -6166,7 +6835,7 @@ const I18N = {
     vi: "Đã xóa hình ảnh",
     th: "ลบภาพแล้ว",
     id: "Gambar dihapus",
-    sv: "Bild borttagen"
+    sv: "Bild borttagen",
   },
   toast_use_image_page: {
     en: "Drop images on the Image page to extract colors",
@@ -6187,7 +6856,7 @@ const I18N = {
     vi: "Thả hình ảnh vào trang Hình ảnh để trích xuất màu",
     th: "วางภาพบนหน้าภาพเพื่อแยกสี",
     id: "Jatuhkan gambar di halaman Gambar untuk mengekstrak warna",
-    sv: "Släpp bilder på Bild-sidan för att extrahera färger"
+    sv: "Släpp bilder på Bild-sidan för att extrahera färger",
   },
   /* ---------- Заголовки страниц (двухчастные, с градиентом) ---------- */
   ph_picker_grad: {

@@ -260,6 +260,18 @@
   color: var(--text-muted);
 }
 
+/* ===== Приложение и уведомления ===== */
+.res-app-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.res-app-status {
+  margin-top: var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
 /* ===== Помощь и поддержка ===== */
 .res-help-grid {
   display: grid;

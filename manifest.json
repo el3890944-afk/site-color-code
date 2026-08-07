@@ -1,0 +1,31 @@
+{
+  "name": "HTML Color Picker PRO",
+  "short_name": "Color Picker",
+  "description": "Choose, preview, and create beautiful colors — picker, palettes, converter, accessibility checker, and image color extractor. Works fully offline.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0d17",
+  "theme_color": "#0a0d17",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
