@@ -607,7 +607,7 @@
     $("imgxSavedBtn").addEventListener("click", (e) => {
       e.stopPropagation();
       $("imgxExportMenu").classList.remove("open");
-      $("imgxSavedMenu").classList.toggle("open");
+      window.toggleMenuSmart($("imgxSavedMenu"), $("imgxSavedBtn"));
     });
     $("imgxSavedMenu").addEventListener("click", (e) => e.stopPropagation());
     $("imgxClearSaved").addEventListener("click", (e) => {
@@ -640,7 +640,7 @@
     $("imgxExportBtn").addEventListener("click", (e) => {
       e.stopPropagation();
       $("imgxSavedMenu").classList.remove("open");
-      $("imgxExportMenu").classList.toggle("open");
+      window.toggleMenuSmart($("imgxExportMenu"), $("imgxExportBtn"));
     });
     $("imgxExportMenu").addEventListener("click", (e) => e.stopPropagation());
     $("imgxExportJson").addEventListener("click", () => {

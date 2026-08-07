@@ -12,10 +12,10 @@
   flex: 1;
   min-width: 220px;
 }
-.library-toolbar select.text-input {
+.library-toolbar .csel.text-input {
   min-width: 170px;
 }
-.library-toolbar select.text-input:disabled {
+.library-toolbar .csel.text-input.csel-disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }

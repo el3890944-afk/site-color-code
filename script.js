@@ -726,6 +726,7 @@
     }
     menu.classList.add("open");
   }
+  window.toggleMenuSmart = toggleMenu;
   $("exportBtn").addEventListener("click", (e) => {
     e.stopPropagation();
     $("langMenu").classList.remove("open");

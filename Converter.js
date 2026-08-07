@@ -714,12 +714,9 @@
   });
 
   /* ---------- Экспорт ---------- */
-  function toggleMenu(menu) {
-    menu.classList.toggle("open");
-  }
   $("convExportBtn").addEventListener("click", (e) => {
     e.stopPropagation();
-    toggleMenu($("convExportMenu"));
+    window.toggleMenuSmart($("convExportMenu"), $("convExportBtn"));
   });
   $("convExportMenu").addEventListener("click", (e) => e.stopPropagation());
   document.addEventListener("click", () =>
